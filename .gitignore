@@ -1,0 +1,15 @@
+.DS_Store
+.venv-scan/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Generated output folders (keep repo generator-focused)
+output/
+Provider Synthetic Records/
+Payer Synthetic Records/
+Appeal Synthetic Records/
+
+# Local preview/test artifacts
+*.qlpreview

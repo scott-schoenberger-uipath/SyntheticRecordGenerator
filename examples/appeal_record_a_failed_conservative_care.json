@@ -1,0 +1,208 @@
+{
+  "record_label": "A",
+  "title": "Failed Conservative Care With Progressive Deficits",
+  "chronology_rows": [
+    [
+      "05/22/2023",
+      "Mercy PCP",
+      "Initial low back pain + left leg radiation",
+      "Outpatient",
+      "NSAID + PT referral"
+    ],
+    [
+      "06/05/2023",
+      "Mercy Imaging",
+      "Lumbar CT (soft tissue limitation)",
+      "Diagnostic",
+      "Possible disc protrusion"
+    ],
+    [
+      "06/26/2023",
+      "Mercy PT",
+      "PT start: severe disability ODI 52%",
+      "Therapy",
+      "2x/week x 6 weeks"
+    ],
+    [
+      "07/18/2023",
+      "Spine Clinic",
+      "Persistent radicular pain despite therapy",
+      "Consult",
+      "Injection + continue PT"
+    ],
+    [
+      "08/03/2023",
+      "Neurology",
+      "Progressive weakness and reflex changes",
+      "Consult",
+      "Urgent MRI advised"
+    ],
+    [
+      "08/07/2023",
+      "Mercy PT",
+      "Discharge: ODI 56%, strength down to 3+/5",
+      "Therapy",
+      "Failed conservative care"
+    ]
+  ],
+  "office_note": [
+    "Three-month history of low back pain radiating to left posterior leg with nightly sleep disruption.",
+    "Symptoms now limit sitting to less than 15 minutes and impair work participation.",
+    "Home exercise program compliance confirmed; no sustained symptom control."
+  ],
+  "consult_note": [
+    "Positive straight-leg raise on left with reproducible radicular pattern.",
+    "Reduced left lower-extremity strength and diminished Achilles reflex documented serially.",
+    "Clinical concern for progressive nerve-root compression despite non-operative treatment."
+  ],
+  "exam_rows": [
+    [
+      "06/20",
+      "8/10",
+      "35 deg",
+      "4-/5",
+      "Decreased",
+      "Calf/foot paresthesia",
+      "<15 min"
+    ],
+    [
+      "07/10",
+      "7/10",
+      "35 deg",
+      "4-/5",
+      "Decreased",
+      "Persistent tingling",
+      "<15 min"
+    ],
+    [
+      "07/24",
+      "8/10",
+      "30 deg",
+      "4-/5",
+      "Decreased",
+      "Numbness worsening",
+      "<12 min"
+    ],
+    [
+      "08/03",
+      "8/10",
+      "28 deg",
+      "3+/5",
+      "Diminished",
+      "Dermatomal sensory loss",
+      "<10 min"
+    ],
+    [
+      "08/07",
+      "8-9/10",
+      "25 deg",
+      "3+/5",
+      "Diminished",
+      "Persistent numbness",
+      "<10 min"
+    ]
+  ],
+  "med_rows": [
+    [
+      "Naproxen",
+      "500 mg BID",
+      "05/22/2023",
+      "Trialed 6 weeks",
+      "Insufficient pain control"
+    ],
+    [
+      "Gabapentin",
+      "300 mg TID",
+      "06/01/2023",
+      "Dose escalated",
+      "Persistent neuropathic pain"
+    ],
+    [
+      "Cyclobenzaprine",
+      "10 mg HS",
+      "06/08/2023",
+      "Used PRN at night",
+      "Sleep disturbance persists"
+    ],
+    [
+      "Methylpred dose pack",
+      "Taper",
+      "06/30/2023",
+      "Completed",
+      "Temporary mild benefit only"
+    ],
+    [
+      "Tramadol",
+      "50 mg q8h PRN",
+      "07/21/2023",
+      "Intermittent rescue",
+      "Pain rebounds with sitting"
+    ],
+    [
+      "Topical lidocaine",
+      "5% patch",
+      "07/25/2023",
+      "Adjunctive",
+      "No meaningful functional gain"
+    ]
+  ],
+  "injection_rows": [
+    [
+      "07/18/2023",
+      "L4-L5 transforaminal ESI",
+      "PM&R",
+      "Pain 8/10 -> 6/10 for 48h",
+      "Relief not durable"
+    ],
+    [
+      "07/31/2023",
+      "Trigger-point lumbar paraspinal",
+      "Pain Clinic",
+      "Minimal transient response",
+      "No functional change"
+    ]
+  ],
+  "necessity_points": [
+    "Documented persistent radicular pain for >3 months with progressive neurologic deficits.",
+    "Completed compliant conservative management including medications, PT, and injection therapy.",
+    "Serial exams show worsening strength (4-/5 to 3+/5) and persistent reflex abnormality.",
+    "PT outcomes worsened (ODI 52% to 56%) despite 12 supervised visits and home program adherence.",
+    "Lumbar MRI is required to define nerve-root compression severity and guide definitive management."
+  ],
+  "criteria_rows": [
+    [
+      "Persistent severe radicular pain",
+      "Documented at office, consult, PT, and reassessment visits"
+    ],
+    [
+      "Neurologic deficit progression",
+      "Strength decline + reflex change + dermatomal sensory findings"
+    ],
+    [
+      "Failed 6+ weeks conservative treatment",
+      "12 PT visits, medication trials, injection history"
+    ],
+    [
+      "Need for treatment planning",
+      "Neurology and spine consult recommend MRI for next-step intervention"
+    ]
+  ],
+  "addendum": "Given progressive weakness and failed conservative care, lumbar MRI remains medically necessary and time-sensitive.",
+  "patient": {
+    "name": "Jane Doe",
+    "dob": "04/15/1982",
+    "age": "41",
+    "member_id": "DXZ8887304",
+    "claim_id": "9872304",
+    "payer": "HealthPlus Insurance",
+    "provider": "Mercy Hospital",
+    "attending": "Dr. Emily Roberts",
+    "appeal_submission_date": "08/15/2023",
+    "appeal_id": "A-1001",
+    "service_requested": "CPT 72148 MRI lumbar spine without contrast",
+    "dx_1": "M54.16 Lumbar radiculopathy, lumbar region",
+    "dx_2": "M51.26 Other intervertebral disc displacement, lumbar region"
+  },
+  "packet_type": "lumbar_mri_appeal_evidence",
+  "packet_generated_pages": 23
+}
