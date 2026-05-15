@@ -1,0 +1,11 @@
+{
+  "output_root": "output",
+  "bundle_names": [
+    "base_patient_chart",
+    "provider_records",
+    "payer_records",
+    "referral_packets"
+  ],
+  "include_synthetic_imaging": false,
+  "record_limit_per_bundle": 1
+}

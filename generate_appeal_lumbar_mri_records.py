@@ -22,9 +22,9 @@ PATIENT: Dict[str, str] = {
     "age": "41",
     "member_id": "DXZ8887304",
     "claim_id": "9872304",
-    "payer": "HealthPlus Insurance",
-    "provider": "Mercy Hospital",
-    "attending": "Dr. Emily Roberts",
+    "payer": "Apex Health Plan",
+    "provider": "Northwind Medical Center",
+    "attending": "Dr. Lauren Mercer",
     "appeal_submission_date": "08/15/2023",
     "appeal_id": "A-1001",
     "service_requested": "CPT 72148 MRI lumbar spine without contrast",
@@ -56,12 +56,12 @@ def build_record_templates() -> Sequence[Dict[str, object]]:
             "record_label": "A",
             "title": "Failed Conservative Care With Progressive Deficits",
             "chronology_rows": [
-                ["05/22/2023", "Mercy PCP", "Initial low back pain + left leg radiation", "Outpatient", "NSAID + PT referral"],
-                ["06/05/2023", "Mercy Imaging", "Lumbar CT (soft tissue limitation)", "Diagnostic", "Possible disc protrusion"],
-                ["06/26/2023", "Mercy PT", "PT start: severe disability ODI 52%", "Therapy", "2x/week x 6 weeks"],
+                ["05/22/2023", "Northwind Primary Care", "Initial low back pain + left leg radiation", "Outpatient", "NSAID + PT referral"],
+                ["06/05/2023", "Northwind Imaging", "Lumbar CT (soft tissue limitation)", "Diagnostic", "Possible disc protrusion"],
+                ["06/26/2023", "Northwind Rehabilitation", "PT start: severe disability ODI 52%", "Therapy", "2x/week x 6 weeks"],
                 ["07/18/2023", "Spine Clinic", "Persistent radicular pain despite therapy", "Consult", "Injection + continue PT"],
                 ["08/03/2023", "Neurology", "Progressive weakness and reflex changes", "Consult", "Urgent MRI advised"],
-                ["08/07/2023", "Mercy PT", "Discharge: ODI 56%, strength down to 3+/5", "Therapy", "Failed conservative care"],
+                ["08/07/2023", "Northwind Rehabilitation", "Discharge: ODI 56%, strength down to 3+/5", "Therapy", "Failed conservative care"],
             ],
             "office_note": [
                 "Three-month history of low back pain radiating to left posterior leg with nightly sleep disruption.",
@@ -111,11 +111,11 @@ def build_record_templates() -> Sequence[Dict[str, object]]:
             "record_label": "B",
             "title": "Escalating Radiculopathy With ED/EMG Correlation",
             "chronology_rows": [
-                ["05/24/2023", "Mercy PCP", "Severe low-back pain with left sciatica", "Outpatient", "NSAID + neuropathic agent"],
-                ["06/06/2023", "Mercy Imaging", "Lumbar CT with concern for L4-L5 protrusion", "Diagnostic", "MRI advised if deficits progress"],
-                ["06/26/2023", "Mercy PT", "Structured PT initiated", "Therapy", "12-visit protocol"],
+                ["05/24/2023", "Northwind Primary Care", "Severe low-back pain with left sciatica", "Outpatient", "NSAID + neuropathic agent"],
+                ["06/06/2023", "Northwind Imaging", "Lumbar CT with concern for L4-L5 protrusion", "Diagnostic", "MRI advised if deficits progress"],
+                ["06/26/2023", "Northwind Rehabilitation", "Structured PT initiated", "Therapy", "12-visit protocol"],
                 ["07/25/2023", "Pain Management", "Second injection after failed first response", "Procedure", "No durable benefit"],
-                ["08/09/2023", "Mercy ED", "Acute pain flare with leg weakness", "ED Visit", "Urgent specialty follow-up"],
+                ["08/09/2023", "Northwind Emergency Department", "Acute pain flare with leg weakness", "ED Visit", "Urgent specialty follow-up"],
                 ["08/10/2023", "Neurodiagnostics", "EMG/NCS consistent with left L5 radiculopathy", "Diagnostic", "MRI reaffirmed"],
             ],
             "office_note": [
@@ -166,12 +166,12 @@ def build_record_templates() -> Sequence[Dict[str, object]]:
             "record_label": "C",
             "title": "Functional Decline With Surgical Planning Requirement",
             "chronology_rows": [
-                ["05/23/2023", "Mercy PCP", "Persistent lumbar pain + left radicular features", "Outpatient", "Medication + PT ordered"],
-                ["06/04/2023", "Mercy Imaging", "Lumbar CT suggests disc pathology", "Diagnostic", "Soft-tissue detail limited"],
-                ["06/26/2023", "Mercy PT", "Conservative PT started", "Therapy", "2x/week for 6 weeks"],
+                ["05/23/2023", "Northwind Primary Care", "Persistent lumbar pain + left radicular features", "Outpatient", "Medication + PT ordered"],
+                ["06/04/2023", "Northwind Imaging", "Lumbar CT suggests disc pathology", "Diagnostic", "Soft-tissue detail limited"],
+                ["06/26/2023", "Northwind Rehabilitation", "Conservative PT started", "Therapy", "2x/week for 6 weeks"],
                 ["07/24/2023", "Spine Surgery Consult", "Progressive deficits despite PT", "Consult", "MRI needed for surgical planning"],
-                ["08/07/2023", "Mercy PT", "Discharge with worsening disability metrics", "Therapy", "Failed conservative approach"],
-                ["08/14/2023", "Mercy Follow-up", "Appeal packet assembled for denied MRI", "Care Coordination", "Urgent reconsideration requested"],
+                ["08/07/2023", "Northwind Rehabilitation", "Discharge with worsening disability metrics", "Therapy", "Failed conservative approach"],
+                ["08/14/2023", "Northwind Follow-Up", "Appeal packet assembled for denied MRI", "Care Coordination", "Urgent reconsideration requested"],
             ],
             "office_note": [
                 "Low-back pain with left leg radiation has progressed despite medication adherence and supervised PT.",
@@ -273,11 +273,11 @@ def build_appeal_packet(rec: Dict[str, object], out_pdf: Path, out_json: Path) -
         sections=[
             ("Transmission Detail", "bullets", [
                 "Date: 08/15/2023",
-                "ATTN: HealthPlus Insurance",
+                "ATTN: Apex Health Plan",
                 f"Appeal request for {PATIENT['name']} (DOB {PATIENT['dob']})",
                 f"Claim ID: {PATIENT['claim_id']}",
                 f"Service requested: {PATIENT['service_requested']}",
-                "Originating facility: Mercy Hospital",
+                "Originating facility: Northwind Medical Center",
             ]),
         ],
         scanned=True,
@@ -294,7 +294,7 @@ def build_appeal_packet(rec: Dict[str, object], out_pdf: Path, out_json: Path) -
             ("Patient", PATIENT["name"]),
             ("Member ID", PATIENT["member_id"]),
             ("Payer", PATIENT["payer"]),
-            ("Provider", "Dr. Emily Roberts, Mercy Hospital"),
+            ("Provider", "Dr. Lauren Mercer, Northwind Medical Center"),
             ("Appeal Submission", PATIENT["appeal_submission_date"]),
             ("Procedure", "Lumbar MRI"),
             ("CPT", "72148"),
@@ -321,11 +321,11 @@ def build_appeal_packet(rec: Dict[str, object], out_pdf: Path, out_json: Path) -
         "Appeal Letter to Medical Director",
         meta_pairs=[
             ("Date", PATIENT["appeal_submission_date"]),
-            ("Recipient", "Medical Director, HealthPlus Insurance"),
+            ("Recipient", "Medical Director, Apex Health Plan"),
             ("Subject", f"Appeal for authorization of lumbar MRI for {PATIENT['name']}"),
         ],
         sections=[
-            ("Appeal Narrative", "paragraph", "Mercy Hospital requests reconsideration of the denied lumbar MRI. Recent evaluations and specialist documentation demonstrate failed conservative treatment, progressive neurologic findings, and the need for advanced imaging to guide definitive management."),
+            ("Appeal Narrative", "paragraph", "Northwind Medical Center requests reconsideration of the denied lumbar MRI. Recent evaluations and specialist documentation demonstrate failed conservative treatment, progressive neurologic findings, and the need for advanced imaging to guide definitive management."),
             ("Requested Action", "bullets", [
                 "Reverse initial denial for CPT 72148 (lumbar MRI without contrast).",
                 "Authorize timely imaging due to progressive deficits and worsening function.",
@@ -355,7 +355,7 @@ def build_appeal_packet(rec: Dict[str, object], out_pdf: Path, out_json: Path) -
         owner_name,
         owner_id,
         header,
-        "Recent Office Note - Mercy Primary Care",
+        "Recent Office Note - Northwind Primary Care",
         meta_pairs=[
             ("Date", "07/10/2023"),
             ("Provider", PATIENT["attending"]),
@@ -384,7 +384,7 @@ def build_appeal_packet(rec: Dict[str, object], out_pdf: Path, out_json: Path) -
         "Consult Note - Spine / Neurology",
         meta_pairs=[
             ("Date", "08/03/2023"),
-            ("Consult Team", "Mercy Spine + Neurology"),
+            ("Consult Team", "Northwind Spine + Neurology"),
             ("Referral Source", PATIENT["attending"]),
         ],
         sections=[
@@ -417,7 +417,7 @@ def build_appeal_packet(rec: Dict[str, object], out_pdf: Path, out_json: Path) -
         owner_name,
         owner_id,
         header,
-        "PT Initial Evaluation - Mercy Outpatient Rehab",
+        "PT Initial Evaluation - Northwind Outpatient Rehabilitation",
         meta_pairs=[
             ("Date", "06/26/2023"),
             ("Diagnosis", "M54.16 / M51.26"),
@@ -548,7 +548,7 @@ def build_appeal_packet(rec: Dict[str, object], out_pdf: Path, out_json: Path) -
         "Prior Imaging Report - Lumbar X-Ray",
         meta_pairs=[
             ("Date", "05/22/2023"),
-            ("Facility", "Mercy Hospital Imaging"),
+            ("Facility", "Northwind Medical Center Imaging"),
             ("Study", "Lumbar Spine X-Ray, 3 views"),
         ],
         sections=[
@@ -574,7 +574,7 @@ def build_appeal_packet(rec: Dict[str, object], out_pdf: Path, out_json: Path) -
         "Prior Imaging Report - Lumbar CT",
         meta_pairs=[
             ("Date", "06/05/2023"),
-            ("Facility", "Mercy Hospital Imaging"),
+            ("Facility", "Northwind Medical Center Imaging"),
             ("Study", "CT Lumbar Spine without contrast"),
         ],
         sections=[
@@ -600,7 +600,7 @@ def build_appeal_packet(rec: Dict[str, object], out_pdf: Path, out_json: Path) -
         "Historical Imaging Report - Prior Lumbar MRI",
         meta_pairs=[
             ("Date", "03/19/2021"),
-            ("Facility", "Mercy Hospital Imaging"),
+            ("Facility", "Northwind Medical Center Imaging"),
             ("Study", "MRI Lumbar Spine without contrast"),
         ],
         sections=[

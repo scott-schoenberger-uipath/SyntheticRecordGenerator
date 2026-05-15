@@ -1,0 +1,14 @@
+[project]
+name = "synthetic-record-generation"
+version = "0.1.0"
+description = "Deterministic synthetic healthcare record generators packaged for local runs and UiPath Cloud"
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [{ name = "UiPath HLS SE" }]
+dependencies = [
+  "pydantic>=2.7,<3",
+  "uipath>=2.0.66"
+]
+
+[project.scripts]
+synthetic-record-generator = "main:_cli"

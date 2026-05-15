@@ -1,53 +1,93 @@
-# SyntheticRecordGenerator
+# Synthetic Record Generation
 
-Generator-first toolkit for creating realistic **synthetic** healthcare record packets for demos, testing, and document-ingestion benchmarking.
+Deterministic synthetic healthcare record generator for demos, ingestion testing, and UiPath automation scenarios.
 
-All generated records are fictional and include synthetic labeling. Not for clinical care or legal use.
+This repo currently generates eight bundle families:
 
-## What this repo includes
+- base patient chart packets
+- provider inpatient documentation packets
+- payer care-management packets
+- long-form provider and payer chart bundles
+- lumbar MRI appeal evidence packets
+- ED downgrade scenario records
+- utilization management request packets, including faxbacks, PA/CCR requests, extensions, appeals, and grievances
+- specialty referral packets with fax cover sheets, office/progress notes, lab results, and imaging results
 
-- Python generators for:
-  - base synthetic chart generation
-  - provider record generation
-  - payer record generation
-  - long-form packet generation (80-120 page style)
-  - lumbar MRI appeal evidence packet generation
-- A small `examples/` set (2 sample records) to demonstrate output format
+All checked-in source data is synthetic. Generated PDFs and JSON artifacts are intentionally ignored by git so the public repo does not ship demo output files, PHI, or customer-branded samples.
 
-## Generators
+## What Is Built
 
-- `/Users/scott.schoenberger/Documents/SyntheticPatientRecords/generate_synthetic_patient_pdf.py`
-- `/Users/scott.schoenberger/Documents/SyntheticPatientRecords/generate_provider_synthetic_records.py`
-- `/Users/scott.schoenberger/Documents/SyntheticPatientRecords/generate_payer_synthetic_records.py`
-- `/Users/scott.schoenberger/Documents/SyntheticPatientRecords/generate_long_form_packets.py`
-- `/Users/scott.schoenberger/Documents/SyntheticPatientRecords/generate_appeal_lumbar_mri_records.py`
+The record generators already cover the major packet components that appear throughout the codebase: demographics, encounter history, H&P content, progress notes, lab tables, imaging reports, medications, discharge content, payer utilization views, care-management notes, appeal narratives, and ED visit documentation.
 
-## Quick start
+See [docs/component-inventory.md](docs/component-inventory.md) for the current component-by-component inventory observed in the generator code.
+
+## Repo Layout
+
+- `main.py`: UiPath-friendly wrapper entrypoint for generating selected bundle families from one payload
+- `input.example.json`: smoke input for the wrapper entrypoint
+- `generate_synthetic_patient_pdf.py`: base patient chart generator
+- `generate_provider_synthetic_records.py`: shorter provider packet generator
+- `generate_payer_synthetic_records.py`: shorter payer packet generator
+- `generate_long_form_packets.py`: 80+ page provider and payer packet generator
+- `generate_appeal_lumbar_mri_records.py`: lumbar MRI appeal evidence packet generator
+- `generate_ed_downgrade_records.py`: Epic-style ED downgrade packet renderer
+- `generate_um_request_packets.py`: UM request packet generator with 5-80 page packets informed by the field-matrix taxonomy examples
+- `generate_referral_packets.py`: specialty referral packet generator with 5-20 page packets
+- `ed_downgrade_records.json`: sanitized synthetic source fixture for the ED downgrade bundle
+- `docs/uipath-cloud.md`: local and UiPath Cloud packaging notes
+
+## Local Usage
+
+Generate a smoke bundle through the shared wrapper:
 
 ```bash
-python3 /Users/scott.schoenberger/Documents/SyntheticPatientRecords/generate_synthetic_patient_pdf.py
-python3 /Users/scott.schoenberger/Documents/SyntheticPatientRecords/generate_provider_synthetic_records.py
-python3 /Users/scott.schoenberger/Documents/SyntheticPatientRecords/generate_payer_synthetic_records.py
-python3 /Users/scott.schoenberger/Documents/SyntheticPatientRecords/generate_long_form_packets.py
-python3 /Users/scott.schoenberger/Documents/SyntheticPatientRecords/generate_appeal_lumbar_mri_records.py
+python3 main.py --input input.example.json
 ```
 
-## Optional scanned-page pipeline
-
-Long-form generation supports selective scan post-processing for imported/faxed-style pages.
-
-Recommended local env (Python 3.11+):
+Generate from another working directory:
 
 ```bash
-python3.11 -m venv /Users/scott.schoenberger/Documents/SyntheticPatientRecords/.venv-scan
-/Users/scott.schoenberger/Documents/SyntheticPatientRecords/.venv-scan/bin/pip install look-like-scanned pypdf
+python3 /Users/peterreischer/Desktop/uipath-projects/synthetic-record-generator/SyntheticRecordGenerator/main.py \
+  --input /Users/peterreischer/Desktop/uipath-projects/synthetic-record-generator/SyntheticRecordGenerator/input.example.json \
+  --output-root /tmp/synthetic-records
 ```
 
-If `.venv-scan` exists, long-form generators auto-use it for scan post-processing.
+If this project is installed into an environment, the same wrapper is exposed as:
 
-## Examples
+```bash
+synthetic-record-generator --input input.example.json --output-root /tmp/synthetic-records
+```
 
-- `/Users/scott.schoenberger/Documents/SyntheticPatientRecords/examples/provider_record_b_high_acuity_revenue_impact.pdf`
-- `/Users/scott.schoenberger/Documents/SyntheticPatientRecords/examples/provider_record_b_high_acuity_revenue_impact.json`
-- `/Users/scott.schoenberger/Documents/SyntheticPatientRecords/examples/appeal_record_a_failed_conservative_care.pdf`
-- `/Users/scott.schoenberger/Documents/SyntheticPatientRecords/examples/appeal_record_a_failed_conservative_care.json`
+Run the legacy generators directly when you want one family at a time:
+
+```bash
+python3 generate_synthetic_patient_pdf.py
+python3 generate_provider_synthetic_records.py
+python3 generate_payer_synthetic_records.py
+python3 generate_long_form_packets.py
+python3 generate_appeal_lumbar_mri_records.py
+python3 generate_ed_downgrade_records.py
+python3 generate_um_request_packets.py
+python3 generate_referral_packets.py
+```
+
+The wrapper writes to `output/` by default. The legacy scripts keep their original family-specific output directories for ad hoc local generation.
+
+For coding agents in other repos, prefer `main.py` or the `synthetic-record-generator` command over the legacy scripts because the wrapper resolves repo-local data from its own file location and accepts an explicit output root.
+
+## UiPath Cloud Alignment
+
+This repo now includes the standard files used by sibling UiPath Python projects:
+
+- `pyproject.toml`
+- `uipath.json`
+- `entry-points.json`
+- `main.py`
+
+The entrypoint is intentionally deterministic and file-generation focused. It accepts a bundle-selection payload, writes artifacts under the requested output root, and returns a manifest-friendly summary of what it generated.
+
+See [docs/uipath-cloud.md](docs/uipath-cloud.md) for the input contract and packaging notes.
+
+## Optional Scanned-Page Pipeline
+
+`generate_long_form_packets.py`, `generate_appeal_lumbar_mri_records.py`, and `generate_um_request_packets.py` can apply scan-like post-processing when `.venv-scan/bin/scanner` is present. If that environment is absent, the packets still generate successfully as normal vector PDFs.
