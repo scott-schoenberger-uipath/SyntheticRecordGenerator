@@ -943,7 +943,7 @@ def make_case_data() -> Dict[str, object]:
                 "date": "2025-03-14",
                 "type": "Primary Care - Annual Physical",
                 "provider": "Nina Patel, MD",
-                "location": "Franklin Family Medicine",
+                "location": "Northwind Family Medicine",
                 "vitals": "BP 142/88, HR 78, Temp 98.4 F, RR 14, SpO2 98%, Wt 184 lb",
                 "reason": "Annual preventive visit and chronic disease follow-up.",
                 "assessment": [
@@ -963,7 +963,7 @@ def make_case_data() -> Dict[str, object]:
                 "date": "2025-11-20",
                 "type": "Urgent Care Visit",
                 "provider": "Maya Chen, DO",
-                "location": "Cool Springs Urgent Care",
+                "location": "Lakeview Urgent Care",
                 "vitals": "BP 136/84, HR 96, Temp 99.1 F, RR 18, SpO2 96%",
                 "reason": "3-day cough, wheezing, sinus congestion after viral illness exposure.",
                 "assessment": [
@@ -981,7 +981,7 @@ def make_case_data() -> Dict[str, object]:
                 "date": "2026-01-09",
                 "type": "Emergency Department Visit",
                 "provider": "Aaron Feldman, MD",
-                "location": "Williamson Medical Center ED",
+                "location": "Northwind Medical Center ED",
                 "vitals": "BP 154/92, HR 104, Temp 98.2 F, RR 20, SpO2 99%",
                 "reason": "Intermittent substernal chest pressure x6 hours with mild nausea; improved on arrival.",
                 "assessment": [
@@ -1001,7 +1001,7 @@ def make_case_data() -> Dict[str, object]:
                 "date": "2026-01-16",
                 "type": "Primary Care Follow-up",
                 "provider": "Nina Patel, MD",
-                "location": "Franklin Family Medicine",
+                "location": "Northwind Family Medicine",
                 "vitals": "BP 132/82, HR 76, Temp 98.6 F, RR 14, SpO2 98%, Wt 182 lb",
                 "reason": "Post-ED follow-up for chest pain and chronic disease review.",
                 "assessment": [
@@ -1020,7 +1020,7 @@ def make_case_data() -> Dict[str, object]:
                 "date": "2026-02-20",
                 "type": "Endocrinology Consult",
                 "provider": "Leah Morgan, MD",
-                "location": "Middle TN Endocrinology",
+                "location": "Northwind Endocrinology",
                 "vitals": "BP 128/80, HR 74, Temp 98.1 F, RR 14, SpO2 99%, Wt 181 lb",
                 "reason": "Diabetes management optimization.",
                 "assessment": [
@@ -1067,7 +1067,7 @@ def make_case_data() -> Dict[str, object]:
         },
         "surgical_report": {
             "procedure_date": "2025-07-22",
-            "facility": "Williamson Medical Center - Outpatient Surgery",
+            "facility": "Northwind Medical Center - Outpatient Surgery",
             "surgeon": "Caleb Monroe, MD",
             "assistant": "K. Wright, PA-C",
             "anesthesia": "General endotracheal",
@@ -1099,7 +1099,7 @@ def make_case_data() -> Dict[str, object]:
             "signed_at": "2025-07-23 09:27",
         },
         "discharge_summary": {
-            "facility": "Williamson Medical Center",
+            "facility": "Northwind Medical Center",
             "admission_date": "2026-01-09",
             "discharge_date": "2026-01-10",
             "attending": "Aaron Feldman, MD",

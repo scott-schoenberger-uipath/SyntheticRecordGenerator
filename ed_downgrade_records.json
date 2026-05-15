@@ -1,0 +1,1783 @@
+[
+  {
+    "record_label": "ED-01",
+    "scenario": "Chest Pain with Negative Troponin",
+    "facility": "Northwind Medical Center",
+    "facility_address": "101 Northwind Plaza, Hartwell, IL 60001",
+    "patient": {
+      "name": "Martin A. Calloway",
+      "mrn": "RU-40229183",
+      "age": "69",
+      "gender": "Male",
+      "dob": "1956-08-14",
+      "insurance": "Medicare Advantage  --  Apex Health",
+      "pcp": "Evelyn Hart, MD"
+    },
+    "visit": {
+      "arrival_date": "2026-03-10",
+      "arrival_time": "14:22",
+      "mode_of_arrival": "EMS",
+      "triage_esi": 2,
+      "chief_complaint": "Substernal chest pressure radiating to left arm with diaphoresis",
+      "presenting_vitals": {
+        "bp": "178/96",
+        "hr": 108,
+        "rr": 22,
+        "spo2": "91% RA",
+        "temp": "98.4F",
+        "pain": "8/10"
+      },
+      "hpi": "69-year-old male with history of COPD, HTN, type 2 DM with neuropathy, and recurrent falls presented via EMS with acute onset substernal chest pressure radiating to the left arm, associated with diaphoresis and mild dyspnea. Symptoms began approximately 45 minutes prior to arrival while using his walker at home. Patient placed on supplemental O2 by EMS at 3L NC. Home medications include Tiotropium, Budesonide/Formoterol, Insulin glargine, Metformin, Lisinopril, Sertraline, and Gabapentin.",
+      "relevant_pmh": [
+        "COPD with chronic respiratory failure and hypoxia (home O2)",
+        "Type 2 diabetes mellitus with polyneuropathy",
+        "Essential hypertension",
+        "Recurrent falls",
+        "Depressive disorder"
+      ],
+      "ed_course": [
+        "14:22  --  Arrival via EMS, triaged ESI 2. Placed on cardiac monitor, 12-lead ECG obtained.",
+        "14:30  --  ECG showed sinus tachycardia with nonspecific ST changes. ASA 325 mg given. IV access x2 established.",
+        "14:45  --  Initial troponin I drawn, CBC, CMP, BNP, coagulation panel ordered.",
+        "15:10  --  CXR obtained  --  cardiomegaly, chronic hyperinflation, no acute infiltrate.",
+        "15:35  --  Troponin I <0.04 (normal). BNP 340 pg/mL (mildly elevated). D-dimer 0.82 (elevated).",
+        "15:50  --  CT angiography chest ordered to exclude PE given elevated D-dimer, tachycardia, and hypoxia.",
+        "16:20  --  CTA negative for PE. No aortic dissection. Coronary calcifications noted.",
+        "16:40  --  IV nitroglycerin drip initiated for persistent chest pressure. Heparin drip started per ACS protocol.",
+        "17:15  --  Serial troponin at 3 hours: <0.04 (normal). Pain improved to 3/10 on NTG drip.",
+        "18:00  --  Cardiology consulted. Recommendation: observation with serial troponins and stress test in AM.",
+        "18:30  --  Observation order placed. Patient admitted to observation status."
+      ],
+      "nursing_notes": [
+        "14:22  --  Full nursing assessment. Cardiac monitor applied. Two 18g PIVs placed.",
+        "14:45  --  ASA administered. Baseline neuro check for heparin protocol.",
+        "15:15  --  Vitals reassessment: BP 162/88, HR 102, SpO2 93% on 3L NC.",
+        "16:00  --  Patient reports ongoing chest pressure 7/10. NTG drip set up and initiated per physician order.",
+        "16:45  --  NTG drip titration. Vitals q15 min during drip. BP 148/82, HR 96.",
+        "17:30  --  Pain reassessment: 3/10. Vitals stable. Heparin drip running.",
+        "18:15  --  Serial vitals stable. Patient tolerating drips. Observation order acknowledged."
+      ],
+      "disposition": "Observation",
+      "disposition_time": "18:30",
+      "ed_attending": "Noah Mercer, MD",
+      "ed_attending_npi": "1234567890"
+    },
+    "lab_results": [
+      {
+        "test_name": "Troponin I (Initial)",
+        "collection_time": "14:45",
+        "results": [
+          {"component": "Troponin I", "value": "<0.04", "units": "ng/mL", "reference_range": "0.00-0.04", "flag": ""}
+        ]
+      },
+      {
+        "test_name": "Troponin I (3-hour serial)",
+        "collection_time": "17:15",
+        "results": [
+          {"component": "Troponin I", "value": "<0.04", "units": "ng/mL", "reference_range": "0.00-0.04", "flag": ""}
+        ]
+      },
+      {
+        "test_name": "BNP",
+        "collection_time": "14:45",
+        "results": [
+          {"component": "BNP", "value": "340", "units": "pg/mL", "reference_range": "0-100", "flag": "H"}
+        ]
+      },
+      {
+        "test_name": "D-Dimer",
+        "collection_time": "14:45",
+        "results": [
+          {"component": "D-Dimer", "value": "0.82", "units": "mcg/mL FEU", "reference_range": "0.00-0.50", "flag": "H"}
+        ]
+      },
+      {
+        "test_name": "CBC",
+        "collection_time": "14:45",
+        "results": [
+          {"component": "WBC", "value": "9.8", "units": "K/uL", "reference_range": "4.5-11.0", "flag": ""},
+          {"component": "RBC", "value": "4.52", "units": "M/uL", "reference_range": "4.50-5.90", "flag": ""},
+          {"component": "Hemoglobin", "value": "13.4", "units": "g/dL", "reference_range": "13.5-17.5", "flag": "L"},
+          {"component": "Hematocrit", "value": "40.1", "units": "%", "reference_range": "38.0-50.0", "flag": ""},
+          {"component": "Platelets", "value": "218", "units": "K/uL", "reference_range": "150-400", "flag": ""}
+        ]
+      },
+      {
+        "test_name": "CMP",
+        "collection_time": "14:45",
+        "results": [
+          {"component": "Sodium", "value": "138", "units": "mEq/L", "reference_range": "136-145", "flag": ""},
+          {"component": "Potassium", "value": "4.2", "units": "mEq/L", "reference_range": "3.5-5.0", "flag": ""},
+          {"component": "Chloride", "value": "101", "units": "mEq/L", "reference_range": "98-106", "flag": ""},
+          {"component": "CO2", "value": "24", "units": "mEq/L", "reference_range": "22-29", "flag": ""},
+          {"component": "BUN", "value": "22", "units": "mg/dL", "reference_range": "7-20", "flag": "H"},
+          {"component": "Creatinine", "value": "1.2", "units": "mg/dL", "reference_range": "0.7-1.3", "flag": ""},
+          {"component": "Glucose", "value": "188", "units": "mg/dL", "reference_range": "70-100", "flag": "H"},
+          {"component": "Calcium", "value": "9.1", "units": "mg/dL", "reference_range": "8.5-10.5", "flag": ""},
+          {"component": "AST", "value": "28", "units": "U/L", "reference_range": "10-40", "flag": ""},
+          {"component": "ALT", "value": "24", "units": "U/L", "reference_range": "7-56", "flag": ""},
+          {"component": "Alkaline Phosphatase", "value": "78", "units": "U/L", "reference_range": "44-147", "flag": ""},
+          {"component": "Total Protein", "value": "6.8", "units": "g/dL", "reference_range": "6.0-8.3", "flag": ""},
+          {"component": "Albumin", "value": "3.6", "units": "g/dL", "reference_range": "3.5-5.5", "flag": ""}
+        ]
+      },
+      {
+        "test_name": "Coagulation Panel",
+        "collection_time": "14:45",
+        "results": [
+          {"component": "PT", "value": "12.8", "units": "seconds", "reference_range": "11.0-13.5", "flag": ""},
+          {"component": "INR", "value": "1.04", "units": "", "reference_range": "0.80-1.20", "flag": ""},
+          {"component": "PTT", "value": "28.6", "units": "seconds", "reference_range": "25.0-35.0", "flag": ""}
+        ]
+      }
+    ],
+    "imaging_results": [
+      {
+        "study": "CXR PA/Lateral",
+        "order_time": "15:00",
+        "result_time": "15:10",
+        "ordering_provider": "Noah Mercer, MD",
+        "radiologist": "Sarah Kim, MD",
+        "indication": "Chest pain, dyspnea, rule out acute cardiopulmonary process",
+        "findings": "Heart is mildly enlarged. Lungs are hyperinflated consistent with chronic obstructive pulmonary disease. No focal consolidation, pleural effusion, or pneumothorax. Mediastinal contours are normal.",
+        "impression": "Cardiomegaly and chronic hyperinflation. No acute cardiopulmonary process."
+      },
+      {
+        "study": "CT Angiography Chest",
+        "order_time": "15:50",
+        "result_time": "16:20",
+        "ordering_provider": "Noah Mercer, MD",
+        "radiologist": "David Patel, MD",
+        "indication": "Chest pain with elevated D-dimer, tachycardia, and hypoxia. Rule out pulmonary embolism and aortic dissection.",
+        "findings": "No filling defects within the pulmonary arterial vasculature to suggest pulmonary embolism. The aorta is normal in caliber without evidence of dissection or intramural hematoma. Moderate coronary artery calcifications noted. Emphysematous changes bilaterally. Small bilateral pleural effusions.",
+        "impression": "Negative for pulmonary embolism and aortic dissection. Coronary calcifications and emphysematous changes."
+      }
+    ],
+    "medications_administered": [
+      {"medication": "Aspirin 325 mg", "route": "PO", "time": "14:30", "administered_by": "RN Staff", "indication": "ACS protocol"},
+      {"medication": "Nitroglycerin drip 10 mcg/min titrated", "route": "IV", "time": "16:40", "administered_by": "RN Staff", "indication": "Persistent substernal chest pressure"},
+      {"medication": "Heparin drip per ACS protocol (bolus + infusion)", "route": "IV", "time": "16:40", "administered_by": "RN Staff", "indication": "ACS protocol anticoagulation"}
+    ],
+    "discharge_instructions": {
+      "diagnosis": "Acute chest pain, rule out acute coronary syndrome",
+      "follow_up": [
+        "Cardiology consultation for stress test during observation stay",
+        "Follow-up with PCP Evelyn Hart, MD within 1 week of discharge",
+        "Cardiology outpatient follow-up within 2 weeks"
+      ],
+      "medications_on_discharge": [],
+      "return_precautions": [
+        "Return to ED if chest pain returns or worsens",
+        "Return to ED if shortness of breath worsens beyond baseline",
+        "Return to ED if you feel lightheaded or faint",
+        "Return to ED if you experience new arm or jaw pain"
+      ],
+      "disposition_detail": "Admitted to Observation Unit for serial troponin monitoring at 6 and 12 hours and stress test in the morning per Cardiology recommendation. IV nitroglycerin and heparin drips continued."
+    }
+  },
+  {
+    "record_label": "ED-02",
+    "scenario": "Syncope with Fall  --  Negative Head CT",
+    "facility": "Harbor Point Hospital",
+    "facility_address": "220 Harbor Point Drive, Elmbrook, IL 60002",
+    "patient": {
+      "name": "Martin A. Calloway",
+      "mrn": "RO-50331847",
+      "age": "69",
+      "gender": "Male",
+      "dob": "1956-08-14",
+      "insurance": "Medicare Advantage  --  Harbor Health",
+      "pcp": "Evelyn Hart, MD"
+    },
+    "visit": {
+      "arrival_date": "2026-03-14",
+      "arrival_time": "09:15",
+      "mode_of_arrival": "EMS",
+      "triage_esi": 2,
+      "chief_complaint": "Witnessed syncopal episode with ground-level fall at home",
+      "presenting_vitals": {
+        "bp": "98/62",
+        "hr": 52,
+        "rr": 18,
+        "spo2": "90% RA",
+        "temp": "97.8F",
+        "pain": "6/10 (left hip)"
+      },
+      "hpi": "69-year-old male with history of COPD on home O2, recurrent falls, type 2 DM with neuropathy, HTN, and depressive disorder. Per caregiver, patient was ambulating with walker when he became lightheaded and lost consciousness for approximately 15-20 seconds, striking his left hip and head on the floor. Brief confusion on regaining consciousness. No seizure activity witnessed. Bradycardia noted by EMS (HR 48). Patient on Lisinopril which may contribute to hypotension.",
+      "relevant_pmh": [
+        "COPD with chronic respiratory failure and hypoxia (home O2)",
+        "Type 2 diabetes mellitus with polyneuropathy",
+        "Essential hypertension",
+        "Recurrent falls  --  documented fall risk",
+        "Depressive disorder"
+      ],
+      "ed_course": [
+        "09:15  --  Arrival via EMS on backboard with C-collar. Triaged ESI 2 for syncope with bradycardia and hypotension.",
+        "09:20  --  Placed on continuous cardiac monitoring. 12-lead ECG: sinus bradycardia at 50 bpm, no acute ST changes, 1st-degree AV block.",
+        "09:30  --  Labs drawn: CBC, CMP, troponin, glucose, UA, blood cultures. IV NS 500 mL bolus initiated for hypotension.",
+        "09:45  --  CT head without contrast ordered  --  concern for intracranial hemorrhage post-fall. Left hip X-ray ordered.",
+        "10:15  --  CT head negative for acute intracranial pathology. Hip XR: no fracture, degenerative changes.",
+        "10:30  --  Orthostatic vitals: supine BP 108/68 HR 54  ->  standing BP 82/50 HR 58. Symptomatic orthostasis confirmed.",
+        "10:45  --  Second 500 mL NS bolus. Glucose 186. Troponin <0.04. Creatinine 1.4 (baseline 1.2 per records).",
+        "11:30  --  Telemetry review: 3-second pause noted. Cardiology consulted for bradycardia with pause and syncope.",
+        "12:00  --  Cardiology recommends observation with telemetry monitoring, consideration for Holter or EP study.",
+        "12:30  --  Observation order placed. Lisinopril held."
+      ],
+      "nursing_notes": [
+        "09:15  --  Full trauma nursing assessment. C-collar maintained. Cardiac monitor applied. 20g PIV placed.",
+        "09:30  --  IV bolus initiated. Neuro checks q15 min x4 per syncope protocol.",
+        "10:00  --  Neuro check: alert and oriented x3, no focal deficits. Left hip tender, no deformity.",
+        "10:30  --  Orthostatic vitals performed with standing assist. Patient symptomatic  --  lightheaded, unsteady.",
+        "11:00  --  Post-bolus reassessment: BP 112/72 HR 56. Patient reports mild persistent lightheadedness.",
+        "11:45  --  Telemetry alarm for 3-second pause. Physician notified immediately. Patient asymptomatic during event.",
+        "12:30  --  Observation order received. Continuous telemetry. Fall precautions reinforced."
+      ],
+      "disposition": "Observation",
+      "disposition_time": "12:30",
+      "ed_attending": "Avery Bennett, MD",
+      "ed_attending_npi": "1234567891"
+    },
+    "lab_results": [
+      {
+        "test_name": "CBC",
+        "collection_time": "09:30",
+        "results": [
+          {"component": "WBC", "value": "8.4", "units": "K/uL", "reference_range": "4.5-11.0", "flag": ""},
+          {"component": "RBC", "value": "4.38", "units": "M/uL", "reference_range": "4.50-5.90", "flag": "L"},
+          {"component": "Hemoglobin", "value": "12.8", "units": "g/dL", "reference_range": "13.5-17.5", "flag": "L"},
+          {"component": "Hematocrit", "value": "38.2", "units": "%", "reference_range": "38.0-50.0", "flag": ""},
+          {"component": "Platelets", "value": "196", "units": "K/uL", "reference_range": "150-400", "flag": ""}
+        ]
+      },
+      {
+        "test_name": "CMP",
+        "collection_time": "09:30",
+        "results": [
+          {"component": "Sodium", "value": "136", "units": "mEq/L", "reference_range": "136-145", "flag": ""},
+          {"component": "Potassium", "value": "4.0", "units": "mEq/L", "reference_range": "3.5-5.0", "flag": ""},
+          {"component": "Chloride", "value": "100", "units": "mEq/L", "reference_range": "98-106", "flag": ""},
+          {"component": "CO2", "value": "25", "units": "mEq/L", "reference_range": "22-29", "flag": ""},
+          {"component": "BUN", "value": "24", "units": "mg/dL", "reference_range": "7-20", "flag": "H"},
+          {"component": "Creatinine", "value": "1.4", "units": "mg/dL", "reference_range": "0.7-1.3", "flag": "H"},
+          {"component": "Glucose", "value": "186", "units": "mg/dL", "reference_range": "70-100", "flag": "H"},
+          {"component": "Calcium", "value": "9.0", "units": "mg/dL", "reference_range": "8.5-10.5", "flag": ""},
+          {"component": "AST", "value": "22", "units": "U/L", "reference_range": "10-40", "flag": ""},
+          {"component": "ALT", "value": "18", "units": "U/L", "reference_range": "7-56", "flag": ""},
+          {"component": "Alkaline Phosphatase", "value": "82", "units": "U/L", "reference_range": "44-147", "flag": ""},
+          {"component": "Total Protein", "value": "6.5", "units": "g/dL", "reference_range": "6.0-8.3", "flag": ""},
+          {"component": "Albumin", "value": "3.4", "units": "g/dL", "reference_range": "3.5-5.5", "flag": "L"}
+        ]
+      },
+      {
+        "test_name": "Troponin I",
+        "collection_time": "09:30",
+        "results": [
+          {"component": "Troponin I", "value": "<0.04", "units": "ng/mL", "reference_range": "0.00-0.04", "flag": ""}
+        ]
+      },
+      {
+        "test_name": "Glucose (POC)",
+        "collection_time": "09:30",
+        "results": [
+          {"component": "Glucose", "value": "186", "units": "mg/dL", "reference_range": "70-100", "flag": "H"}
+        ]
+      },
+      {
+        "test_name": "UA",
+        "collection_time": "09:30",
+        "results": [
+          {"component": "Color", "value": "Yellow", "units": "", "reference_range": "Yellow", "flag": ""},
+          {"component": "Clarity", "value": "Clear", "units": "", "reference_range": "Clear", "flag": ""},
+          {"component": "Specific Gravity", "value": "1.020", "units": "", "reference_range": "1.005-1.030", "flag": ""},
+          {"component": "pH", "value": "5.5", "units": "", "reference_range": "5.0-8.0", "flag": ""},
+          {"component": "Glucose (urine)", "value": "Positive", "units": "", "reference_range": "Negative", "flag": "H"},
+          {"component": "Leukocyte Esterase", "value": "Negative", "units": "", "reference_range": "Negative", "flag": ""},
+          {"component": "Nitrite", "value": "Negative", "units": "", "reference_range": "Negative", "flag": ""},
+          {"component": "Blood", "value": "Negative", "units": "", "reference_range": "Negative", "flag": ""}
+        ]
+      },
+      {
+        "test_name": "Blood Culture x2",
+        "collection_time": "09:30",
+        "results": [
+          {"component": "Blood Culture (Aerobic) Set 1", "value": "Pending", "units": "", "reference_range": "No growth", "flag": ""},
+          {"component": "Blood Culture (Anaerobic) Set 1", "value": "Pending", "units": "", "reference_range": "No growth", "flag": ""},
+          {"component": "Blood Culture (Aerobic) Set 2", "value": "Pending", "units": "", "reference_range": "No growth", "flag": ""},
+          {"component": "Blood Culture (Anaerobic) Set 2", "value": "Pending", "units": "", "reference_range": "No growth", "flag": ""}
+        ]
+      }
+    ],
+    "imaging_results": [
+      {
+        "study": "CT Head without Contrast",
+        "order_time": "09:45",
+        "result_time": "10:15",
+        "ordering_provider": "Avery Bennett, MD",
+        "radiologist": "Michael Torres, MD",
+        "indication": "Syncope with ground-level fall, head strike, and loss of consciousness. Rule out intracranial hemorrhage.",
+        "findings": "No acute intracranial hemorrhage, mass, or midline shift. No acute territorial infarct. Mild age-appropriate cortical atrophy. Mild periventricular white matter hypodensities consistent with chronic small vessel ischemic changes. Calvarium intact.",
+        "impression": "No acute intracranial pathology. Mild chronic small vessel ischemic changes."
+      },
+      {
+        "study": "XR Left Hip AP and Lateral",
+        "order_time": "09:45",
+        "result_time": "10:15",
+        "ordering_provider": "Avery Bennett, MD",
+        "radiologist": "Michael Torres, MD",
+        "indication": "Fall with left hip pain. Rule out fracture.",
+        "findings": "No acute fracture or dislocation of the left hip. Moderate degenerative changes of the hip joint with joint space narrowing and marginal osteophytes. Soft tissues are unremarkable.",
+        "impression": "No fracture. Moderate degenerative joint disease of the left hip."
+      }
+    ],
+    "medications_administered": [
+      {"medication": "Normal Saline 500 mL bolus", "route": "IV", "time": "09:30", "administered_by": "RN Staff", "indication": "Hypotension (BP 98/62)"},
+      {"medication": "Normal Saline 500 mL bolus (second)", "route": "IV", "time": "10:45", "administered_by": "RN Staff", "indication": "Persistent orthostatic hypotension"}
+    ],
+    "discharge_instructions": {
+      "diagnosis": "Syncope, likely cardiac etiology with sinus bradycardia, 1st-degree AV block, and 3-second pause on telemetry",
+      "follow_up": [
+        "Cardiology follow-up during observation stay for Holter or EP study evaluation",
+        "Follow-up with PCP Evelyn Hart, MD within 3 days of discharge",
+        "Home health nursing reassessment upon discharge"
+      ],
+      "medications_on_discharge": [
+        "Lisinopril HELD pending cardiology and PCP evaluation"
+      ],
+      "return_precautions": [
+        "Return to ED if you experience another fainting episode",
+        "Return to ED if you feel your heart racing or skipping beats",
+        "Return to ED if you experience worsening dizziness or lightheadedness",
+        "Return to ED if you develop new weakness or difficulty speaking"
+      ],
+      "disposition_detail": "Admitted to Observation Unit for continuous telemetry monitoring given documented 3-second pause and symptomatic orthostasis. Cardiology to evaluate for Holter monitor or electrophysiology study."
+    }
+  },
+  {
+    "record_label": "ED-03",
+    "scenario": "Acute COPD Exacerbation  --  Payer Classifies as Routine",
+    "facility": "Prairie Ridge Medical Center",
+    "facility_address": "2000 Ogden Ave, Aurora, IL 60504",
+    "patient": {
+      "name": "Martin A. Calloway",
+      "mrn": "RC-60194572",
+      "age": "69",
+      "gender": "Male",
+      "dob": "1956-08-14",
+      "insurance": "Medicare Advantage  --  Meridian Health",
+      "pcp": "Evelyn Hart, MD"
+    },
+    "visit": {
+      "arrival_date": "2026-03-18",
+      "arrival_time": "03:40",
+      "mode_of_arrival": "EMS",
+      "triage_esi": 2,
+      "chief_complaint": "Severe dyspnea with worsening hypoxia  --  unable to maintain SpO2 on home O2",
+      "presenting_vitals": {
+        "bp": "156/92",
+        "hr": 112,
+        "rr": 28,
+        "spo2": "84% on 2L NC home O2",
+        "temp": "100.1F",
+        "pain": "4/10 (chest tightness)"
+      },
+      "hpi": "69-year-old male with known COPD and chronic respiratory failure on home O2 at 2L NC presented via EMS at 03:40 with acute worsening dyspnea over 6 hours. Caregiver reports increased cough with yellow-green sputum, unable to sleep, accessory muscle use. SpO2 dropped to 84% on home O2. EMS initiated continuous nebulizer and increased O2 to 4L NC with SpO2 improving to 88%. Patient was recently seen by home health respiratory therapy and had stable SpO2 91-93% at rest prior to this episode.",
+      "relevant_pmh": [
+        "COPD with chronic respiratory failure and hypoxia (home O2 2L NC)",
+        "Type 2 diabetes mellitus with polyneuropathy",
+        "Essential hypertension",
+        "Recurrent falls",
+        "Depressive disorder"
+      ],
+      "ed_course": [
+        "03:40  --  Arrival via EMS. Triage ESI 2 for respiratory distress with hypoxia. Placed on high-flow nasal cannula at 15L/40% FiO2.",
+        "03:50  --  Continuous albuterol/ipratropium nebulization initiated. ABG drawn: pH 7.31, pCO2 52, pO2 58, HCO3 26.",
+        "04:00  --  IV methylprednisolone 125 mg given. Labs drawn: CBC, CMP, BNP, procalcitonin, blood cultures x2, sputum culture.",
+        "04:15  --  CXR obtained  --  hyperinflation, no acute consolidation but increased bronchovascular markings bilaterally.",
+        "04:30  --  IV magnesium 2g for bronchospasm. Respiratory therapy at bedside for continuous treatments.",
+        "05:00  --  Repeat ABG: pH 7.33, pCO2 48, pO2 65. Slight improvement but persistent hypercapnia.",
+        "05:15  --  BiPAP initiated at 12/5 for persistent hypercapnia and work of breathing. RT monitoring continuously.",
+        "05:45  --  WBC 14.2 (elevated), procalcitonin 0.38 (intermediate). Empiric azithromycin + ceftriaxone started for possible infectious exacerbation.",
+        "06:30  --  Repeat ABG on BiPAP: pH 7.36, pCO2 44, pO2 72. Improving. SpO2 93% on BiPAP.",
+        "07:00  --  Pulmonology consulted. Recommend admission for IV steroids, antibiotics, and respiratory monitoring.",
+        "07:30  --  Inpatient admission order placed."
+      ],
+      "nursing_notes": [
+        "03:40  --  Full respiratory nursing assessment. High-flow NC set up. Continuous pulse ox and cardiac monitoring.",
+        "04:00  --  IV access x2. Medications administered. Respiratory distress scoring: moderate-severe.",
+        "04:30  --  Continuous nebulizer treatments ongoing. Patient reports slight improvement in breathing.",
+        "05:15  --  BiPAP set up and applied. Patient education on mask use. Skin assessment for mask fit.",
+        "05:45  --  BiPAP tolerance assessment. Patient tolerating well. Vitals: BP 142/84, HR 98, RR 22, SpO2 92%.",
+        "06:30  --  Post-BiPAP ABG drawn per physician order. Patient resting comfortably on BiPAP.",
+        "07:00  --  Vitals: BP 138/80, HR 92, RR 20, SpO2 93%. Work of breathing improved. Admission orders received."
+      ],
+      "disposition": "Inpatient Admission",
+      "disposition_time": "07:30",
+      "ed_attending": "James Okafor, MD",
+      "ed_attending_npi": "1234567892"
+    },
+    "lab_results": [
+      {
+        "test_name": "ABG (Initial)",
+        "collection_time": "03:50",
+        "results": [
+          {"component": "pH", "value": "7.31", "units": "", "reference_range": "7.35-7.45", "flag": "L"},
+          {"component": "pCO2", "value": "52", "units": "mmHg", "reference_range": "35-45", "flag": "H"},
+          {"component": "pO2", "value": "58", "units": "mmHg", "reference_range": "80-100", "flag": "L"},
+          {"component": "HCO3", "value": "26", "units": "mEq/L", "reference_range": "22-26", "flag": ""},
+          {"component": "Base Excess", "value": "-1.2", "units": "mEq/L", "reference_range": "-2.0 to 2.0", "flag": ""}
+        ]
+      },
+      {
+        "test_name": "ABG (Repeat - 1 hour)",
+        "collection_time": "05:00",
+        "results": [
+          {"component": "pH", "value": "7.33", "units": "", "reference_range": "7.35-7.45", "flag": "L"},
+          {"component": "pCO2", "value": "48", "units": "mmHg", "reference_range": "35-45", "flag": "H"},
+          {"component": "pO2", "value": "65", "units": "mmHg", "reference_range": "80-100", "flag": "L"},
+          {"component": "HCO3", "value": "25", "units": "mEq/L", "reference_range": "22-26", "flag": ""},
+          {"component": "Base Excess", "value": "-1.8", "units": "mEq/L", "reference_range": "-2.0 to 2.0", "flag": ""}
+        ]
+      },
+      {
+        "test_name": "ABG (On BiPAP)",
+        "collection_time": "06:30",
+        "results": [
+          {"component": "pH", "value": "7.36", "units": "", "reference_range": "7.35-7.45", "flag": ""},
+          {"component": "pCO2", "value": "44", "units": "mmHg", "reference_range": "35-45", "flag": ""},
+          {"component": "pO2", "value": "72", "units": "mmHg", "reference_range": "80-100", "flag": "L"},
+          {"component": "HCO3", "value": "25", "units": "mEq/L", "reference_range": "22-26", "flag": ""},
+          {"component": "Base Excess", "value": "-0.4", "units": "mEq/L", "reference_range": "-2.0 to 2.0", "flag": ""}
+        ]
+      },
+      {
+        "test_name": "CBC",
+        "collection_time": "04:00",
+        "results": [
+          {"component": "WBC", "value": "14.2", "units": "K/uL", "reference_range": "4.5-11.0", "flag": "H"},
+          {"component": "RBC", "value": "5.10", "units": "M/uL", "reference_range": "4.50-5.90", "flag": ""},
+          {"component": "Hemoglobin", "value": "15.2", "units": "g/dL", "reference_range": "13.5-17.5", "flag": ""},
+          {"component": "Hematocrit", "value": "45.6", "units": "%", "reference_range": "38.0-50.0", "flag": ""},
+          {"component": "Platelets", "value": "242", "units": "K/uL", "reference_range": "150-400", "flag": ""},
+          {"component": "Neutrophils", "value": "82", "units": "%", "reference_range": "40-70", "flag": "H"},
+          {"component": "Bands", "value": "6", "units": "%", "reference_range": "0-5", "flag": "H"}
+        ]
+      },
+      {
+        "test_name": "CMP",
+        "collection_time": "04:00",
+        "results": [
+          {"component": "Sodium", "value": "139", "units": "mEq/L", "reference_range": "136-145", "flag": ""},
+          {"component": "Potassium", "value": "4.4", "units": "mEq/L", "reference_range": "3.5-5.0", "flag": ""},
+          {"component": "Chloride", "value": "98", "units": "mEq/L", "reference_range": "98-106", "flag": ""},
+          {"component": "CO2", "value": "28", "units": "mEq/L", "reference_range": "22-29", "flag": ""},
+          {"component": "BUN", "value": "20", "units": "mg/dL", "reference_range": "7-20", "flag": ""},
+          {"component": "Creatinine", "value": "1.1", "units": "mg/dL", "reference_range": "0.7-1.3", "flag": ""},
+          {"component": "Glucose", "value": "198", "units": "mg/dL", "reference_range": "70-100", "flag": "H"}
+        ]
+      },
+      {
+        "test_name": "BNP",
+        "collection_time": "04:00",
+        "results": [
+          {"component": "BNP", "value": "182", "units": "pg/mL", "reference_range": "0-100", "flag": "H"}
+        ]
+      },
+      {
+        "test_name": "Procalcitonin",
+        "collection_time": "04:00",
+        "results": [
+          {"component": "Procalcitonin", "value": "0.38", "units": "ng/mL", "reference_range": "0.00-0.10", "flag": "H"}
+        ]
+      },
+      {
+        "test_name": "Blood Culture x2",
+        "collection_time": "04:00",
+        "results": [
+          {"component": "Blood Culture (Aerobic) Set 1", "value": "Pending", "units": "", "reference_range": "No growth", "flag": ""},
+          {"component": "Blood Culture (Anaerobic) Set 1", "value": "Pending", "units": "", "reference_range": "No growth", "flag": ""},
+          {"component": "Blood Culture (Aerobic) Set 2", "value": "Pending", "units": "", "reference_range": "No growth", "flag": ""},
+          {"component": "Blood Culture (Anaerobic) Set 2", "value": "Pending", "units": "", "reference_range": "No growth", "flag": ""}
+        ]
+      }
+    ],
+    "imaging_results": [
+      {
+        "study": "CXR Portable AP",
+        "order_time": "04:10",
+        "result_time": "04:15",
+        "ordering_provider": "James Okafor, MD",
+        "radiologist": "Laura Chen, MD",
+        "indication": "Acute dyspnea, hypoxia, fever. Evaluate for pneumonia, effusion, or pneumothorax.",
+        "findings": "Lungs are markedly hyperinflated bilaterally consistent with known COPD. No discrete focal consolidation identified. Increased bronchovascular markings bilaterally suggesting peribronchial inflammation. No pleural effusion or pneumothorax. Heart size is normal.",
+        "impression": "Hyperinflation with increased bronchovascular markings suggesting acute bronchitis or peribronchial inflammation. No acute consolidation."
+      }
+    ],
+    "medications_administered": [
+      {"medication": "Albuterol 2.5 mg / Ipratropium 0.5 mg nebulization (continuous)", "route": "INH", "time": "03:50", "administered_by": "RN Staff", "indication": "Acute bronchospasm"},
+      {"medication": "Methylprednisolone 125 mg", "route": "IV", "time": "04:00", "administered_by": "RN Staff", "indication": "Acute COPD exacerbation with respiratory acidosis"},
+      {"medication": "Magnesium Sulfate 2 g in 100 mL NS", "route": "IV", "time": "04:30", "administered_by": "RN Staff", "indication": "Refractory bronchospasm"},
+      {"medication": "Azithromycin 500 mg", "route": "IV", "time": "05:45", "administered_by": "RN Staff", "indication": "Empiric coverage for infectious COPD exacerbation"},
+      {"medication": "Ceftriaxone 1 g", "route": "IV", "time": "05:45", "administered_by": "RN Staff", "indication": "Empiric coverage for possible community-acquired pneumonia"}
+    ],
+    "discharge_instructions": {
+      "diagnosis": "Acute COPD exacerbation with respiratory acidosis and suspected infectious etiology",
+      "follow_up": [
+        "Pulmonology inpatient follow-up during admission",
+        "Follow-up with PCP Evelyn Hart, MD within 1 week of discharge",
+        "Home health respiratory therapy reassessment upon discharge"
+      ],
+      "medications_on_discharge": [],
+      "return_precautions": [
+        "Return to ED if shortness of breath worsens",
+        "Return to ED if you are unable to maintain oxygen saturation above 88%",
+        "Return to ED if fever exceeds 101.5F",
+        "Return to ED if you experience chest pain or confusion"
+      ],
+      "disposition_detail": "Admitted as inpatient for IV methylprednisolone taper, IV antibiotics (azithromycin and ceftriaxone), continuous respiratory monitoring, and pulmonology co-management. BiPAP to continue overnight with serial ABG monitoring."
+    }
+  },
+  {
+    "record_label": "ED-04",
+    "scenario": "Hypoglycemia with Altered Mental Status",
+    "facility": "Northwind Medical Center",
+    "facility_address": "101 Northwind Plaza, Hartwell, IL 60001",
+    "patient": {
+      "name": "Martin A. Calloway",
+      "mrn": "RU-40229183",
+      "age": "69",
+      "gender": "Male",
+      "dob": "1956-08-14",
+      "insurance": "Medicare FFS",
+      "pcp": "Evelyn Hart, MD"
+    },
+    "visit": {
+      "arrival_date": "2026-03-22",
+      "arrival_time": "06:50",
+      "mode_of_arrival": "EMS",
+      "triage_esi": 2,
+      "chief_complaint": "Found unresponsive by caregiver, blood glucose 38 mg/dL per EMS",
+      "presenting_vitals": {
+        "bp": "102/58",
+        "hr": 104,
+        "rr": 16,
+        "spo2": "92% on 2L NC",
+        "temp": "97.2F",
+        "pain": "Unable to assess  --  obtunded"
+      },
+      "hpi": "69-year-old male with type 2 DM on insulin glargine 18 units nightly and metformin 500 mg BID found by caregiver at 06:15 unresponsive in bed. EMS glucose 38 mg/dL. D50 25g IV given by EMS with partial improvement  --  patient arousable but confused (GCS 12). History of COPD on home O2, polyneuropathy, recurrent falls, and depressive disorder. Caregiver reports patient did not eat dinner last night but took insulin as scheduled.",
+      "relevant_pmh": [
+        "Type 2 diabetes mellitus with polyneuropathy  --  on insulin glargine and metformin",
+        "COPD with chronic respiratory failure and hypoxia (home O2)",
+        "Essential hypertension",
+        "Recurrent falls",
+        "Depressive disorder  --  on sertraline"
+      ],
+      "ed_course": [
+        "06:50  --  Arrival via EMS, GCS 12 (E3V4M5). Repeat glucose 52 mg/dL. Second D50 25g IV administered.",
+        "07:05  --  Labs drawn: CBC, CMP, hepatic panel, troponin, TSH, cortisol, C-peptide, insulin level, lactic acid, UA.",
+        "07:15  --  Glucose improving to 94 mg/dL. Patient becoming more alert, GCS 14. Dextrose 10% drip started at 100 mL/hr.",
+        "07:30  --  CT head without contrast ordered  --  persistent confusion disproportionate to glucose correction, concern for stroke.",
+        "07:50  --  CT head negative for acute intracranial pathology.",
+        "08:00  --  Glucose 112 mg/dL on D10 drip. Patient now alert and oriented x3, GCS 15.",
+        "08:30  --  CMP: sodium 132 (low), potassium 3.4, creatinine 1.3, BUN 28. Hepatic panel normal. Cortisol 18 (adequate).",
+        "09:00  --  Glucose rechecked: 98 mg/dL. D10 continued. Endocrine consulted for recurrent hypoglycemia risk and insulin dosing.",
+        "09:30  --  Endocrine recommends insulin dose adjustment, observation with hourly glucose monitoring x6 hours.",
+        "10:00  --  Observation order placed for glucose monitoring and insulin regimen adjustment."
+      ],
+      "nursing_notes": [
+        "06:50  --  Full nursing assessment. GCS 12. Neuro checks q15 min initiated. Glucose monitoring protocol started.",
+        "07:05  --  Second D50 administered. PIV x2 in place. D10 drip initiated.",
+        "07:30  --  GCS improving to 14. Patient answering questions but slow. Glucose 94.",
+        "08:00  --  GCS 15. Patient alert, oriented x3. Glucose 112. Tolerating D10 drip.",
+        "08:30  --  Vital signs: BP 118/72, HR 88, SpO2 93% on 2L NC. Glucose 108.",
+        "09:30  --  Glucose 98. Endocrine recommendations received. Observation protocol initiated  --  hourly glucose checks."
+      ],
+      "disposition": "Observation",
+      "disposition_time": "10:00",
+      "ed_attending": "Lisa Moreau, MD",
+      "ed_attending_npi": "1234567893"
+    },
+    "lab_results": [
+      {
+        "test_name": "Glucose (POC - EMS)",
+        "collection_time": "06:35",
+        "results": [
+          {"component": "Glucose", "value": "38", "units": "mg/dL", "reference_range": "70-100", "flag": "C"}
+        ]
+      },
+      {
+        "test_name": "Glucose (POC - ED Arrival)",
+        "collection_time": "06:50",
+        "results": [
+          {"component": "Glucose", "value": "52", "units": "mg/dL", "reference_range": "70-100", "flag": "L"}
+        ]
+      },
+      {
+        "test_name": "CBC",
+        "collection_time": "07:05",
+        "results": [
+          {"component": "WBC", "value": "10.2", "units": "K/uL", "reference_range": "4.5-11.0", "flag": ""},
+          {"component": "RBC", "value": "4.28", "units": "M/uL", "reference_range": "4.50-5.90", "flag": "L"},
+          {"component": "Hemoglobin", "value": "12.6", "units": "g/dL", "reference_range": "13.5-17.5", "flag": "L"},
+          {"component": "Hematocrit", "value": "37.8", "units": "%", "reference_range": "38.0-50.0", "flag": "L"},
+          {"component": "Platelets", "value": "204", "units": "K/uL", "reference_range": "150-400", "flag": ""}
+        ]
+      },
+      {
+        "test_name": "CMP",
+        "collection_time": "07:05",
+        "results": [
+          {"component": "Sodium", "value": "132", "units": "mEq/L", "reference_range": "136-145", "flag": "L"},
+          {"component": "Potassium", "value": "3.4", "units": "mEq/L", "reference_range": "3.5-5.0", "flag": "L"},
+          {"component": "Chloride", "value": "96", "units": "mEq/L", "reference_range": "98-106", "flag": "L"},
+          {"component": "CO2", "value": "23", "units": "mEq/L", "reference_range": "22-29", "flag": ""},
+          {"component": "BUN", "value": "28", "units": "mg/dL", "reference_range": "7-20", "flag": "H"},
+          {"component": "Creatinine", "value": "1.3", "units": "mg/dL", "reference_range": "0.7-1.3", "flag": ""},
+          {"component": "Glucose", "value": "94", "units": "mg/dL", "reference_range": "70-100", "flag": ""},
+          {"component": "Calcium", "value": "8.8", "units": "mg/dL", "reference_range": "8.5-10.5", "flag": ""},
+          {"component": "AST", "value": "26", "units": "U/L", "reference_range": "10-40", "flag": ""},
+          {"component": "ALT", "value": "22", "units": "U/L", "reference_range": "7-56", "flag": ""},
+          {"component": "Alkaline Phosphatase", "value": "74", "units": "U/L", "reference_range": "44-147", "flag": ""},
+          {"component": "Total Protein", "value": "6.4", "units": "g/dL", "reference_range": "6.0-8.3", "flag": ""},
+          {"component": "Albumin", "value": "3.3", "units": "g/dL", "reference_range": "3.5-5.5", "flag": "L"},
+          {"component": "Total Bilirubin", "value": "0.8", "units": "mg/dL", "reference_range": "0.1-1.2", "flag": ""}
+        ]
+      },
+      {
+        "test_name": "Hepatic Panel",
+        "collection_time": "07:05",
+        "results": [
+          {"component": "AST", "value": "26", "units": "U/L", "reference_range": "10-40", "flag": ""},
+          {"component": "ALT", "value": "22", "units": "U/L", "reference_range": "7-56", "flag": ""},
+          {"component": "Alkaline Phosphatase", "value": "74", "units": "U/L", "reference_range": "44-147", "flag": ""},
+          {"component": "Total Bilirubin", "value": "0.8", "units": "mg/dL", "reference_range": "0.1-1.2", "flag": ""},
+          {"component": "Direct Bilirubin", "value": "0.2", "units": "mg/dL", "reference_range": "0.0-0.3", "flag": ""},
+          {"component": "GGT", "value": "38", "units": "U/L", "reference_range": "9-48", "flag": ""}
+        ]
+      },
+      {
+        "test_name": "Troponin I",
+        "collection_time": "07:05",
+        "results": [
+          {"component": "Troponin I", "value": "<0.04", "units": "ng/mL", "reference_range": "0.00-0.04", "flag": ""}
+        ]
+      },
+      {
+        "test_name": "TSH",
+        "collection_time": "07:05",
+        "results": [
+          {"component": "TSH", "value": "2.14", "units": "mIU/L", "reference_range": "0.27-4.20", "flag": ""}
+        ]
+      },
+      {
+        "test_name": "Cortisol (Random)",
+        "collection_time": "07:05",
+        "results": [
+          {"component": "Cortisol", "value": "18", "units": "mcg/dL", "reference_range": "6.2-19.4", "flag": ""}
+        ]
+      },
+      {
+        "test_name": "C-Peptide / Insulin Level",
+        "collection_time": "07:05",
+        "results": [
+          {"component": "C-Peptide", "value": "1.8", "units": "ng/mL", "reference_range": "1.1-4.4", "flag": ""},
+          {"component": "Insulin Level", "value": "18.4", "units": "uIU/mL", "reference_range": "2.6-24.9", "flag": ""}
+        ]
+      },
+      {
+        "test_name": "Lactic Acid",
+        "collection_time": "07:05",
+        "results": [
+          {"component": "Lactic Acid", "value": "1.6", "units": "mmol/L", "reference_range": "0.5-2.0", "flag": ""}
+        ]
+      }
+    ],
+    "imaging_results": [
+      {
+        "study": "CT Head without Contrast",
+        "order_time": "07:30",
+        "result_time": "07:50",
+        "ordering_provider": "Lisa Moreau, MD",
+        "radiologist": "James Whitfield, MD",
+        "indication": "Persistent altered mental status despite glucose correction. Rule out acute stroke or intracranial pathology.",
+        "findings": "No acute intracranial hemorrhage or mass effect. No acute ischemic changes. Mild age-related cortical atrophy. Chronic periventricular white matter hypodensities consistent with small vessel disease. No hydrocephalus.",
+        "impression": "No acute intracranial pathology. Chronic small vessel ischemic changes."
+      }
+    ],
+    "medications_administered": [
+      {"medication": "Dextrose 50% (D50) 25 g", "route": "IV", "time": "06:35", "administered_by": "EMS", "indication": "Severe hypoglycemia (glucose 38)"},
+      {"medication": "Dextrose 50% (D50) 25 g (second dose)", "route": "IV", "time": "06:50", "administered_by": "RN Staff", "indication": "Persistent hypoglycemia (glucose 52) with altered mental status"},
+      {"medication": "Dextrose 10% (D10) infusion at 100 mL/hr", "route": "IV", "time": "07:15", "administered_by": "RN Staff", "indication": "Maintenance dextrose to prevent rebound hypoglycemia"}
+    ],
+    "discharge_instructions": {
+      "diagnosis": "Severe hypoglycemia with altered mental status secondary to insulin glargine dose with missed meal",
+      "follow_up": [
+        "Endocrine consultation during observation stay for insulin dose adjustment",
+        "Follow-up with PCP Evelyn Hart, MD within 3 days of discharge",
+        "Home health nursing for medication and meal compliance support"
+      ],
+      "medications_on_discharge": [
+        "Insulin glargine dose to be adjusted per Endocrine recommendations",
+        "Caregiver education on hypoglycemia recognition and glucagon use"
+      ],
+      "return_precautions": [
+        "Return to ED if blood glucose falls below 70 mg/dL",
+        "Return to ED if you become confused or unresponsive",
+        "Return to ED if you experience shakiness, sweating, or palpitations that do not resolve with oral glucose",
+        "Return to ED if you are unable to eat or drink"
+      ],
+      "disposition_detail": "Admitted to Observation Unit for hourly point-of-care glucose monitoring for 6 hours with D10 infusion, insulin regimen adjustment per Endocrine, and caregiver education on hypoglycemia management."
+    }
+  },
+  {
+    "record_label": "ED-05",
+    "scenario": "Fall with Hip Pain  --  No Fracture on X-ray",
+    "facility": "Harbor Point Hospital",
+    "facility_address": "220 Harbor Point Drive, Elmbrook, IL 60002",
+    "patient": {
+      "name": "Martin A. Calloway",
+      "mrn": "RO-50331847",
+      "age": "69",
+      "gender": "Male",
+      "dob": "1956-08-14",
+      "insurance": "Medicare Advantage  --  Apex Health",
+      "pcp": "Evelyn Hart, MD"
+    },
+    "visit": {
+      "arrival_date": "2026-03-25",
+      "arrival_time": "11:00",
+      "mode_of_arrival": "Private vehicle (caregiver drove)",
+      "triage_esi": 3,
+      "chief_complaint": "Left hip pain after fall at home  --  unable to bear weight",
+      "presenting_vitals": {
+        "bp": "148/88",
+        "hr": 94,
+        "rr": 20,
+        "spo2": "91% on 2L NC (home O2)",
+        "temp": "98.2F",
+        "pain": "8/10 (left hip)"
+      },
+      "hpi": "69-year-old male with recurrent falls, COPD on home O2, type 2 DM with polyneuropathy, and deconditioning. Patient fell at home while transferring from bed to walker, landing on left hip. Unable to bear weight since fall approximately 2 hours ago. Caregiver assisted patient to car and drove to ED. No head strike, no LOC. Patient reports baseline neuropathy symptoms in bilateral feet contributing to unsteadiness. Last fall was 3 weeks prior without injury.",
+      "relevant_pmh": [
+        "Recurrent falls  --  high fall risk per home health assessment",
+        "COPD with chronic respiratory failure and hypoxia (home O2)",
+        "Type 2 diabetes mellitus with polyneuropathy",
+        "Essential hypertension",
+        "Depressive disorder",
+        "Deconditioning  --  receiving home PT/OT"
+      ],
+      "ed_course": [
+        "11:00  --  Arrival via private vehicle. Triaged ESI 3 for inability to bear weight and high fall risk.",
+        "11:15  --  Left hip and pelvis X-ray ordered. IV access obtained. IV morphine 4 mg given for pain 8/10.",
+        "11:45  --  X-ray: no acute fracture. Moderate degenerative changes. However, patient still unable to bear weight.",
+        "12:00  --  Orthopedic assessment: concern for occult hip fracture given inability to weight bear despite negative XR. MRI left hip ordered.",
+        "12:15  --  Labs: CBC, CMP, coagulation studies (PT/INR) ordered. Glucose 172.",
+        "12:30  --  IV ketorolac 15 mg given. Pain improved to 5/10.",
+        "13:30  --  MRI left hip: no occult fracture. Moderate hip joint effusion, bone marrow edema suggesting contusion.",
+        "14:00  --  PT consultation in ED for safe discharge assessment. PT reports patient unable to safely transfer or ambulate even with walker.",
+        "14:30  --  Social work consultation for home safety assessment and potential skilled nursing facility placement.",
+        "15:00  --  Discussed with PCP. Plan: discharge to home with 24-hour caregiver supervision, home PT escalation, and orthopedic follow-up in 3 days. Prescription for oral pain management."
+      ],
+      "nursing_notes": [
+        "11:00  --  Full nursing assessment. Fall risk precautions. Bed alarm placed. Home O2 continued at 2L NC.",
+        "11:15  --  IV morphine 4 mg administered. Pain reassessment in 30 min.",
+        "11:45  --  Pain reassessment: 6/10. Vitals: BP 142/84, HR 88, SpO2 92% on 2L NC.",
+        "12:30  --  IV ketorolac administered. Repositioning assistance provided.",
+        "13:00  --  Pain reassessment: 5/10. Patient comfortable but unable to move left leg without assistance.",
+        "14:00  --  PT at bedside. Assisted with transfer attempt  --  patient unable to bear weight on left.",
+        "15:00  --  Discharge planning initiated. Caregiver at bedside educated on fall precautions and pain management."
+      ],
+      "disposition": "Discharge home with caregiver",
+      "disposition_time": "15:30",
+      "ed_attending": "Avery Bennett, MD",
+      "ed_attending_npi": "1234567891"
+    },
+    "lab_results": [
+      {
+        "test_name": "CBC",
+        "collection_time": "12:15",
+        "results": [
+          {"component": "WBC", "value": "8.9", "units": "K/uL", "reference_range": "4.5-11.0", "flag": ""},
+          {"component": "RBC", "value": "4.40", "units": "M/uL", "reference_range": "4.50-5.90", "flag": "L"},
+          {"component": "Hemoglobin", "value": "13.0", "units": "g/dL", "reference_range": "13.5-17.5", "flag": "L"},
+          {"component": "Hematocrit", "value": "39.0", "units": "%", "reference_range": "38.0-50.0", "flag": ""},
+          {"component": "Platelets", "value": "210", "units": "K/uL", "reference_range": "150-400", "flag": ""}
+        ]
+      },
+      {
+        "test_name": "CMP",
+        "collection_time": "12:15",
+        "results": [
+          {"component": "Sodium", "value": "140", "units": "mEq/L", "reference_range": "136-145", "flag": ""},
+          {"component": "Potassium", "value": "4.1", "units": "mEq/L", "reference_range": "3.5-5.0", "flag": ""},
+          {"component": "Chloride", "value": "102", "units": "mEq/L", "reference_range": "98-106", "flag": ""},
+          {"component": "CO2", "value": "24", "units": "mEq/L", "reference_range": "22-29", "flag": ""},
+          {"component": "BUN", "value": "18", "units": "mg/dL", "reference_range": "7-20", "flag": ""},
+          {"component": "Creatinine", "value": "1.2", "units": "mg/dL", "reference_range": "0.7-1.3", "flag": ""},
+          {"component": "Glucose", "value": "172", "units": "mg/dL", "reference_range": "70-100", "flag": "H"}
+        ]
+      },
+      {
+        "test_name": "Coagulation Studies",
+        "collection_time": "12:15",
+        "results": [
+          {"component": "PT", "value": "13.0", "units": "seconds", "reference_range": "11.0-13.5", "flag": ""},
+          {"component": "INR", "value": "1.06", "units": "", "reference_range": "0.80-1.20", "flag": ""}
+        ]
+      }
+    ],
+    "imaging_results": [
+      {
+        "study": "XR Left Hip and Pelvis AP/Lateral",
+        "order_time": "11:15",
+        "result_time": "11:45",
+        "ordering_provider": "Avery Bennett, MD",
+        "radiologist": "Rachel Nguyen, MD",
+        "indication": "Fall with left hip pain and inability to bear weight. Rule out fracture.",
+        "findings": "No acute fracture or dislocation. Moderate degenerative changes at the left hip with joint space narrowing, subchondral sclerosis, and marginal osteophytes. Pelvis alignment is normal. No lytic or blastic lesions identified.",
+        "impression": "No acute fracture. Moderate degenerative joint disease of the left hip."
+      },
+      {
+        "study": "MRI Left Hip without Contrast",
+        "order_time": "12:00",
+        "result_time": "13:30",
+        "ordering_provider": "Avery Bennett, MD",
+        "radiologist": "David Patel, MD",
+        "indication": "Persistent inability to bear weight despite negative X-ray. Rule out occult hip fracture.",
+        "findings": "No fracture line identified on T1 or STIR sequences. Moderate joint effusion of the left hip. Bone marrow edema within the greater trochanter and intertrochanteric region consistent with bone contusion. Moderate degenerative changes with labral thinning. Surrounding soft tissues show mild edema.",
+        "impression": "No occult fracture. Bone contusion of the greater trochanter with moderate joint effusion. Degenerative changes."
+      }
+    ],
+    "medications_administered": [
+      {"medication": "Morphine Sulfate 4 mg", "route": "IV", "time": "11:15", "administered_by": "RN Staff", "indication": "Acute pain 8/10 left hip"},
+      {"medication": "Ketorolac 15 mg", "route": "IV", "time": "12:30", "administered_by": "RN Staff", "indication": "Adjunctive pain management for hip contusion"}
+    ],
+    "discharge_instructions": {
+      "diagnosis": "Left hip contusion with bone marrow edema after ground-level fall, no fracture",
+      "follow_up": [
+        "Orthopedic follow-up in 3 days for reassessment of weight-bearing status",
+        "Follow-up with PCP Evelyn Hart, MD within 1 week",
+        "Home PT/OT escalation for fall prevention and mobility training"
+      ],
+      "medications_on_discharge": [
+        "Acetaminophen 650 mg PO every 6 hours as needed for pain",
+        "Tramadol 50 mg PO every 6 hours as needed for breakthrough pain (limited supply, 10 tablets)"
+      ],
+      "return_precautions": [
+        "Return to ED if pain significantly worsens or becomes uncontrollable",
+        "Return to ED if you experience numbness or tingling in the left leg",
+        "Return to ED if you notice increasing swelling or bruising",
+        "Return to ED if you experience another fall"
+      ],
+      "disposition_detail": "Discharged home with 24-hour caregiver supervision. Home PT escalation ordered. Walker use with non-weight-bearing on left lower extremity as tolerated. Social work provided home safety checklist to caregiver."
+    }
+  },
+  {
+    "record_label": "ED-06",
+    "scenario": "Pneumonia vs COPD Exacerbation  --  Antibiotic Decision Challenged",
+    "facility": "Prairie Ridge Medical Center",
+    "facility_address": "2000 Ogden Ave, Aurora, IL 60504",
+    "patient": {
+      "name": "Martin A. Calloway",
+      "mrn": "RC-60194572",
+      "age": "69",
+      "gender": "Male",
+      "dob": "1956-08-14",
+      "insurance": "Medicare Advantage  --  SummitCare",
+      "pcp": "Evelyn Hart, MD"
+    },
+    "visit": {
+      "arrival_date": "2026-04-01",
+      "arrival_time": "19:10",
+      "mode_of_arrival": "EMS",
+      "triage_esi": 3,
+      "chief_complaint": "Worsening productive cough with fever and increased dyspnea over 48 hours",
+      "presenting_vitals": {
+        "bp": "134/78",
+        "hr": 98,
+        "rr": 24,
+        "spo2": "88% on 2L NC home O2",
+        "temp": "101.4F",
+        "pain": "3/10 (pleuritic chest pain)"
+      },
+      "hpi": "69-year-old male with COPD on home O2, recent home health respiratory therapy visits showing stable SpO2 91-93% at rest. Over the past 48 hours, developed worsening productive cough with yellow-green sputum, subjective fever, and increased dyspnea beyond baseline. Caregiver increased home O2 to 3L NC but SpO2 remained 88-89%. Home albuterol treatments provided only transient relief. No recent hospitalization or antibiotic use. Recent home health visit 2 days ago documented stable respiratory status.",
+      "relevant_pmh": [
+        "COPD with chronic respiratory failure and hypoxia (home O2 2L NC)",
+        "Type 2 diabetes mellitus with polyneuropathy",
+        "Essential hypertension",
+        "Recurrent falls",
+        "Depressive disorder"
+      ],
+      "ed_course": [
+        "19:10  --  Arrival via EMS. O2 increased to 4L NC. Triaged ESI 3.",
+        "19:20  --  CXR obtained  --  right lower lobe opacity concerning for pneumonia vs atelectasis.",
+        "19:30  --  Labs drawn: CBC, CMP, procalcitonin, blood cultures x2, sputum culture, ABG, lactate.",
+        "19:45  --  Nebulizer treatments initiated: albuterol/ipratropium. IV access established.",
+        "20:00  --  ABG: pH 7.35, pCO2 46, pO2 62. Lactate 1.8. WBC 16.4 with left shift. Procalcitonin 1.2 (elevated).",
+        "20:15  --  CT chest without contrast ordered to better characterize RLL opacity and evaluate for empyema/effusion.",
+        "20:45  --  CT chest: right lower lobe consolidation with small parapneumonic effusion. No empyema.",
+        "21:00  --  IV ceftriaxone 1g + azithromycin 500 mg IV initiated. IV methylprednisolone 80 mg for concurrent COPD exacerbation.",
+        "21:30  --  O2 requirement: now 5L NC to maintain SpO2 92%. CURB-65 score calculated: 3 (confusion absent, BUN elevated, RR >30 at triage, age >65, BP normal).",
+        "22:00  --  Pulmonology consulted. Recommend inpatient admission for IV antibiotics and respiratory monitoring.",
+        "22:30  --  Inpatient admission order placed."
+      ],
+      "nursing_notes": [
+        "19:10  --  Full nursing assessment. Respiratory distress: accessory muscle use, pursed lip breathing.",
+        "19:45  --  Nebulizer treatment administered. IV 20g placed. Blood cultures drawn from 2 sites.",
+        "20:15  --  Vitals: BP 128/76, HR 96, RR 22, SpO2 90% on 4L NC. Patient reports mild improvement in breathing.",
+        "20:45  --  CT completed. Patient returned to room. O2 maintained at 4L NC.",
+        "21:00  --  IV antibiotics and steroids administered. Patient educated on treatments.",
+        "21:30  --  O2 titrated to 5L NC per physician. SpO2 92%. Serial respiratory assessment documented.",
+        "22:00  --  Vitals stable. Patient resting. Admission orders received and acknowledged."
+      ],
+      "disposition": "Inpatient Admission",
+      "disposition_time": "22:30",
+      "ed_attending": "David Kowalski, MD",
+      "ed_attending_npi": "1234567894"
+    },
+    "lab_results": [
+      {
+        "test_name": "CBC",
+        "collection_time": "19:30",
+        "results": [
+          {"component": "WBC", "value": "16.4", "units": "K/uL", "reference_range": "4.5-11.0", "flag": "H"},
+          {"component": "RBC", "value": "4.82", "units": "M/uL", "reference_range": "4.50-5.90", "flag": ""},
+          {"component": "Hemoglobin", "value": "14.4", "units": "g/dL", "reference_range": "13.5-17.5", "flag": ""},
+          {"component": "Hematocrit", "value": "43.2", "units": "%", "reference_range": "38.0-50.0", "flag": ""},
+          {"component": "Platelets", "value": "268", "units": "K/uL", "reference_range": "150-400", "flag": ""},
+          {"component": "Neutrophils", "value": "84", "units": "%", "reference_range": "40-70", "flag": "H"},
+          {"component": "Bands", "value": "8", "units": "%", "reference_range": "0-5", "flag": "H"},
+          {"component": "Lymphocytes", "value": "6", "units": "%", "reference_range": "20-40", "flag": "L"}
+        ]
+      },
+      {
+        "test_name": "CMP",
+        "collection_time": "19:30",
+        "results": [
+          {"component": "Sodium", "value": "137", "units": "mEq/L", "reference_range": "136-145", "flag": ""},
+          {"component": "Potassium", "value": "4.2", "units": "mEq/L", "reference_range": "3.5-5.0", "flag": ""},
+          {"component": "Chloride", "value": "99", "units": "mEq/L", "reference_range": "98-106", "flag": ""},
+          {"component": "CO2", "value": "26", "units": "mEq/L", "reference_range": "22-29", "flag": ""},
+          {"component": "BUN", "value": "26", "units": "mg/dL", "reference_range": "7-20", "flag": "H"},
+          {"component": "Creatinine", "value": "1.3", "units": "mg/dL", "reference_range": "0.7-1.3", "flag": ""},
+          {"component": "Glucose", "value": "202", "units": "mg/dL", "reference_range": "70-100", "flag": "H"}
+        ]
+      },
+      {
+        "test_name": "Procalcitonin",
+        "collection_time": "19:30",
+        "results": [
+          {"component": "Procalcitonin", "value": "1.2", "units": "ng/mL", "reference_range": "0.00-0.10", "flag": "H"}
+        ]
+      },
+      {
+        "test_name": "ABG",
+        "collection_time": "19:30",
+        "results": [
+          {"component": "pH", "value": "7.35", "units": "", "reference_range": "7.35-7.45", "flag": ""},
+          {"component": "pCO2", "value": "46", "units": "mmHg", "reference_range": "35-45", "flag": "H"},
+          {"component": "pO2", "value": "62", "units": "mmHg", "reference_range": "80-100", "flag": "L"},
+          {"component": "HCO3", "value": "25", "units": "mEq/L", "reference_range": "22-26", "flag": ""},
+          {"component": "Base Excess", "value": "-0.8", "units": "mEq/L", "reference_range": "-2.0 to 2.0", "flag": ""}
+        ]
+      },
+      {
+        "test_name": "Lactic Acid",
+        "collection_time": "19:30",
+        "results": [
+          {"component": "Lactic Acid", "value": "1.8", "units": "mmol/L", "reference_range": "0.5-2.0", "flag": ""}
+        ]
+      },
+      {
+        "test_name": "Blood Culture x2",
+        "collection_time": "19:30",
+        "results": [
+          {"component": "Blood Culture (Aerobic) Set 1", "value": "Pending", "units": "", "reference_range": "No growth", "flag": ""},
+          {"component": "Blood Culture (Anaerobic) Set 1", "value": "Pending", "units": "", "reference_range": "No growth", "flag": ""},
+          {"component": "Blood Culture (Aerobic) Set 2", "value": "Pending", "units": "", "reference_range": "No growth", "flag": ""},
+          {"component": "Blood Culture (Anaerobic) Set 2", "value": "Pending", "units": "", "reference_range": "No growth", "flag": ""}
+        ]
+      },
+      {
+        "test_name": "Sputum Culture",
+        "collection_time": "19:30",
+        "results": [
+          {"component": "Sputum Culture", "value": "Pending", "units": "", "reference_range": "Normal flora", "flag": ""}
+        ]
+      }
+    ],
+    "imaging_results": [
+      {
+        "study": "CXR Portable AP",
+        "order_time": "19:15",
+        "result_time": "19:20",
+        "ordering_provider": "David Kowalski, MD",
+        "radiologist": "Sarah Kim, MD",
+        "indication": "Fever, productive cough, worsening dyspnea in COPD patient. Evaluate for pneumonia.",
+        "findings": "Right lower lobe opacity that may represent consolidation versus atelectasis. Lungs are hyperinflated bilaterally. No large pleural effusion. Heart size normal. No pneumothorax.",
+        "impression": "Right lower lobe opacity, concerning for pneumonia vs atelectasis. Recommend CT chest for further characterization if clinically indicated."
+      },
+      {
+        "study": "CT Chest without Contrast",
+        "order_time": "20:15",
+        "result_time": "20:45",
+        "ordering_provider": "David Kowalski, MD",
+        "radiologist": "David Patel, MD",
+        "indication": "Right lower lobe opacity on CXR. Evaluate for consolidation, effusion, or empyema in febrile COPD patient.",
+        "findings": "Right lower lobe consolidation with air bronchograms consistent with pneumonia. Small right-sided parapneumonic pleural effusion without loculation or enhancement to suggest empyema. Emphysematous changes bilaterally. No pulmonary mass or lymphadenopathy. Left lung clear.",
+        "impression": "Right lower lobe pneumonia with small parapneumonic effusion. No evidence of empyema. Background emphysema."
+      }
+    ],
+    "medications_administered": [
+      {"medication": "Albuterol 2.5 mg / Ipratropium 0.5 mg nebulization", "route": "INH", "time": "19:45", "administered_by": "RN Staff", "indication": "Bronchospasm and dyspnea"},
+      {"medication": "Ceftriaxone 1 g", "route": "IV", "time": "21:00", "administered_by": "RN Staff", "indication": "Community-acquired pneumonia"},
+      {"medication": "Azithromycin 500 mg", "route": "IV", "time": "21:00", "administered_by": "RN Staff", "indication": "Community-acquired pneumonia, atypical coverage"},
+      {"medication": "Methylprednisolone 80 mg", "route": "IV", "time": "21:00", "administered_by": "RN Staff", "indication": "Concurrent COPD exacerbation"}
+    ],
+    "discharge_instructions": {
+      "diagnosis": "Community-acquired pneumonia (right lower lobe) with concurrent COPD exacerbation",
+      "follow_up": [
+        "Pulmonology inpatient consultation during admission",
+        "Follow-up with PCP Evelyn Hart, MD within 1 week of discharge",
+        "Repeat CXR in 6 weeks to confirm resolution of pneumonia"
+      ],
+      "medications_on_discharge": [],
+      "return_precautions": [
+        "Return to ED if shortness of breath worsens or you cannot maintain oxygen saturation",
+        "Return to ED if fever exceeds 102F or persists beyond 72 hours on antibiotics",
+        "Return to ED if you develop chest pain or cough up blood",
+        "Return to ED if you experience confusion or excessive drowsiness"
+      ],
+      "disposition_detail": "Admitted as inpatient for IV ceftriaxone and azithromycin, IV methylprednisolone, supplemental oxygen at 5L NC, and serial respiratory assessments. Pulmonology co-management. CURB-65 score 3 supports inpatient-level care."
+    }
+  },
+  {
+    "record_label": "ED-07",
+    "scenario": "Medication-Related Bradycardia and Hypotension",
+    "facility": "Northwind Medical Center",
+    "facility_address": "101 Northwind Plaza, Hartwell, IL 60001",
+    "patient": {
+      "name": "Martin A. Calloway",
+      "mrn": "RU-40229183",
+      "age": "69",
+      "gender": "Male",
+      "dob": "1956-08-14",
+      "insurance": "Medicare Advantage  --  BlueCross BlueShield",
+      "pcp": "Evelyn Hart, MD"
+    },
+    "visit": {
+      "arrival_date": "2026-03-30",
+      "arrival_time": "16:20",
+      "mode_of_arrival": "Private vehicle (caregiver drove)",
+      "triage_esi": 3,
+      "chief_complaint": "Dizziness, lightheadedness, and near-syncope after new medication adjustment",
+      "presenting_vitals": {
+        "bp": "88/52",
+        "hr": 48,
+        "rr": 16,
+        "spo2": "92% on 2L NC",
+        "temp": "97.6F",
+        "pain": "2/10 (generalized weakness)"
+      },
+      "hpi": "69-year-old male with HTN, COPD on home O2, type 2 DM with neuropathy, and depressive disorder. Per home health physician note from 2 days ago, Lisinopril was continued at 10 mg daily. Today, caregiver reports patient has been lightheaded since morning, had one near-syncope episode standing from a chair, and has appeared 'sluggish.' HR noted to be in the 40s-50s on home pulse-ox device. Caregiver also noticed patient took a double dose of Lisinopril yesterday due to confusion about medication schedule. Gabapentin 300 mg nightly may also contribute to lethargy.",
+      "relevant_pmh": [
+        "Essential hypertension  --  on Lisinopril 10 mg daily",
+        "COPD with chronic respiratory failure and hypoxia (home O2)",
+        "Type 2 diabetes mellitus with polyneuropathy  --  on Gabapentin",
+        "Recurrent falls",
+        "Depressive disorder  --  on Sertraline"
+      ],
+      "ed_course": [
+        "16:20  --  Arrival. Triaged ESI 3 for hypotension (88/52) and bradycardia (HR 48) with near-syncope.",
+        "16:25  --  Placed on cardiac monitor. 12-lead ECG: sinus bradycardia at 46, PR interval prolonged (280 ms), no acute ischemic changes.",
+        "16:30  --  IV NS 1L bolus initiated. Labs drawn: CBC, CMP, troponin, TSH, digoxin level (to exclude), magnesium, phosphorus.",
+        "16:45  --  Glucose 78 (low-normal in setting of insulin use). Atropine 0.5 mg IV on standby (not given  --  monitoring response to fluids).",
+        "17:00  --  Post-500 mL bolus: BP 96/58, HR 52. Mild improvement.",
+        "17:30  --  Full liter infused. BP 108/66, HR 58. Patient reports improvement in lightheadedness.",
+        "17:45  --  Labs: potassium 5.1 (borderline high  --  may contribute to bradycardia with ACE-I), creatinine 1.5 (above baseline 1.2), troponin <0.04, TSH normal.",
+        "18:00  --  Pharmacy consulted for medication reconciliation. Recommendation: hold Lisinopril, reduce Gabapentin, monitor potassium.",
+        "18:30  --  Repeat vitals: BP 114/70, HR 62. Orthostatic vitals: negative. Patient ambulated safely with walker.",
+        "19:00  --  Discussed with PCP. Plan: discharge with medication adjustments, follow-up in 48 hours, home health aware.",
+        "19:30  --  Patient discharged in stable condition."
+      ],
+      "nursing_notes": [
+        "16:20  --  Full nursing assessment. Cardiac monitor applied. Fall precautions. Patient appears fatigued but oriented.",
+        "16:30  --  IV NS bolus initiated. Atropine at bedside per physician.",
+        "17:00  --  Vitals: BP 96/58, HR 52. Patient still lightheaded. Bolus ongoing.",
+        "17:30  --  Vitals: BP 108/66, HR 58. Patient reports improvement.",
+        "18:00  --  Medication reconciliation with pharmacy. Patient and caregiver educated on medication changes.",
+        "18:30  --  Ambulation trial with walker  --  patient steady, no dizziness. Orthostatic vitals negative.",
+        "19:30  --  Discharge instructions provided. Caregiver verbalized understanding of medication changes."
+      ],
+      "disposition": "Discharge home",
+      "disposition_time": "19:30",
+      "ed_attending": "Noah Mercer, MD",
+      "ed_attending_npi": "1234567890"
+    },
+    "lab_results": [
+      {
+        "test_name": "CBC",
+        "collection_time": "16:30",
+        "results": [
+          {"component": "WBC", "value": "7.6", "units": "K/uL", "reference_range": "4.5-11.0", "flag": ""},
+          {"component": "RBC", "value": "4.50", "units": "M/uL", "reference_range": "4.50-5.90", "flag": ""},
+          {"component": "Hemoglobin", "value": "13.2", "units": "g/dL", "reference_range": "13.5-17.5", "flag": "L"},
+          {"component": "Hematocrit", "value": "39.6", "units": "%", "reference_range": "38.0-50.0", "flag": ""},
+          {"component": "Platelets", "value": "228", "units": "K/uL", "reference_range": "150-400", "flag": ""}
+        ]
+      },
+      {
+        "test_name": "CMP",
+        "collection_time": "16:30",
+        "results": [
+          {"component": "Sodium", "value": "136", "units": "mEq/L", "reference_range": "136-145", "flag": ""},
+          {"component": "Potassium", "value": "5.1", "units": "mEq/L", "reference_range": "3.5-5.0", "flag": "H"},
+          {"component": "Chloride", "value": "100", "units": "mEq/L", "reference_range": "98-106", "flag": ""},
+          {"component": "CO2", "value": "24", "units": "mEq/L", "reference_range": "22-29", "flag": ""},
+          {"component": "BUN", "value": "30", "units": "mg/dL", "reference_range": "7-20", "flag": "H"},
+          {"component": "Creatinine", "value": "1.5", "units": "mg/dL", "reference_range": "0.7-1.3", "flag": "H"},
+          {"component": "Glucose", "value": "78", "units": "mg/dL", "reference_range": "70-100", "flag": ""},
+          {"component": "Calcium", "value": "9.2", "units": "mg/dL", "reference_range": "8.5-10.5", "flag": ""},
+          {"component": "Magnesium", "value": "2.0", "units": "mg/dL", "reference_range": "1.7-2.2", "flag": ""},
+          {"component": "Phosphorus", "value": "4.2", "units": "mg/dL", "reference_range": "2.5-4.5", "flag": ""}
+        ]
+      },
+      {
+        "test_name": "Troponin I",
+        "collection_time": "16:30",
+        "results": [
+          {"component": "Troponin I", "value": "<0.04", "units": "ng/mL", "reference_range": "0.00-0.04", "flag": ""}
+        ]
+      },
+      {
+        "test_name": "TSH",
+        "collection_time": "16:30",
+        "results": [
+          {"component": "TSH", "value": "1.86", "units": "mIU/L", "reference_range": "0.27-4.20", "flag": ""}
+        ]
+      },
+      {
+        "test_name": "Digoxin Level",
+        "collection_time": "16:30",
+        "results": [
+          {"component": "Digoxin", "value": "<0.2", "units": "ng/mL", "reference_range": "0.8-2.0", "flag": ""}
+        ]
+      }
+    ],
+    "imaging_results": [],
+    "medications_administered": [
+      {"medication": "Normal Saline 1000 mL bolus", "route": "IV", "time": "16:30", "administered_by": "RN Staff", "indication": "Hypotension (BP 88/52) with bradycardia"}
+    ],
+    "discharge_instructions": {
+      "diagnosis": "Symptomatic bradycardia and hypotension secondary to ACE-inhibitor toxicity with acute kidney injury and borderline hyperkalemia",
+      "follow_up": [
+        "Follow-up with PCP Evelyn Hart, MD within 48 hours for recheck of potassium and creatinine",
+        "Home health nursing visit within 24 hours for vital sign check and medication reconciliation",
+        "Cardiology referral if bradycardia persists after medication adjustment"
+      ],
+      "medications_on_discharge": [
+        "Lisinopril DISCONTINUED  --  hold until PCP reassessment",
+        "Gabapentin reduced to 200 mg nightly per pharmacy recommendation",
+        "All other home medications continued as prescribed"
+      ],
+      "return_precautions": [
+        "Return to ED if you experience fainting or loss of consciousness",
+        "Return to ED if you feel your heart beating very slowly or irregularly",
+        "Return to ED if dizziness or lightheadedness returns",
+        "Return to ED if you notice decreased urine output or dark urine",
+        "Return to ED if you develop muscle weakness or tingling"
+      ],
+      "disposition_detail": "Discharged home with caregiver after hemodynamic stabilization with IV fluids. Heart rate improved to 62 bpm and blood pressure to 114/70 after 1L NS. Orthostatic vitals negative. Ambulated safely with walker. Lisinopril held, Gabapentin dose reduced."
+    }
+  },
+  {
+    "record_label": "ED-08",
+    "scenario": "Acute Kidney Injury with Dehydration",
+    "facility": "Prairie Ridge Medical Center",
+    "facility_address": "2000 Ogden Ave, Aurora, IL 60504",
+    "patient": {
+      "name": "Martin A. Calloway",
+      "mrn": "RC-60194572",
+      "age": "69",
+      "gender": "Male",
+      "dob": "1956-08-14",
+      "insurance": "Medicare Advantage  --  Harbor Health",
+      "pcp": "Evelyn Hart, MD"
+    },
+    "visit": {
+      "arrival_date": "2026-03-27",
+      "arrival_time": "13:45",
+      "mode_of_arrival": "Private vehicle (caregiver drove)",
+      "triage_esi": 3,
+      "chief_complaint": "Decreased urine output for 2 days, generalized weakness, poor oral intake",
+      "presenting_vitals": {
+        "bp": "96/60",
+        "hr": 102,
+        "rr": 18,
+        "spo2": "93% on 2L NC",
+        "temp": "98.8F",
+        "pain": "2/10"
+      },
+      "hpi": "69-year-old male with type 2 DM, CKD (baseline Cr ~1.2), COPD on home O2, HTN on Lisinopril. Caregiver reports the patient has had significantly decreased urine output for 2 days, dark-colored urine, and decreased oral intake. Patient reports generalized weakness and mild nausea. No vomiting, no fever, no dysuria. Metformin 500 mg BID continued during this period. Home health nurse visit yesterday noted the patient appeared more fatigued than usual.",
+      "relevant_pmh": [
+        "Type 2 diabetes mellitus with polyneuropathy  --  on Metformin and Insulin glargine",
+        "COPD with chronic respiratory failure and hypoxia (home O2)",
+        "Essential hypertension  --  on Lisinopril",
+        "Recurrent falls",
+        "Depressive disorder"
+      ],
+      "ed_course": [
+        "13:45  --  Arrival. Triaged ESI 3 for oliguria, hypotension, and tachycardia.",
+        "13:55  --  IV access x2 established. Labs drawn: CBC, CMP, magnesium, phosphorus, UA, urine sodium/creatinine, lactic acid, venous blood gas.",
+        "14:00  --  IV NS 1L bolus initiated. Foley catheter placed for urine output monitoring  --  50 mL of dark amber urine obtained.",
+        "14:30  --  Labs: Creatinine 2.8 (baseline 1.2  --  acute rise), BUN 48, potassium 5.4 (high), bicarbonate 18 (low), glucose 210, lactic acid 2.4. UA: concentrated, no infection.",
+        "14:45  --  Point-of-care renal ultrasound ordered to evaluate for obstruction. ECG obtained  --  no peaked T waves but monitoring for hyperkalemia.",
+        "15:00  --  Renal US: no hydronephrosis, no obstruction. Kidneys appear normal in size. Findings consistent with prerenal AKI.",
+        "15:15  --  Metformin and Lisinopril held. IV calcium gluconate 1g given for cardioprotection given K 5.4. Kayexalate 30g PO ordered.",
+        "15:30  --  Second 1L NS bolus initiated. Insulin 10 units regular + D50 given for potassium lowering.",
+        "16:00  --  Repeat potassium: 4.8 (improving). Creatinine stable at 2.7. Urine output improving  --  120 mL in 1 hour.",
+        "16:30  --  Nephrology phone consult. Recommendation: admit for IV hydration, serial renal function, and electrolyte monitoring.",
+        "17:00  --  Inpatient admission order placed."
+      ],
+      "nursing_notes": [
+        "13:45  --  Full nursing assessment. Patient appears volume-depleted: dry mucous membranes, poor skin turgor.",
+        "14:00  --  Foley catheter inserted. Initial output 50 mL dark amber. I/O monitoring initiated.",
+        "14:30  --  IV bolus running. Vitals: BP 100/62, HR 98.",
+        "15:15  --  IV calcium gluconate infused over 10 min with cardiac monitoring. Kayexalate given PO.",
+        "15:30  --  Insulin/D50 administered for hyperkalemia. Glucose monitoring q30 min initiated.",
+        "16:00  --  Vitals: BP 110/68, HR 88. Urine output 120 mL/hr. Patient reports feeling stronger.",
+        "17:00  --  Admission orders received. I/O strict. Potassium rechecks per protocol."
+      ],
+      "disposition": "Inpatient Admission",
+      "disposition_time": "17:00",
+      "ed_attending": "David Kowalski, MD",
+      "ed_attending_npi": "1234567894"
+    },
+    "lab_results": [
+      {
+        "test_name": "CBC",
+        "collection_time": "13:55",
+        "results": [
+          {"component": "WBC", "value": "9.4", "units": "K/uL", "reference_range": "4.5-11.0", "flag": ""},
+          {"component": "RBC", "value": "4.98", "units": "M/uL", "reference_range": "4.50-5.90", "flag": ""},
+          {"component": "Hemoglobin", "value": "14.8", "units": "g/dL", "reference_range": "13.5-17.5", "flag": ""},
+          {"component": "Hematocrit", "value": "44.4", "units": "%", "reference_range": "38.0-50.0", "flag": ""},
+          {"component": "Platelets", "value": "232", "units": "K/uL", "reference_range": "150-400", "flag": ""}
+        ]
+      },
+      {
+        "test_name": "CMP",
+        "collection_time": "13:55",
+        "results": [
+          {"component": "Sodium", "value": "134", "units": "mEq/L", "reference_range": "136-145", "flag": "L"},
+          {"component": "Potassium", "value": "5.4", "units": "mEq/L", "reference_range": "3.5-5.0", "flag": "H"},
+          {"component": "Chloride", "value": "104", "units": "mEq/L", "reference_range": "98-106", "flag": ""},
+          {"component": "CO2 (Bicarbonate)", "value": "18", "units": "mEq/L", "reference_range": "22-29", "flag": "L"},
+          {"component": "BUN", "value": "48", "units": "mg/dL", "reference_range": "7-20", "flag": "H"},
+          {"component": "Creatinine", "value": "2.8", "units": "mg/dL", "reference_range": "0.7-1.3", "flag": "C"},
+          {"component": "Glucose", "value": "210", "units": "mg/dL", "reference_range": "70-100", "flag": "H"},
+          {"component": "Calcium", "value": "8.6", "units": "mg/dL", "reference_range": "8.5-10.5", "flag": ""},
+          {"component": "Magnesium", "value": "2.4", "units": "mg/dL", "reference_range": "1.7-2.2", "flag": "H"},
+          {"component": "Phosphorus", "value": "4.8", "units": "mg/dL", "reference_range": "2.5-4.5", "flag": "H"}
+        ]
+      },
+      {
+        "test_name": "Repeat Potassium",
+        "collection_time": "16:00",
+        "results": [
+          {"component": "Potassium", "value": "4.8", "units": "mEq/L", "reference_range": "3.5-5.0", "flag": ""}
+        ]
+      },
+      {
+        "test_name": "Repeat Creatinine",
+        "collection_time": "16:00",
+        "results": [
+          {"component": "Creatinine", "value": "2.7", "units": "mg/dL", "reference_range": "0.7-1.3", "flag": "C"}
+        ]
+      },
+      {
+        "test_name": "Lactic Acid",
+        "collection_time": "13:55",
+        "results": [
+          {"component": "Lactic Acid", "value": "2.4", "units": "mmol/L", "reference_range": "0.5-2.0", "flag": "H"}
+        ]
+      },
+      {
+        "test_name": "Venous Blood Gas",
+        "collection_time": "13:55",
+        "results": [
+          {"component": "pH", "value": "7.30", "units": "", "reference_range": "7.32-7.42", "flag": "L"},
+          {"component": "pCO2", "value": "36", "units": "mmHg", "reference_range": "41-51", "flag": "L"},
+          {"component": "HCO3", "value": "17", "units": "mEq/L", "reference_range": "22-26", "flag": "L"},
+          {"component": "Base Excess", "value": "-7.4", "units": "mEq/L", "reference_range": "-2.0 to 2.0", "flag": "L"}
+        ]
+      },
+      {
+        "test_name": "UA",
+        "collection_time": "14:00",
+        "results": [
+          {"component": "Color", "value": "Dark Amber", "units": "", "reference_range": "Yellow", "flag": "H"},
+          {"component": "Specific Gravity", "value": "1.032", "units": "", "reference_range": "1.005-1.030", "flag": "H"},
+          {"component": "pH", "value": "5.0", "units": "", "reference_range": "5.0-8.0", "flag": ""},
+          {"component": "Leukocyte Esterase", "value": "Negative", "units": "", "reference_range": "Negative", "flag": ""},
+          {"component": "Nitrite", "value": "Negative", "units": "", "reference_range": "Negative", "flag": ""},
+          {"component": "Blood", "value": "Trace", "units": "", "reference_range": "Negative", "flag": "H"},
+          {"component": "Protein", "value": "1+", "units": "", "reference_range": "Negative", "flag": "H"}
+        ]
+      },
+      {
+        "test_name": "Urine Electrolytes",
+        "collection_time": "14:00",
+        "results": [
+          {"component": "Urine Sodium", "value": "8", "units": "mEq/L", "reference_range": "20-200", "flag": "L"},
+          {"component": "Urine Creatinine", "value": "148", "units": "mg/dL", "reference_range": "20-300", "flag": ""},
+          {"component": "FENa (calculated)", "value": "0.4", "units": "%", "reference_range": ">1% (intrinsic); <1% (prerenal)", "flag": ""}
+        ]
+      }
+    ],
+    "imaging_results": [
+      {
+        "study": "Renal Ultrasound (Point-of-Care)",
+        "order_time": "14:45",
+        "result_time": "15:00",
+        "ordering_provider": "David Kowalski, MD",
+        "radiologist": "Laura Chen, MD",
+        "indication": "Acute kidney injury with oliguria. Evaluate for obstructive uropathy.",
+        "findings": "Right kidney measures 11.2 cm, left kidney measures 10.8 cm, both within normal limits. No hydronephrosis or hydroureter bilaterally. No calculi identified. Normal cortical echogenicity. Bladder appears decompressed (Foley in place).",
+        "impression": "No hydronephrosis or obstruction bilaterally. Normal-sized kidneys. Findings consistent with prerenal acute kidney injury."
+      }
+    ],
+    "medications_administered": [
+      {"medication": "Normal Saline 1000 mL bolus (first)", "route": "IV", "time": "14:00", "administered_by": "RN Staff", "indication": "Prerenal AKI with volume depletion and hypotension"},
+      {"medication": "Calcium Gluconate 1 g in 100 mL NS over 10 min", "route": "IV", "time": "15:15", "administered_by": "RN Staff", "indication": "Cardiac membrane stabilization for hyperkalemia (K 5.4)"},
+      {"medication": "Sodium Polystyrene Sulfonate (Kayexalate) 30 g", "route": "PO", "time": "15:15", "administered_by": "RN Staff", "indication": "Potassium lowering for hyperkalemia"},
+      {"medication": "Regular Insulin 10 units + Dextrose 50% 25 g", "route": "IV", "time": "15:30", "administered_by": "RN Staff", "indication": "Acute potassium lowering via intracellular shift"},
+      {"medication": "Normal Saline 1000 mL bolus (second)", "route": "IV", "time": "15:30", "administered_by": "RN Staff", "indication": "Continued volume resuscitation for prerenal AKI"}
+    ],
+    "discharge_instructions": {
+      "diagnosis": "Acute kidney injury (prerenal) with hyperkalemia and non-anion-gap metabolic acidosis secondary to volume depletion",
+      "follow_up": [
+        "Nephrology inpatient consultation during admission",
+        "Follow-up with PCP Evelyn Hart, MD within 3 days of discharge",
+        "Serial creatinine and potassium monitoring during admission"
+      ],
+      "medications_on_discharge": [
+        "Metformin HELD until creatinine returns to baseline",
+        "Lisinopril HELD until renal function recovers and potassium normalizes"
+      ],
+      "return_precautions": [
+        "Return to ED if urine output decreases again",
+        "Return to ED if you develop nausea, vomiting, or inability to eat or drink",
+        "Return to ED if you experience muscle weakness, heart palpitations, or chest pain",
+        "Return to ED if you develop swelling in legs or shortness of breath"
+      ],
+      "disposition_detail": "Admitted as inpatient for IV fluid resuscitation, serial renal function and electrolyte monitoring every 6 hours, strict intake/output with Foley catheter, and nephrology co-management. Nephrotoxic medications held."
+    }
+  },
+  {
+    "record_label": "ED-09",
+    "scenario": "DVT Concern with Wells Score Evaluation",
+    "facility": "Harbor Point Hospital",
+    "facility_address": "220 Harbor Point Drive, Elmbrook, IL 60002",
+    "patient": {
+      "name": "Martin A. Calloway",
+      "mrn": "RO-50331847",
+      "age": "69",
+      "gender": "Male",
+      "dob": "1956-08-14",
+      "insurance": "Medicare FFS",
+      "pcp": "Evelyn Hart, MD"
+    },
+    "visit": {
+      "arrival_date": "2026-04-03",
+      "arrival_time": "10:30",
+      "mode_of_arrival": "Private vehicle (caregiver drove)",
+      "triage_esi": 3,
+      "chief_complaint": "Left leg swelling and pain for 3 days, worsening with ambulation",
+      "presenting_vitals": {
+        "bp": "142/86",
+        "hr": 88,
+        "rr": 20,
+        "spo2": "91% on 2L NC",
+        "temp": "99.1F",
+        "pain": "5/10 (left calf)"
+      },
+      "hpi": "69-year-old male with recurrent falls, limited mobility (uses walker), COPD on home O2, type 2 DM with neuropathy. Caregiver noticed progressive left leg swelling over 3 days, with the patient reporting calf pain worsening with ambulation. Patient has had reduced mobility since recent fall. Neuropathy makes it difficult for patient to distinguish new symptoms from baseline. No chest pain, no acute dyspnea beyond baseline. Wells score risk factors: reduced mobility, age >65, leg swelling with calf pain.",
+      "relevant_pmh": [
+        "Recurrent falls with reduced mobility",
+        "COPD with chronic respiratory failure and hypoxia (home O2)",
+        "Type 2 diabetes mellitus with polyneuropathy",
+        "Essential hypertension",
+        "Depressive disorder"
+      ],
+      "ed_course": [
+        "10:30  --  Arrival. Triaged ESI 3. Left calf measured 3 cm greater than right.",
+        "10:40  --  D-dimer ordered along with CBC, CMP, coagulation studies (PT/INR/PTT).",
+        "10:50  --  Examination: left calf tenderness, pitting edema to mid-shin, positive Homans sign (low specificity but noted). No erythema suggesting cellulitis.",
+        "11:15  --  D-dimer: 2.4 mcg/mL (elevated, >0.5). Wells score calculated: 4 (DVT likely).",
+        "11:20  --  Duplex ultrasound of left lower extremity ordered stat.",
+        "11:50  --  Duplex US: acute deep vein thrombosis in left popliteal and posterior tibial veins.",
+        "12:00  --  Hematology/anticoagulation discussion. Given patient's fall risk, bleeding risk assessment performed (HAS-BLED components reviewed).",
+        "12:15  --  IV heparin bolus and drip initiated per weight-based protocol. Baseline aPTT drawn.",
+        "12:30  --  CTA chest ordered to evaluate for concurrent PE given DVT + baseline hypoxia and tachypnea.",
+        "13:00  --  CTA chest: no pulmonary embolism. Emphysematous changes consistent with known COPD.",
+        "13:15  --  Discussion with PCP and home health regarding anticoagulation monitoring plan.",
+        "13:30  --  Decision for observation admission to titrate heparin drip, monitor for PE symptoms, and plan transition to oral anticoagulation.",
+        "14:00  --  Observation order placed."
+      ],
+      "nursing_notes": [
+        "10:30  --  Full nursing assessment. Left leg elevation. Bilateral calf measurements documented.",
+        "11:00  --  Labs drawn. Compression stockings deferred per physician pending US results.",
+        "11:50  --  US completed. DVT confirmed. Patient and caregiver educated on DVT and activity restrictions.",
+        "12:15  --  Heparin drip initiated. Weight-based dosing verified. aPTT monitoring protocol started.",
+        "12:45  --  Vitals: BP 138/82, HR 84, SpO2 92% on 2L NC. Patient comfortable.",
+        "13:30  --  CTA completed. No PE. Observation admission orders received.",
+        "14:00  --  Heparin drip running. aPTT due in 4 hours. Fall precautions and activity restrictions reinforced."
+      ],
+      "disposition": "Observation",
+      "disposition_time": "14:00",
+      "ed_attending": "Avery Bennett, MD",
+      "ed_attending_npi": "1234567891"
+    },
+    "lab_results": [
+      {
+        "test_name": "D-Dimer",
+        "collection_time": "10:40",
+        "results": [
+          {"component": "D-Dimer", "value": "2.4", "units": "mcg/mL FEU", "reference_range": "0.00-0.50", "flag": "H"}
+        ]
+      },
+      {
+        "test_name": "CBC",
+        "collection_time": "10:40",
+        "results": [
+          {"component": "WBC", "value": "8.8", "units": "K/uL", "reference_range": "4.5-11.0", "flag": ""},
+          {"component": "RBC", "value": "4.44", "units": "M/uL", "reference_range": "4.50-5.90", "flag": "L"},
+          {"component": "Hemoglobin", "value": "13.1", "units": "g/dL", "reference_range": "13.5-17.5", "flag": "L"},
+          {"component": "Hematocrit", "value": "39.2", "units": "%", "reference_range": "38.0-50.0", "flag": ""},
+          {"component": "Platelets", "value": "224", "units": "K/uL", "reference_range": "150-400", "flag": ""}
+        ]
+      },
+      {
+        "test_name": "CMP",
+        "collection_time": "10:40",
+        "results": [
+          {"component": "Sodium", "value": "139", "units": "mEq/L", "reference_range": "136-145", "flag": ""},
+          {"component": "Potassium", "value": "4.3", "units": "mEq/L", "reference_range": "3.5-5.0", "flag": ""},
+          {"component": "Chloride", "value": "101", "units": "mEq/L", "reference_range": "98-106", "flag": ""},
+          {"component": "CO2", "value": "24", "units": "mEq/L", "reference_range": "22-29", "flag": ""},
+          {"component": "BUN", "value": "20", "units": "mg/dL", "reference_range": "7-20", "flag": ""},
+          {"component": "Creatinine", "value": "1.2", "units": "mg/dL", "reference_range": "0.7-1.3", "flag": ""},
+          {"component": "Glucose", "value": "164", "units": "mg/dL", "reference_range": "70-100", "flag": "H"}
+        ]
+      },
+      {
+        "test_name": "Coagulation Studies",
+        "collection_time": "10:40",
+        "results": [
+          {"component": "PT", "value": "12.4", "units": "seconds", "reference_range": "11.0-13.5", "flag": ""},
+          {"component": "INR", "value": "1.02", "units": "", "reference_range": "0.80-1.20", "flag": ""},
+          {"component": "PTT", "value": "29.4", "units": "seconds", "reference_range": "25.0-35.0", "flag": ""}
+        ]
+      },
+      {
+        "test_name": "aPTT (Baseline pre-heparin)",
+        "collection_time": "12:15",
+        "results": [
+          {"component": "aPTT", "value": "30.2", "units": "seconds", "reference_range": "25.0-35.0", "flag": ""}
+        ]
+      }
+    ],
+    "imaging_results": [
+      {
+        "study": "Duplex Ultrasound Left Lower Extremity Venous",
+        "order_time": "11:20",
+        "result_time": "11:50",
+        "ordering_provider": "Avery Bennett, MD",
+        "radiologist": "Rachel Nguyen, MD",
+        "indication": "Left leg swelling and pain with elevated D-dimer (2.4) and Wells score 4. Evaluate for deep vein thrombosis.",
+        "findings": "Non-compressible left popliteal vein with echogenic intraluminal thrombus and absent flow on spectral Doppler. Non-compressible left posterior tibial vein with intraluminal thrombus. Common femoral and superficial femoral veins are patent and compressible with normal flow. Right lower extremity veins are patent and compressible.",
+        "impression": "Acute deep vein thrombosis involving the left popliteal and left posterior tibial veins."
+      },
+      {
+        "study": "CT Angiography Chest",
+        "order_time": "12:30",
+        "result_time": "13:00",
+        "ordering_provider": "Avery Bennett, MD",
+        "radiologist": "David Patel, MD",
+        "indication": "Confirmed lower extremity DVT with baseline hypoxia and tachypnea. Rule out concurrent pulmonary embolism.",
+        "findings": "No filling defects within the main, lobar, segmental, or subsegmental pulmonary arteries. No evidence of pulmonary embolism. Emphysematous changes bilaterally consistent with known COPD. No pleural effusion. Heart size normal. No mediastinal lymphadenopathy.",
+        "impression": "No pulmonary embolism. Emphysematous changes consistent with COPD."
+      }
+    ],
+    "medications_administered": [
+      {"medication": "Heparin 80 units/kg IV bolus (weight-based)", "route": "IV", "time": "12:15", "administered_by": "RN Staff", "indication": "Acute DVT anticoagulation initiation"},
+      {"medication": "Heparin 18 units/kg/hr continuous infusion", "route": "IV", "time": "12:15", "administered_by": "RN Staff", "indication": "Acute DVT anticoagulation maintenance"}
+    ],
+    "discharge_instructions": {
+      "diagnosis": "Acute deep vein thrombosis, left popliteal and posterior tibial veins",
+      "follow_up": [
+        "Hematology/anticoagulation service consultation during observation stay",
+        "Follow-up with PCP Evelyn Hart, MD within 3 days of discharge",
+        "Anticoagulation clinic referral for INR or DOAC monitoring",
+        "Repeat duplex ultrasound in 3 months to assess clot resolution"
+      ],
+      "medications_on_discharge": [
+        "Transition from IV heparin to oral anticoagulant to be determined during observation (DOAC vs warfarin based on fall risk assessment)"
+      ],
+      "return_precautions": [
+        "Return to ED if you develop sudden shortness of breath or chest pain",
+        "Return to ED if the leg swelling worsens significantly or extends above the knee",
+        "Return to ED if you develop signs of bleeding (blood in urine, black stools, nosebleeds that won't stop)",
+        "Return to ED if you experience another fall or head injury while on blood thinners"
+      ],
+      "disposition_detail": "Admitted to Observation Unit for IV heparin drip titration with aPTT monitoring every 6 hours, PE surveillance given baseline COPD masking PE symptoms, and multidisciplinary planning for safe long-term anticoagulation in a high-fall-risk patient."
+    }
+  },
+  {
+    "record_label": "ED-10",
+    "scenario": "Altered Mental Status  --  Multifactorial Workup",
+    "facility": "Northwind Medical Center",
+    "facility_address": "101 Northwind Plaza, Hartwell, IL 60001",
+    "patient": {
+      "name": "Martin A. Calloway",
+      "mrn": "RU-40229183",
+      "age": "69",
+      "gender": "Male",
+      "dob": "1956-08-14",
+      "insurance": "Medicare Advantage  --  Meridian Health",
+      "pcp": "Evelyn Hart, MD"
+    },
+    "visit": {
+      "arrival_date": "2026-04-05",
+      "arrival_time": "22:10",
+      "mode_of_arrival": "EMS",
+      "triage_esi": 2,
+      "chief_complaint": "Acute confusion and agitation  --  not at baseline per caregiver",
+      "presenting_vitals": {
+        "bp": "168/94",
+        "hr": 106,
+        "rr": 22,
+        "spo2": "89% on 2L NC",
+        "temp": "100.8F",
+        "pain": "Unable to assess  --  agitated"
+      },
+      "hpi": "69-year-old male with COPD on home O2, type 2 DM with neuropathy, HTN, depressive disorder on Sertraline, and Gabapentin for neuropathy. Caregiver called EMS when patient became acutely confused and agitated, attempting to remove his nasal cannula and pulling at clothing. This is a significant change from his baseline  --  patient was alert and oriented at home health visit this morning. Caregiver reports patient had decreased oral intake today and appeared slightly warm. No witnessed seizure, no trauma, no medication changes. EMS noted combativeness during transport.",
+      "relevant_pmh": [
+        "COPD with chronic respiratory failure and hypoxia (home O2)",
+        "Type 2 diabetes mellitus with polyneuropathy",
+        "Essential hypertension",
+        "Depressive disorder  --  on Sertraline",
+        "Recurrent falls"
+      ],
+      "ed_course": [
+        "22:10  --  Arrival via EMS, agitated and confused. Triaged ESI 2 for AMS. O2 increased to 4L NC.",
+        "22:15  --  Point-of-care glucose: 68 mg/dL. D50 25g IV given. Continued confusion after glucose correction.",
+        "22:20  --  CT head without contrast stat  --  concern for stroke/intracranial pathology given sudden AMS.",
+        "22:25  --  Labs drawn: CBC, CMP, UA, blood cultures x2, lactic acid, ammonia, troponin, TSH, B12, RPR. VBG for CO2.",
+        "22:30  --  IV haloperidol 2 mg given for agitation impeding workup. 1:1 sitter assigned.",
+        "22:45  --  CT head: no acute intracranial pathology, no hemorrhage, no mass effect.",
+        "22:50  --  CXR obtained  --  bilateral basilar opacities, concern for aspiration or pneumonia.",
+        "23:00  --  VBG: pH 7.33, pCO2 50, pO2 55. Worsening hypercapnia. UA: positive nitrites, moderate WBCs  --  UTI.",
+        "23:15  --  Labs: WBC 18.2, lactic acid 2.6, ammonia normal, glucose now 110 (post-D50). Creatinine 1.6.",
+        "23:30  --  Assessment: multifactorial delirium  --  UTI/sepsis + hypercapnia + hypoglycemia (corrected) + possible aspiration pneumonia.",
+        "23:45  --  IV ceftriaxone 1g started. IV NS 1L bolus. O2 increased to 6L NC. BiPAP considered if hypercapnia worsens.",
+        "00:15  --  Repeat VBG: pH 7.35, pCO2 47. Slight improvement. Patient calming with haloperidol effect.",
+        "00:30  --  Pulmonology and medicine consulted. Recommend inpatient admission for sepsis workup, respiratory monitoring, and delirium management.",
+        "01:00  --  Inpatient admission order placed."
+      ],
+      "nursing_notes": [
+        "22:10  --  Full nursing assessment. Patient combative. Restraint assessment initiated per protocol. 1:1 sitter assigned.",
+        "22:15  --  D50 given for glucose 68. Patient remains agitated post-correction.",
+        "22:30  --  IV haloperidol administered. Continuous cardiac monitoring for QTc. Restraints deferred  --  sitter managing.",
+        "22:45  --  CT completed with 2-person assist. Patient returned to room.",
+        "23:00  --  Vitals: BP 158/90, HR 100, RR 22, SpO2 91% on 4L NC. Patient less agitated but disoriented.",
+        "23:45  --  IV antibiotics and fluids initiated. O2 increased to 6L NC. SpO2 93%.",
+        "00:30  --  Patient resting. Oriented to name only. Vitals: BP 142/82, HR 92, SpO2 93% on 6L NC.",
+        "01:00  --  Admission orders received. Strict I/O, neuro checks q2h, continuous monitoring."
+      ],
+      "disposition": "Inpatient Admission",
+      "disposition_time": "01:00",
+      "ed_attending": "Lisa Moreau, MD",
+      "ed_attending_npi": "1234567893"
+    },
+    "lab_results": [
+      {
+        "test_name": "Glucose (POC)",
+        "collection_time": "22:15",
+        "results": [
+          {"component": "Glucose", "value": "68", "units": "mg/dL", "reference_range": "70-100", "flag": "L"}
+        ]
+      },
+      {
+        "test_name": "Glucose (Post-D50)",
+        "collection_time": "23:15",
+        "results": [
+          {"component": "Glucose", "value": "110", "units": "mg/dL", "reference_range": "70-100", "flag": "H"}
+        ]
+      },
+      {
+        "test_name": "CBC",
+        "collection_time": "22:25",
+        "results": [
+          {"component": "WBC", "value": "18.2", "units": "K/uL", "reference_range": "4.5-11.0", "flag": "H"},
+          {"component": "RBC", "value": "4.36", "units": "M/uL", "reference_range": "4.50-5.90", "flag": "L"},
+          {"component": "Hemoglobin", "value": "12.8", "units": "g/dL", "reference_range": "13.5-17.5", "flag": "L"},
+          {"component": "Hematocrit", "value": "38.4", "units": "%", "reference_range": "38.0-50.0", "flag": ""},
+          {"component": "Platelets", "value": "246", "units": "K/uL", "reference_range": "150-400", "flag": ""},
+          {"component": "Neutrophils", "value": "86", "units": "%", "reference_range": "40-70", "flag": "H"},
+          {"component": "Bands", "value": "4", "units": "%", "reference_range": "0-5", "flag": ""},
+          {"component": "Lymphocytes", "value": "8", "units": "%", "reference_range": "20-40", "flag": "L"}
+        ]
+      },
+      {
+        "test_name": "CMP",
+        "collection_time": "22:25",
+        "results": [
+          {"component": "Sodium", "value": "135", "units": "mEq/L", "reference_range": "136-145", "flag": "L"},
+          {"component": "Potassium", "value": "4.0", "units": "mEq/L", "reference_range": "3.5-5.0", "flag": ""},
+          {"component": "Chloride", "value": "100", "units": "mEq/L", "reference_range": "98-106", "flag": ""},
+          {"component": "CO2", "value": "22", "units": "mEq/L", "reference_range": "22-29", "flag": ""},
+          {"component": "BUN", "value": "32", "units": "mg/dL", "reference_range": "7-20", "flag": "H"},
+          {"component": "Creatinine", "value": "1.6", "units": "mg/dL", "reference_range": "0.7-1.3", "flag": "H"},
+          {"component": "Glucose", "value": "110", "units": "mg/dL", "reference_range": "70-100", "flag": "H"},
+          {"component": "Calcium", "value": "8.8", "units": "mg/dL", "reference_range": "8.5-10.5", "flag": ""},
+          {"component": "AST", "value": "30", "units": "U/L", "reference_range": "10-40", "flag": ""},
+          {"component": "ALT", "value": "26", "units": "U/L", "reference_range": "7-56", "flag": ""},
+          {"component": "Albumin", "value": "3.1", "units": "g/dL", "reference_range": "3.5-5.5", "flag": "L"}
+        ]
+      },
+      {
+        "test_name": "Lactic Acid",
+        "collection_time": "22:25",
+        "results": [
+          {"component": "Lactic Acid", "value": "2.6", "units": "mmol/L", "reference_range": "0.5-2.0", "flag": "H"}
+        ]
+      },
+      {
+        "test_name": "Ammonia",
+        "collection_time": "22:25",
+        "results": [
+          {"component": "Ammonia", "value": "32", "units": "umol/L", "reference_range": "15-45", "flag": ""}
+        ]
+      },
+      {
+        "test_name": "Troponin I",
+        "collection_time": "22:25",
+        "results": [
+          {"component": "Troponin I", "value": "<0.04", "units": "ng/mL", "reference_range": "0.00-0.04", "flag": ""}
+        ]
+      },
+      {
+        "test_name": "TSH",
+        "collection_time": "22:25",
+        "results": [
+          {"component": "TSH", "value": "2.42", "units": "mIU/L", "reference_range": "0.27-4.20", "flag": ""}
+        ]
+      },
+      {
+        "test_name": "Vitamin B12",
+        "collection_time": "22:25",
+        "results": [
+          {"component": "Vitamin B12", "value": "388", "units": "pg/mL", "reference_range": "200-900", "flag": ""}
+        ]
+      },
+      {
+        "test_name": "RPR",
+        "collection_time": "22:25",
+        "results": [
+          {"component": "RPR", "value": "Non-reactive", "units": "", "reference_range": "Non-reactive", "flag": ""}
+        ]
+      },
+      {
+        "test_name": "VBG (Initial)",
+        "collection_time": "22:25",
+        "results": [
+          {"component": "pH", "value": "7.33", "units": "", "reference_range": "7.32-7.42", "flag": ""},
+          {"component": "pCO2", "value": "50", "units": "mmHg", "reference_range": "41-51", "flag": ""},
+          {"component": "pO2", "value": "55", "units": "mmHg", "reference_range": "30-50", "flag": "H"},
+          {"component": "HCO3", "value": "26", "units": "mEq/L", "reference_range": "22-26", "flag": ""}
+        ]
+      },
+      {
+        "test_name": "VBG (Repeat)",
+        "collection_time": "00:15",
+        "results": [
+          {"component": "pH", "value": "7.35", "units": "", "reference_range": "7.32-7.42", "flag": ""},
+          {"component": "pCO2", "value": "47", "units": "mmHg", "reference_range": "41-51", "flag": ""},
+          {"component": "pO2", "value": "58", "units": "mmHg", "reference_range": "30-50", "flag": "H"},
+          {"component": "HCO3", "value": "26", "units": "mEq/L", "reference_range": "22-26", "flag": ""}
+        ]
+      },
+      {
+        "test_name": "UA",
+        "collection_time": "22:25",
+        "results": [
+          {"component": "Color", "value": "Dark Yellow", "units": "", "reference_range": "Yellow", "flag": ""},
+          {"component": "Clarity", "value": "Hazy", "units": "", "reference_range": "Clear", "flag": "H"},
+          {"component": "Specific Gravity", "value": "1.025", "units": "", "reference_range": "1.005-1.030", "flag": ""},
+          {"component": "pH", "value": "6.0", "units": "", "reference_range": "5.0-8.0", "flag": ""},
+          {"component": "Leukocyte Esterase", "value": "Moderate", "units": "", "reference_range": "Negative", "flag": "H"},
+          {"component": "Nitrite", "value": "Positive", "units": "", "reference_range": "Negative", "flag": "H"},
+          {"component": "Blood", "value": "Trace", "units": "", "reference_range": "Negative", "flag": "H"},
+          {"component": "WBC (microscopic)", "value": "25-50", "units": "/HPF", "reference_range": "0-5", "flag": "H"},
+          {"component": "Bacteria", "value": "Many", "units": "", "reference_range": "None", "flag": "H"}
+        ]
+      },
+      {
+        "test_name": "Blood Culture x2",
+        "collection_time": "22:25",
+        "results": [
+          {"component": "Blood Culture (Aerobic) Set 1", "value": "Pending", "units": "", "reference_range": "No growth", "flag": ""},
+          {"component": "Blood Culture (Anaerobic) Set 1", "value": "Pending", "units": "", "reference_range": "No growth", "flag": ""},
+          {"component": "Blood Culture (Aerobic) Set 2", "value": "Pending", "units": "", "reference_range": "No growth", "flag": ""},
+          {"component": "Blood Culture (Anaerobic) Set 2", "value": "Pending", "units": "", "reference_range": "No growth", "flag": ""}
+        ]
+      }
+    ],
+    "imaging_results": [
+      {
+        "study": "CT Head without Contrast",
+        "order_time": "22:20",
+        "result_time": "22:45",
+        "ordering_provider": "Lisa Moreau, MD",
+        "radiologist": "James Whitfield, MD",
+        "indication": "Acute onset altered mental status and agitation in 69-year-old male. Rule out acute stroke, intracranial hemorrhage, or mass lesion.",
+        "findings": "No acute intracranial hemorrhage, mass, or midline shift. No acute infarct or territorial hypodensity. Mild generalized cortical atrophy. Moderate periventricular and subcortical white matter hypodensities consistent with chronic small vessel ischemic disease. No hydrocephalus. Calvarium intact.",
+        "impression": "No acute intracranial pathology. Chronic small vessel ischemic changes."
+      },
+      {
+        "study": "CXR Portable AP",
+        "order_time": "22:48",
+        "result_time": "22:50",
+        "ordering_provider": "Lisa Moreau, MD",
+        "radiologist": "James Whitfield, MD",
+        "indication": "Altered mental status with fever, hypoxia, and tachypnea. Evaluate for pneumonia or aspiration.",
+        "findings": "Bilateral basilar opacities, left greater than right, which may represent early pneumonia, atelectasis, or aspiration. Lungs are hyperinflated. No large pleural effusion. Heart size is upper limits of normal. No pneumothorax.",
+        "impression": "Bilateral basilar opacities concerning for aspiration or early pneumonia. Clinical correlation recommended."
+      }
+    ],
+    "medications_administered": [
+      {"medication": "Dextrose 50% (D50) 25 g", "route": "IV", "time": "22:15", "administered_by": "RN Staff", "indication": "Hypoglycemia (glucose 68)"},
+      {"medication": "Haloperidol 2 mg", "route": "IV", "time": "22:30", "administered_by": "RN Staff", "indication": "Acute agitation impeding diagnostic workup"},
+      {"medication": "Ceftriaxone 1 g", "route": "IV", "time": "23:45", "administered_by": "RN Staff", "indication": "UTI with sepsis (WBC 18.2, lactate 2.6) and possible aspiration pneumonia"},
+      {"medication": "Normal Saline 1000 mL bolus", "route": "IV", "time": "23:45", "administered_by": "RN Staff", "indication": "Volume resuscitation for sepsis"}
+    ],
+    "discharge_instructions": {
+      "diagnosis": "Multifactorial delirium secondary to urinary tract infection with sepsis, acute hypercapnic respiratory failure, corrected hypoglycemia, and possible aspiration pneumonia",
+      "follow_up": [
+        "Pulmonology and Internal Medicine inpatient consultation during admission",
+        "Follow-up with PCP Evelyn Hart, MD within 1 week of discharge",
+        "Home health reassessment upon discharge for medication management and caregiver support"
+      ],
+      "medications_on_discharge": [],
+      "return_precautions": [
+        "Return to ED if confusion or agitation recurs or worsens",
+        "Return to ED if fever returns or exceeds 101.5F",
+        "Return to ED if breathing difficulty worsens",
+        "Return to ED if patient becomes unresponsive or has a seizure"
+      ],
+      "disposition_detail": "Admitted as inpatient for IV antibiotics for UTI/urosepsis, sepsis bundle monitoring with serial lactate, respiratory monitoring with supplemental O2 at 6L NC and BiPAP on standby, delirium management with neuro checks every 2 hours, and strict intake/output monitoring. 1:1 sitter continued."
+    }
+  }
+]
