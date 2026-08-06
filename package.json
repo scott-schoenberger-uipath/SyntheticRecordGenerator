@@ -1,0 +1,14 @@
+{
+  "name": "synthetic-record-generator",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Template-driven synthetic medical packet renderer with pdfme bridge",
+  "type": "module",
+  "scripts": {
+    "pdfme-bridge": "node synthetic_engine/renderers/pdfme_bridge.mjs"
+  },
+  "dependencies": {
+    "@pdfme/generator": "^5.4.0",
+    "@pdfme/schemas": "^5.4.0"
+  }
+}

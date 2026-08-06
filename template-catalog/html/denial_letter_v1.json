@@ -1,0 +1,15 @@
+{
+  "title": "Denial Letter",
+  "blocks": [
+    {
+      "kind": "kv",
+      "title": "Decision Metadata",
+      "source": "meta_pairs"
+    },
+    {
+      "kind": "bullets",
+      "title": "Denial Rationale",
+      "source": "reasons"
+    }
+  ]
+}

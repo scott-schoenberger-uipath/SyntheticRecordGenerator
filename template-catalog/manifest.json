@@ -1,0 +1,150 @@
+{
+  "version": 1,
+  "description": "Template catalog for canonical-data-driven synthetic packet generation.",
+  "templates": [
+    {
+      "template_id": "registration_face_sheet_v1",
+      "family": "registration_face_sheet",
+      "renderer": "pdfmeRenderer",
+      "path": "pdfme/registration_face_sheet_v1.json",
+      "description": "Fixed-layout registration and demographic intake page",
+      "default": true
+    },
+    {
+      "template_id": "history_and_physical_v1",
+      "family": "history_and_physical",
+      "renderer": "htmlPdfRenderer",
+      "path": "html/history_and_physical_v1.json",
+      "description": "Narrative admission H&P",
+      "default": true
+    },
+    {
+      "template_id": "discharge_summary_v1",
+      "family": "discharge_summary",
+      "renderer": "htmlPdfRenderer",
+      "path": "html/discharge_summary_v1.json",
+      "description": "Narrative discharge summary",
+      "default": true
+    },
+    {
+      "template_id": "lab_result_page_v1",
+      "family": "lab_result_page",
+      "renderer": "pdfmeRenderer",
+      "path": "pdfme/lab_result_page_v1.json",
+      "description": "Fixed-layout lab trend table",
+      "default": true
+    },
+    {
+      "template_id": "radiology_report_v1",
+      "family": "radiology_report",
+      "renderer": "htmlPdfRenderer",
+      "path": "html/radiology_report_v1.json",
+      "description": "Radiology interpretation report",
+      "default": true
+    },
+    {
+      "template_id": "operative_report_v1",
+      "family": "operative_report",
+      "renderer": "htmlPdfRenderer",
+      "path": "html/operative_report_v1.json",
+      "description": "Operative report",
+      "default": true
+    },
+    {
+      "template_id": "pathology_report_v1",
+      "family": "pathology_report",
+      "renderer": "htmlPdfRenderer",
+      "path": "html/pathology_report_v1.json",
+      "description": "Pathology report",
+      "default": true
+    },
+    {
+      "template_id": "handwritten_progress_note_v1",
+      "family": "handwritten_progress_note",
+      "renderer": "overlayRenderer",
+      "path": "overlay/handwritten_progress_note_v1.json",
+      "description": "Imported/scanned handwritten progress note",
+      "default": true
+    },
+    {
+      "template_id": "anesthesia_or_record_v1",
+      "family": "anesthesia_or_record",
+      "renderer": "overlayRenderer",
+      "path": "overlay/anesthesia_or_record_v1.json",
+      "description": "Scanned anesthesia OR record",
+      "default": true
+    },
+    {
+      "template_id": "mar_v1",
+      "family": "mar",
+      "renderer": "pdfmeRenderer",
+      "path": "pdfme/mar_v1.json",
+      "description": "Medication administration record table",
+      "default": true
+    },
+    {
+      "template_id": "prior_authorization_request_v1",
+      "family": "prior_authorization_request",
+      "renderer": "htmlPdfRenderer",
+      "path": "html/prior_authorization_request_v1.json",
+      "description": "Prior authorization request letter/report",
+      "default": true
+    },
+    {
+      "template_id": "appeal_letter_v1",
+      "family": "appeal_letter",
+      "renderer": "htmlPdfRenderer",
+      "path": "html/appeal_letter_v1.json",
+      "description": "Appeal letter",
+      "default": true
+    },
+    {
+      "template_id": "denial_letter_v1",
+      "family": "denial_letter",
+      "renderer": "htmlPdfRenderer",
+      "path": "html/denial_letter_v1.json",
+      "description": "Payer denial letter",
+      "default": true
+    }
+  ],
+  "profiles": {
+    "provider_packet_full": [
+      "registration_face_sheet",
+      "history_and_physical",
+      "lab_result_page",
+      "radiology_report",
+      "operative_report",
+      "pathology_report",
+      "handwritten_progress_note",
+      "anesthesia_or_record",
+      "mar",
+      "discharge_summary"
+    ],
+    "appeal_packet_full": [
+      "registration_face_sheet",
+      "history_and_physical",
+      "lab_result_page",
+      "radiology_report",
+      "handwritten_progress_note",
+      "prior_authorization_request",
+      "denial_letter",
+      "appeal_letter",
+      "discharge_summary"
+    ],
+    "multimodal_full": [
+      "registration_face_sheet",
+      "history_and_physical",
+      "lab_result_page",
+      "radiology_report",
+      "operative_report",
+      "pathology_report",
+      "handwritten_progress_note",
+      "anesthesia_or_record",
+      "mar",
+      "prior_authorization_request",
+      "denial_letter",
+      "appeal_letter",
+      "discharge_summary"
+    ]
+  }
+}

@@ -10,6 +10,25 @@ output/
 Provider Synthetic Records/
 Payer Synthetic Records/
 Appeal Synthetic Records/
+Template Driven Synthetic Records/
+Care-at-Home Multipart Claim Packets*/
+Care-at-Home Synthetic Records/
+ED Downgrade Appeal Synthetic Records/
+ED Downgrade Long Synthetic Record/
+ED Downgrade Webinar/
+Longitudinal Oncological Synthetic Records/
+Multipart Claim and Appeal Packets*/
+Root Cause Analysis/
+Showcase Synthetic Records/
+audit - hospital clinical documentation compliance/
 
 # Local preview/test artifacts
 *.qlpreview
+node_modules/
+
+# Optional handwriting assets (keep instructions, not generated assets)
+handwriting_assets/*
+!handwriting_assets/README.md
+
+# Local synthetic-layout experiments are never source templates.
+template-catalog/local-bootstrap/

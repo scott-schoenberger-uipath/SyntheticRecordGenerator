@@ -1,0 +1,20 @@
+{
+  "title": "Operative Report",
+  "blocks": [
+    {
+      "kind": "kv",
+      "title": "Procedure Metadata",
+      "source": "meta_pairs"
+    },
+    {
+      "kind": "bullets",
+      "title": "Operative Findings",
+      "source": "findings"
+    },
+    {
+      "kind": "paragraph",
+      "title": "Complications",
+      "source": "complications"
+    }
+  ]
+}

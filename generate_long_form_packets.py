@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import json
 import os
+import random
 import shutil
 import subprocess
 import sys
@@ -30,6 +31,7 @@ from generate_synthetic_patient_pdf import (
 WORKSPACE_ROOT = Path(__file__).resolve().parent
 SCAN_VENV_PYTHON = WORKSPACE_ROOT / ".venv-scan" / "bin" / "python3.11"
 SCAN_CLI = WORKSPACE_ROOT / ".venv-scan" / "bin" / "scanner"
+DEFAULT_HANDWRITING_ASSET_DIR = WORKSPACE_ROOT / "handwriting_assets"
 
 
 def maybe_reexec_in_scan_env() -> None:
@@ -53,12 +55,228 @@ def maybe_reexec_in_scan_env() -> None:
     )
 
 
+def env_enabled(name: str, default: bool = False) -> bool:
+    val = os.environ.get(name)
+    if val is None:
+        return default
+    return val.strip().lower() in {"1", "true", "yes", "y", "on"}
+
+
+def env_int(name: str, default: int) -> int:
+    raw = os.environ.get(name)
+    if raw is None:
+        return default
+    try:
+        return int(raw)
+    except ValueError:
+        return default
+
+
+def handwriting_enabled() -> bool:
+    return env_enabled("SYNTHREC_ENABLE_HANDWRITING", default=False)
+
+
+def handwriting_asset_dir() -> Path:
+    override = os.environ.get("SYNTHREC_HANDWRITING_ASSET_DIR")
+    if override:
+        return Path(override).expanduser()
+    return DEFAULT_HANDWRITING_ASSET_DIR
+
+
+def mark_handwriting_target(doc: PDFDocument, page_num: int, handwritten: bool) -> None:
+    if not handwritten:
+        return
+    targets = getattr(doc, "_handwriting_targets", None)
+    if isinstance(targets, list):
+        targets.append(page_num)
+
+
 def mark_scan_target(doc: PDFDocument, page_num: int, scanned: bool) -> None:
     if not scanned:
         return
     targets = getattr(doc, "_scan_targets", None)
     if isinstance(targets, list):
         targets.append(page_num)
+    # Imported/faxed pages are the default candidates for optional handwriting.
+    mark_handwriting_target(doc, page_num, handwritten=True)
+
+
+def choose_overlay_pages(candidates: Sequence[int], max_overlays: int) -> List[int]:
+    selected = sorted({p for p in candidates if p > 0})
+    if not selected:
+        return []
+    if max_overlays <= 0 or len(selected) <= max_overlays:
+        return selected
+    step = max(1, len(selected) // max_overlays)
+    out = selected[::step][:max_overlays]
+    if selected[-1] not in out and len(out) < max_overlays:
+        out.append(selected[-1])
+    return out
+
+
+def resolve_handwriting_assets(tmp_root: Path) -> List[Path]:
+    assets_root = handwriting_asset_dir()
+    if not assets_root.exists():
+        return []
+
+    image_assets = sorted(
+        [
+            p
+            for p in assets_root.rglob("*")
+            if p.suffix.lower() in {".png", ".jpg", ".jpeg", ".webp", ".tif", ".tiff"}
+            and "_tmp_svg" not in p.parts
+            and not p.name.endswith(".svg.png")
+        ]
+    )
+    preferred = [p for p in image_assets if p.name.startswith("asset_")]
+    if preferred:
+        # Prefer explicit generated handwriting assets and skip SVG conversion fallback.
+        return preferred
+    svg_assets = sorted([p for p in assets_root.rglob("*.svg")])
+    if image_assets:
+        return image_assets
+    if not svg_assets:
+        return image_assets
+
+    try:
+        import cairosvg  # type: ignore[import-not-found]
+    except ImportError:
+        return image_assets
+
+    converted: List[Path] = []
+    for svg_path in svg_assets:
+        out_png = tmp_root / f"{svg_path.stem}.png"
+        try:
+            cairosvg.svg2png(url=str(svg_path), write_to=str(out_png))
+        except Exception:
+            continue
+        converted.append(out_png)
+    return image_assets + converted
+
+
+def overlay_box(
+    page_w: float,
+    page_h: float,
+    asset_w: int,
+    asset_h: int,
+    *,
+    page_num: int,
+    slot_idx: int,
+) -> Tuple[float, float, float, float, float]:
+    rng = random.Random(page_num * 9973 + slot_idx * 479)
+    margin = 30.0
+    base_w = page_w * (0.28 + rng.random() * 0.10)
+    target_w = max(170.0, min(300.0, base_w))
+    ratio = (asset_h / max(asset_w, 1))
+    target_h = max(26.0, min(96.0, target_w * ratio))
+
+    anchor = slot_idx % 4
+    if anchor == 0:  # mid-right
+        x = page_w - margin - target_w
+        y = page_h * 0.50 + rng.uniform(-18, 12)
+    elif anchor == 1:  # mid-left
+        x = margin
+        y = page_h * 0.44 + rng.uniform(-18, 12)
+    elif anchor == 2:  # lower-right
+        x = page_w - margin - target_w
+        y = page_h * 0.26 + rng.uniform(-12, 10)
+    else:  # lower-left
+        x = margin
+        y = page_h * 0.20 + rng.uniform(-10, 8)
+
+    x += rng.uniform(-8, 8)
+    y += rng.uniform(-6, 6)
+    x = max(margin, min(page_w - margin - target_w, x))
+    y = max(40, min(page_h - 80 - target_h, y))
+    angle = rng.uniform(-3.2, 3.2)
+    return x, y, target_w, target_h, angle
+
+
+def apply_optional_handwriting_overlays(
+    source_pdf: Path,
+    final_pdf: Path,
+    handwriting_targets: Sequence[int],
+) -> None:
+    if not handwriting_enabled():
+        shutil.move(str(source_pdf), str(final_pdf))
+        return
+
+    try:
+        from pypdf import PdfReader, PdfWriter
+    except ImportError:
+        shutil.move(str(source_pdf), str(final_pdf))
+        return
+
+    try:
+        from PIL import Image
+        from reportlab.pdfgen import canvas as rl_canvas
+    except ImportError:
+        shutil.move(str(source_pdf), str(final_pdf))
+        return
+
+    with tempfile.TemporaryDirectory(prefix="synthetic-handwriting-") as tmp_dir:
+        tmp_root = Path(tmp_dir)
+        assets = resolve_handwriting_assets(tmp_root)
+        if not assets:
+            shutil.move(str(source_pdf), str(final_pdf))
+            return
+
+        dims: Dict[Path, Tuple[int, int]] = {}
+        valid_assets: List[Path] = []
+        for asset in assets:
+            try:
+                with Image.open(asset) as img:
+                    dims[asset] = img.size
+            except Exception:
+                continue
+            valid_assets.append(asset)
+
+        if not valid_assets:
+            shutil.move(str(source_pdf), str(final_pdf))
+            return
+
+        reader = PdfReader(str(source_pdf))
+        pages = choose_overlay_pages(
+            handwriting_targets,
+            max_overlays=max(1, env_int("SYNTHREC_HANDWRITING_MAX_OVERLAYS", 8)),
+        )
+        pages = [p for p in pages if p <= len(reader.pages)]
+        if not pages:
+            shutil.move(str(source_pdf), str(final_pdf))
+            return
+
+        writer = PdfWriter()
+        page_set = set(pages)
+        overlay_slot = 0
+        for idx, page in enumerate(reader.pages, start=1):
+            if idx in page_set:
+                asset = valid_assets[overlay_slot % len(valid_assets)]
+                overlay_slot += 1
+                aw, ah = dims[asset]
+                page_w = float(page.mediabox.width)
+                page_h = float(page.mediabox.height)
+                x, y, w, h, angle = overlay_box(page_w, page_h, aw, ah, page_num=idx, slot_idx=idx)
+
+                stamp_pdf = tmp_root / f"hw_stamp_{idx:03d}.pdf"
+                c = rl_canvas.Canvas(str(stamp_pdf), pagesize=(page_w, page_h))
+                c.saveState()
+                c.translate(x + w / 2.0, y + h / 2.0)
+                c.rotate(angle)
+                c.translate(-w / 2.0, -h / 2.0)
+                c.drawImage(str(asset), 0, 0, width=w, height=h, preserveAspectRatio=True, mask="auto")
+                c.restoreState()
+                c.showPage()
+                c.save()
+
+                stamp_reader = PdfReader(str(stamp_pdf))
+                if stamp_reader.pages:
+                    page.merge_page(stamp_reader.pages[0])
+            writer.add_page(page)
+
+        with final_pdf.open("wb") as f:
+            writer.write(f)
+
+    source_pdf.unlink(missing_ok=True)
 
 
 def apply_selective_scanned_pages(source_pdf: Path, final_pdf: Path, scan_targets: Sequence[int]) -> None:
@@ -147,9 +365,15 @@ def apply_selective_scanned_pages(source_pdf: Path, final_pdf: Path, scan_target
 
 
 def save_packet_pdf(doc: PDFDocument, out_pdf: Path) -> None:
-    temp_pdf = out_pdf.with_suffix(".vector.tmp.pdf")
-    doc.save(str(temp_pdf))
-    apply_selective_scanned_pages(temp_pdf, out_pdf, getattr(doc, "_scan_targets", []))
+    temp_vector = out_pdf.with_suffix(".vector.tmp.pdf")
+    temp_handwritten = out_pdf.with_suffix(".handwritten.tmp.pdf")
+    doc.save(str(temp_vector))
+    apply_optional_handwriting_overlays(
+        temp_vector,
+        temp_handwritten,
+        getattr(doc, "_handwriting_targets", []),
+    )
+    apply_selective_scanned_pages(temp_handwritten, out_pdf, getattr(doc, "_scan_targets", []))
 
 
 def draw_table_checked(
@@ -468,6 +692,7 @@ def build_provider_packet(rec: Dict[str, object], out_pdf: Path, out_json: Path)
     patient = rec["patient"]  # type: ignore[index]
     doc = PDFDocument()
     doc._scan_targets = []
+    doc._handwriting_targets = []
     page_num = 1
     target_pages = {"A": 90, "B": 96, "C": 88}[str(rec["record_label"])]
     header = provider_base_header(rec)
@@ -991,6 +1216,7 @@ def build_payer_packet(rec: Dict[str, object], out_pdf: Path, out_json: Path) ->
     member = rec["member"]  # type: ignore[index]
     doc = PDFDocument()
     doc._scan_targets = []
+    doc._handwriting_targets = []
     page_num = 1
     target_pages = {"A": 88, "B": 92, "C": 84}[str(rec["record_label"])]
     header = payer_base_header(rec)
