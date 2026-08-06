@@ -77,6 +77,16 @@ npm install
 
 Without them, the catalog renderer falls back to the built-in PDF layout path.
 
+## Agent-callable functions
+
+The project exposes three typed UiPath Functions in addition to the existing bundle wrapper:
+
+- `generate_record_packet` — accepts a fully specified synthetic record payload and returns one packet PDF plus a manifest.
+- `generate_medical_policy` — accepts a fully specified fictional policy payload and returns one policy PDF plus a manifest.
+- `generate_catalog_packet` — accepts a seeded scenario, profile or document-family list, packet ordering, and scan/handwriting options.
+
+All three functions enforce synthetic-only output. Record packets are capped at 25 source documents; illustrative imaging is disabled unless explicitly requested with a reason and is limited to one clearly labeled panel. The functions are declared in `uipath.json`; run `uipath init` after changing the typed contracts to regenerate `entry-points.json` for the target UiPath runtime.
+
 ## UiPath and compatibility generators
 
 `main.py` is a deterministic, file-generation wrapper that selects bundle families from one input payload and writes a manifest-friendly result under an explicit output root.

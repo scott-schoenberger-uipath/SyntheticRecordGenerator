@@ -1,4 +1,11 @@
 .DS_Store
+.env
+.agent/
+.claude/
+.uipath/
+AGENTS.md
+CLAUDE.md
+*.mermaid
 __pycache__/
 *.pyc
 *.pyo

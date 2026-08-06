@@ -7,6 +7,10 @@ requires-python = ">=3.11"
 authors = [{ name = "UiPath HLS SE" }]
 dependencies = [
   "pydantic>=2.7,<3",
+  "reportlab>=4.4,<5",
+  "pypdf>=6.0,<7",
+  "pypdfium2>=5.5,<6",
+  "Pillow>=11.0,<13",
   "uipath>=2.0.66"
 ]
 
