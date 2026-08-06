@@ -132,7 +132,7 @@ def generate_policy(spec: Mapping[str, Any], output_pdf: Path) -> dict[str, Any]
         raise SpecValidationError("sections must contain at least one section")
 
     output_pdf.parent.mkdir(parents=True, exist_ok=True)
-    canvas = Canvas(str(output_pdf), pagesize=letter, pageCompression=1)
+    canvas = Canvas(str(output_pdf), pagesize=letter, pageCompression=1, invariant=1)
     canvas.setTitle(text(policy.get("title"), "Illustrative Synthetic Policy"))
     canvas.setAuthor("SyntheticRecordGenerator")
     page_number = 1

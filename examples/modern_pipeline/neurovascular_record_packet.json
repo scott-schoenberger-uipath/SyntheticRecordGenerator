@@ -21,11 +21,87 @@
     "id": "ENC-SYN-260806-17",
     "setting": "Lumen Harbor Medical Center / Emergency to Observation"
   },
+  "packet": {
+    "document_order": "received_order",
+    "description": "Deliberately mixed inbound packet. Packet position is not a clinical chronology."
+  },
+  "rendering": {
+    "allow_illustrative_imaging": true,
+    "illustrative_imaging_reason": "This is an imaging-centered neurovascular test packet; one labeled demonstration panel is needed to exercise image detection.",
+    "max_illustrative_image_panels": 1
+  },
   "documents": [
     {
-      "type": "ehr_result",
+      "type": "laboratory_result",
+      "title": "Emergency Department Laboratory Results",
+      "status": "Final / late interface import",
+      "clinical_datetime": "2026-08-06 14:10",
+      "filed_datetime": "2026-08-06 17:21",
+      "source_state": "Final result received after later clinical notes",
+      "record_flags": [
+        "Inbound order is not chronological",
+        "Only selected laboratory components are present"
+      ],
+      "details": [
+        {"label": "Collection", "value": "2026-08-06 14:10"},
+        {"label": "Specimen", "value": "Blood (fictional)"},
+        {"label": "Ordering context", "value": "Emergency evaluation"},
+        {"label": "Result status", "value": "Final synthetic interface result"}
+      ],
+      "result_rows": [
+        {"test": "Sodium", "result": "140", "units": "mmol/L", "reference": "135-145", "flag": "Normal"},
+        {"test": "Creatinine", "result": "0.8", "units": "mg/dL", "reference": "0.6-1.2", "flag": "Normal"},
+        {"test": "Platelets", "result": "248", "units": "x10^9/L", "reference": "150-400", "flag": "Normal"}
+      ],
+      "sections": [
+        {
+          "heading": "Interface note",
+          "paragraphs": [
+            "This selective laboratory page is fictional and intentionally arrives ahead of its associated orders and notes to model an imperfect inbound packet."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "nursing_note",
+      "title": "Emergency Nursing Progress Note",
+      "status": "Transcribed / duplicate copy",
+      "clinical_datetime": "2026-08-06 15:06",
+      "filed_datetime": "2026-08-06 17:48",
+      "source_state": "Unsigned transcribed copy",
+      "record_flags": [
+        "Possible duplicate of later signed nursing documentation",
+        "Time filed is later than specialist consultation"
+      ],
+      "details": [
+        {"label": "Care area", "value": "Emergency department observation"},
+        {"label": "Author role", "value": "Registered nurse (fictional)"},
+        {"label": "Note state", "value": "Unsigned transcribed copy"}
+      ],
+      "sections": [
+        {
+          "heading": "Observation note",
+          "paragraphs": [
+            "Fictional nursing documentation: patient was awake, communicating, and awaiting imaging review. This language exists only to demonstrate a nursing-note page type."
+          ]
+        },
+        {
+          "heading": "Care coordination",
+          "items": [
+            {"label": "Notification", "value": "Provider notified of finalized fictional result"},
+            {"label": "Disposition", "value": "Observation workflow continued"},
+            {"label": "Reconciliation", "value": "Duplicate status not resolved in supplied packet"}
+          ]
+        }
+      ]
+    },
+    {
+      "type": "diagnostic_result",
       "title": "CTA Head and Neck With IV Contrast",
       "status": "Final result",
+      "clinical_datetime": "2026-08-06 14:25",
+      "filed_datetime": "2026-08-06 14:46",
+      "source_state": "Direct interface result",
       "charges": [
         {
           "line": "SYN-42017",
@@ -73,6 +149,13 @@
       "type": "imaging_viewer_reference",
       "title": "Illustrative Vascular Imaging Panel",
       "status": "Demo attachment",
+      "clinical_datetime": "2026-08-06 14:25",
+      "filed_datetime": "2026-08-06 17:33",
+      "source_state": "Requested illustrative raster attachment",
+      "record_flags": [
+        "Not source imaging or DICOM",
+        "Included only because this is an imaging-centered test packet"
+      ],
       "details": [
         {"label": "Viewer status", "value": "Illustrative synthetic raster panel"},
         {"label": "Source", "value": "Generated non-diagnostic visual asset"},
@@ -94,9 +177,82 @@
       ]
     },
     {
-      "type": "ehr_result",
+      "type": "scanned_referral",
+      "title": "Outside Facility Referral Summary",
+      "status": "Imported / scanned",
+      "scanned": true,
+      "clinical_datetime": "2026-08-04 11:15",
+      "filed_datetime": "2026-08-06 16:11",
+      "source_state": "Outside-facility fax with handwritten annotation",
+      "record_flags": [
+        "Low-quality fax source",
+        "Medication and allergy extract is incomplete"
+      ],
+      "details": [
+        {"label": "Source", "value": "Fictional outside clinic fax"},
+        {"label": "Received", "value": "2026-08-06 16:11"},
+        {"label": "Source quality", "value": "Soft-scanned simulation"}
+      ],
+      "sections": [
+        {
+          "heading": "Referral statement",
+          "paragraphs": [
+            "Please review this fictional imaging result and advise whether a nonurgent specialty appointment is appropriate. No real patient information is represented."
+          ]
+        },
+        {
+          "heading": "Medication and allergy extract",
+          "items": [
+            {"label": "Medication", "value": "Example antihypertensive listed as current"},
+            {"label": "Allergy", "value": "No medication allergies documented in this fictional referral"}
+          ]
+        }
+      ],
+      "annotations": [
+        {"asset": "synthetic_document_pipelines/assets/handwriting/synthetic_handwritten_referral_ink.png", "x": 72, "y": 86, "width": 450, "angle": -1},
+        {"text": "fax copy", "x": 76, "y": 72, "angle": 2, "size": 10}
+      ]
+    },
+    {
+      "type": "admission_note",
+      "title": "Observation Admission History and Physical",
+      "status": "Signed after encounter",
+      "clinical_datetime": "2026-08-06 13:20",
+      "filed_datetime": "2026-08-06 18:02",
+      "source_state": "Late-filed physician admission note",
+      "record_flags": [
+        "Filed after results and consultation",
+        "History section is abbreviated"
+      ],
+      "details": [
+        {"label": "Admitting service", "value": "Observation medicine (fictional)"},
+        {"label": "Admission status", "value": "Observation"},
+        {"label": "Attending", "value": "J. Rowan, MD (fictional)"}
+      ],
+      "sections": [
+        {
+          "heading": "Reason for observation",
+          "paragraphs": [
+            "Fictional observation admission for evaluation of sudden headache and a subsequently reported vascular finding. The clinical scenario is synthetic and has no real-person content."
+          ]
+        },
+        {
+          "heading": "Initial plan",
+          "items": [
+            {"label": "Monitoring", "value": "Fictional neurologic observation workflow"},
+            {"label": "Records", "value": "Review available imaging report and outside referral"},
+            {"label": "Disposition", "value": "Dependent on fictional specialist review"}
+          ]
+        }
+      ]
+    },
+    {
+      "type": "specialty_consult",
       "title": "Neurovascular Consultation Summary",
       "status": "Final note",
+      "clinical_datetime": "2026-08-06 15:42",
+      "filed_datetime": "2026-08-06 16:02",
+      "source_state": "Signed consultant note",
       "details": [
         {"label": "Service", "value": "Neurovascular Surgery (fictional)"},
         {"label": "Consult date", "value": "2026-08-06"},
@@ -124,36 +280,6 @@
             "This page uses generic EHR-inspired information architecture: patient banner, final-result status, operational details, and result-care workflow. It does not reproduce a vendor UI, logo, or proprietary template."
           ]
         }
-      ]
-    },
-    {
-      "type": "scanned_note",
-      "title": "Outside Facility Referral Summary",
-      "status": "Imported / scanned",
-      "scanned": true,
-      "details": [
-        {"label": "Source", "value": "Fictional outside clinic fax"},
-        {"label": "Received", "value": "2026-08-06 16:11"},
-        {"label": "Source quality", "value": "Soft-scanned simulation"}
-      ],
-      "sections": [
-        {
-          "heading": "Referral statement",
-          "paragraphs": [
-            "Please review this fictional imaging result and advise whether a nonurgent specialty appointment is appropriate. No real patient information is represented."
-          ]
-        },
-        {
-          "heading": "Medication and allergy extract",
-          "items": [
-            {"label": "Medication", "value": "Example antihypertensive listed as current"},
-            {"label": "Allergy", "value": "No medication allergies documented in this fictional referral"}
-          ]
-        }
-      ],
-      "annotations": [
-        {"asset": "synthetic_document_pipelines/assets/handwriting/synthetic_handwritten_referral_ink.png", "x": 72, "y": 86, "width": 450, "angle": -1},
-        {"text": "fax copy", "x": 76, "y": 72, "angle": 2, "size": 10}
       ]
     }
   ]

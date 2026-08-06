@@ -4,7 +4,7 @@
   "synthetic_label": "SYNTHETIC / FICTIONAL / NOT FOR CLINICAL, BILLING, OR COVERAGE USE",
   "input": "examples/modern_pipeline/illustrative_imaging_policy.json",
   "output": "generated_examples/modern_pipeline/illustrative_advanced_imaging_policy.pdf",
-  "output_sha256": "f12d049a5ca1ef2070944062a2d7d34e06b3ff7399619a3e185aa3091779e70e",
+  "output_sha256": "ed1c5ae34c300424a50a6b90bfb50db434ae8a13ae0f2f857685034ca850fa62",
   "details": {
     "pages": 2,
     "profile": "public_program_style_policy",

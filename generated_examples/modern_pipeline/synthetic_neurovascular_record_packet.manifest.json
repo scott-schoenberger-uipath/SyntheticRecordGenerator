@@ -4,17 +4,35 @@
   "synthetic_label": "SYNTHETIC / FICTIONAL / NOT FOR CLINICAL, BILLING, OR COVERAGE USE",
   "input": "examples/modern_pipeline/neurovascular_record_packet.json",
   "output": "generated_examples/modern_pipeline/synthetic_neurovascular_record_packet.pdf",
-  "output_sha256": "4f218f1162c02559c4572c29c815e2b55314b0c55fa5af2070a0ac4e32facf3e",
+  "output_sha256": "02c05ba3b095198ac31cee57b0c5df38c2cb9a880f361d5ee6a4e6817ebaa596",
   "details": {
-    "pages": 4,
+    "pages": 7,
     "profile": "generic_ehr_result_with_scanned_attachment",
     "scan": {
       "applied": true,
       "pages": [
-        4
+        5
       ],
       "profile": "soft_scan"
     },
+    "packet_order": "received_order",
+    "document_types": {
+      "admission_note": 1,
+      "diagnostic_result": 1,
+      "imaging_viewer_reference": 1,
+      "laboratory_result": 1,
+      "nursing_note": 1,
+      "scanned_referral": 1,
+      "specialty_consult": 1
+    },
+    "illustrative_image_panels": 1,
+    "flagged_pages": [
+      1,
+      2,
+      4,
+      5,
+      6
+    ],
     "synthetic_label": "SYNTHETIC / FICTIONAL / NOT FOR CLINICAL, BILLING, OR COVERAGE USE"
   }
 }
