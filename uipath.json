@@ -1,0 +1,27 @@
+{
+  "$schema": "https://cloud.uipath.com/draft/2024-12/uipath",
+  "runtimeOptions": {
+    "isConversational": false
+  },
+  "packOptions": {
+    "fileExtensionsIncluded": [
+      ".py",
+      ".json",
+      ".md",
+      ".toml"
+    ],
+    "filesIncluded": [],
+    "filesExcluded": [],
+    "directoriesExcluded": [
+      "__pycache__",
+      "output",
+      "ED Downgrade Records",
+      "Provider Synthetic Records",
+      "Payer Synthetic Records"
+    ],
+    "includeUvLock": false
+  },
+  "functions": {
+    "main": "main.py:main"
+  }
+}
