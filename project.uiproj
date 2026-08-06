@@ -1,0 +1,6 @@
+{
+  "ProjectType": "Function",
+  "Name": "synthetic-record-generation",
+  "Description": "Deterministic synthetic healthcare record generators packaged for local runs and UiPath Cloud",
+  "MainFile": null
+}

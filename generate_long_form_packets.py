@@ -281,7 +281,32 @@ def apply_optional_handwriting_overlays(
 
 def apply_selective_scanned_pages(source_pdf: Path, final_pdf: Path, scan_targets: Sequence[int]) -> None:
     selected = sorted({p for p in scan_targets if p > 0})
-    if not selected or not SCAN_CLI.exists():
+    if not selected:
+        shutil.move(str(source_pdf), str(final_pdf))
+        return
+
+    if not SCAN_CLI.exists():
+        # The catalog/agent path must not depend on a machine-local scanner CLI.
+        # Its bundled scan pipeline rasterizes the already-handwritten source page,
+        # preserving a flattened fax/scan look in hosted runtimes as well.
+        try:
+            from synthetic_document_pipelines.scan import apply_scan_profile
+
+            scan_result = apply_scan_profile(
+                source_pdf,
+                final_pdf,
+                selected_pages=selected,
+                seed=sum(selected) * 104729,
+            )
+            if scan_result.get("applied"):
+                source_pdf.unlink(missing_ok=True)
+                return
+            if final_pdf.exists():
+                source_pdf.unlink(missing_ok=True)
+                return
+        except Exception:
+            pass
+
         shutil.move(str(source_pdf), str(final_pdf))
         return
 
