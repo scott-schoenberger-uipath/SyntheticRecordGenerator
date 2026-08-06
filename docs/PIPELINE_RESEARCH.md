@@ -41,6 +41,6 @@ The repository has many standalone scripts and uncommitted local changes. Deleti
 1. Every input must set `metadata.is_synthetic: true`, carry a synthetic label, and use an MRN beginning with `SYN-`.
 2. Every output page carries a visible synthetic-use restriction.
 3. EHR profiles are generic and inspired by common information architecture; they do not use vendor marks, logos, or copied vendor templates.
-4. Handwriting, imaging-style raster panels, and scan effects are opt-in, clearly labeled, and applied only to fictional content. Imaging-style panels are never described as DICOM, source imaging, or diagnostic evidence.
+4. Handwriting, imaging-style raster panels, and scan effects are opt-in, clearly labeled, and applied only to fictional content. Imaging-style panels require an explicit reason, default to a maximum of one per packet, and are never described as DICOM, source imaging, or diagnostic evidence.
 5. Brand marks must be original fictional marks. Do not use real provider, payer, government, EHR-vendor, or agency logos.
 6. Public policy sources are never treated as evergreen. Callers must retain the source, jurisdiction, effective date, and any licensing/public-domain review outside the generated artifact.

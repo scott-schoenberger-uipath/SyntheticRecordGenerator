@@ -1,8 +1,8 @@
 from __future__ import annotations
 
-import math
 import random
 import tempfile
+from collections import Counter
 from pathlib import Path
 from typing import Any, Iterable, Mapping
 
@@ -132,7 +132,37 @@ def _header(
     canvas.drawString(MARGIN + 8, PAGE_H - 81, text(document.get("title"), "Clinical Record"))
     canvas.setFont("Helvetica-Bold", 8)
     canvas.drawRightString(PAGE_W - MARGIN - 8, PAGE_H - 80, text(document.get("status"), "Final result"))
-    return PAGE_H - 105
+    provenance: list[str] = [f"Packet position: {page_number}"]
+    if document.get("clinical_datetime"):
+        provenance.append(f"Event: {text(document.get('clinical_datetime'))}")
+    if document.get("filed_datetime"):
+        provenance.append(f"Filed: {text(document.get('filed_datetime'))}")
+    if document.get("source_state"):
+        provenance.append(f"Source state: {text(document.get('source_state'))}")
+    canvas.setFillColor(MID)
+    canvas.setFont("Helvetica", 6.15)
+    canvas.drawString(MARGIN, PAGE_H - 99, "  |  ".join(provenance))
+    return PAGE_H - 113
+
+
+def _draw_record_flags(canvas: Canvas, flags: Iterable[Any], y: float) -> float:
+    values = [text(flag, "") for flag in flags if text(flag, "")]
+    if not values:
+        return y
+    label = "RECORD IRREGULARITIES: " + " | ".join(values)
+    lines = _wrap(label, "Helvetica-Bold", 6.8, PAGE_W - 2 * MARGIN - 12)
+    height = 9 + len(lines) * 8.5
+    canvas.setFillColor(colors.HexColor("#FFF5D8"))
+    canvas.setStrokeColor(colors.HexColor("#D7B66E"))
+    canvas.setLineWidth(0.45)
+    canvas.rect(MARGIN, y - height, PAGE_W - 2 * MARGIN, height, stroke=1, fill=1)
+    canvas.setFillColor(colors.HexColor("#76541E"))
+    canvas.setFont("Helvetica-Bold", 6.8)
+    line_y = y - 8
+    for line in lines:
+        canvas.drawString(MARGIN + 6, line_y, line)
+        line_y -= 8.5
+    return y - height - 7
 
 
 def _draw_charges(canvas: Canvas, rows: Iterable[Any], y: float) -> float:
@@ -160,12 +190,13 @@ def _draw_charges(canvas: Canvas, rows: Iterable[Any], y: float) -> float:
             text(row.get("trigger")),
         ]
         x = MARGIN
-        row_top = y
+        baseline = y - 9
+        lowest_point = baseline
         for value, (_, width) in zip(values, headers):
-            y_after = _draw_lines(canvas, value, x=x + 4, y=row_top - 9, width=width - 8, size=7.2, leading=8.6)
+            y_after = _draw_lines(canvas, value, x=x + 4, y=baseline, width=width - 8, size=7.2, leading=8.6)
             x += width
-            row_top = min(row_top, y_after + 8.6)
-        row_height = max(20, y - row_top + 9)
+            lowest_point = min(lowest_point, y_after)
+        row_height = max(20, y - lowest_point + 4)
         canvas.setStrokeColor(colors.HexColor("#CFD3D5"))
         canvas.setLineWidth(0.35)
         canvas.line(MARGIN, y - row_height, PAGE_W - MARGIN, y - row_height)
@@ -187,6 +218,44 @@ def _draw_details(canvas: Canvas, values: Iterable[Any], y: float) -> float:
         y = _draw_lines(canvas, value, x=MARGIN + 128, y=y, width=PAGE_W - MARGIN - (MARGIN + 128), size=8.2, leading=10.0)
         y -= 2
     return y - 3
+
+
+def _draw_result_table(canvas: Canvas, rows: Iterable[Any], y: float) -> float:
+    parsed = [row for row in rows if isinstance(row, dict)]
+    if not parsed:
+        return y
+    y = _section_header(canvas, "Results", y)
+    headers = [("Test", 148), ("Result", 95), ("Units", 58), ("Reference", 133), ("Flag", 74)]
+    x = MARGIN
+    canvas.setFillColor(PALE_GRAY)
+    canvas.rect(MARGIN, y - 15, PAGE_W - 2 * MARGIN, 15, stroke=0, fill=1)
+    canvas.setFillColor(MID)
+    canvas.setFont("Helvetica-Bold", 6.8)
+    for label, width in headers:
+        canvas.drawString(x + 4, y - 10, label)
+        x += width
+    y -= 18
+    for row in parsed[:8]:
+        values = [
+            text(row.get("test")),
+            text(row.get("result")),
+            text(row.get("units")),
+            text(row.get("reference")),
+            text(row.get("flag"), "Normal"),
+        ]
+        x = MARGIN
+        baseline = y - 9
+        lowest_point = baseline
+        for value, (_, width) in zip(values, headers):
+            y_after = _draw_lines(canvas, value, x=x + 4, y=baseline, width=width - 8, size=7.2, leading=8.6)
+            x += width
+            lowest_point = min(lowest_point, y_after)
+        row_height = max(20, y - lowest_point + 4)
+        canvas.setStrokeColor(colors.HexColor("#CFD3D5"))
+        canvas.setLineWidth(0.35)
+        canvas.line(MARGIN, y - row_height, PAGE_W - MARGIN, y - row_height)
+        y -= row_height
+    return y - 5
 
 
 def _draw_sections(canvas: Canvas, values: Iterable[Any], y: float) -> float:
@@ -228,6 +297,23 @@ def _draw_image_panel(canvas: Canvas, panel: Any, y: float) -> float:
     canvas.drawCentredString(x + max_width / 2, y - height + 4.4, label)
     caption = text(panel.get("caption"), "Illustrative synthetic image panel")
     return _draw_lines(canvas, caption, x=MARGIN + 2, y=y - height - 16, width=PAGE_W - 2 * MARGIN - 4, font="Helvetica-Oblique", size=7.2, leading=9.0, color=MID) - 5
+
+
+def _validate_illustrative_imaging(spec: Mapping[str, Any], documents: Iterable[Any]) -> int:
+    panels = [document for document in documents if isinstance(document, dict) and isinstance(document.get("image_panel"), dict)]
+    if not panels:
+        return 0
+    rendering = require_mapping(spec.get("rendering", {}), "rendering")
+    if rendering.get("allow_illustrative_imaging") is not True:
+        raise SpecValidationError(
+            "Illustrative imaging is opt-in: set rendering.allow_illustrative_imaging to true when a packet specifically needs it"
+        )
+    if not str(rendering.get("illustrative_imaging_reason", "")).strip():
+        raise SpecValidationError("rendering.illustrative_imaging_reason is required when illustrative imaging is enabled")
+    maximum = int(rendering.get("max_illustrative_image_panels", 1))
+    if maximum < 1 or len(panels) > maximum:
+        raise SpecValidationError("The number of illustrative image panels exceeds rendering.max_illustrative_image_panels")
+    return len(panels)
 
 
 def _draw_scan_marks(canvas: Canvas, annotations: Iterable[Any], y: float, rng: random.Random) -> None:
@@ -285,9 +371,11 @@ def generate_record_packet(spec: Mapping[str, Any], output_pdf: Path) -> dict[st
     patient = require_mapping(spec.get("patient"), "patient")
     encounter = require_mapping(spec.get("encounter"), "encounter")
     branding = require_mapping(spec.get("branding", {}), "branding")
+    packet = require_mapping(spec.get("packet", {}), "packet")
     documents = require_list(spec.get("documents"), "documents")
     if not documents:
         raise SpecValidationError("documents must contain at least one page")
+    image_panel_count = _validate_illustrative_imaging(spec, documents)
 
     output_pdf.parent.mkdir(parents=True, exist_ok=True)
     seed = int(metadata.get("seed", 0))
@@ -295,15 +383,17 @@ def generate_record_packet(spec: Mapping[str, Any], output_pdf: Path) -> dict[st
 
     with tempfile.TemporaryDirectory(prefix="synthetic-record-") as temp_dir:
         native_pdf = Path(temp_dir) / "native.pdf"
-        canvas = Canvas(str(native_pdf), pagesize=letter, pageCompression=1)
+        canvas = Canvas(str(native_pdf), pagesize=letter, pageCompression=1, invariant=1)
         canvas.setTitle(text(spec.get("title"), "Synthetic Medical Record Packet"))
         canvas.setAuthor("SyntheticRecordGenerator")
 
         for page_number, raw_document in enumerate(documents, start=1):
             document = require_mapping(raw_document, f"documents[{page_number - 1}]")
             y = _header(canvas, patient, encounter, document, branding, page_number)
+            y = _draw_record_flags(canvas, document.get("record_flags", []), y)
             y = _draw_charges(canvas, document.get("charges", []), y)
             y = _draw_details(canvas, document.get("details", []), y)
+            y = _draw_result_table(canvas, document.get("result_rows", []), y)
             y = _draw_image_panel(canvas, document.get("image_panel"), y)
             y = _draw_sections(canvas, document.get("sections", []), y)
             scanned = bool(document.get("scanned", False))
@@ -316,9 +406,22 @@ def generate_record_packet(spec: Mapping[str, Any], output_pdf: Path) -> dict[st
 
         scan_info = apply_scan_profile(native_pdf, output_pdf, selected_pages=scan_pages, seed=seed)
 
+    document_type_counts = Counter(
+        text(document.get("type"), "unspecified")
+        for document in documents
+        if isinstance(document, dict)
+    )
     return {
         "pages": len(documents),
         "profile": text(spec.get("profile"), "generic_ehr"),
         "scan": scan_info,
+        "packet_order": text(packet.get("document_order"), "input_order"),
+        "document_types": dict(sorted(document_type_counts.items())),
+        "illustrative_image_panels": image_panel_count,
+        "flagged_pages": [
+            page_number
+            for page_number, document in enumerate(documents, start=1)
+            if isinstance(document, dict) and document.get("record_flags")
+        ],
         "synthetic_label": metadata["synthetic_label"],
     }

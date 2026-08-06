@@ -23,13 +23,24 @@ class SyntheticDocumentPipelineTests(unittest.TestCase):
             details = generate_record_packet(spec, output)
             reader = PdfReader(str(output))
             full_text = "\n".join(page.extract_text() or "" for page in reader.pages)
-            self.assertEqual(len(reader.pages), 4)
+            self.assertEqual(len(reader.pages), 7)
             self.assertTrue(details["scan"]["applied"])
+            self.assertEqual(details["packet_order"], "received_order")
+            self.assertEqual(details["illustrative_image_panels"], 1)
+            self.assertIn("nursing_note", details["document_types"])
+            self.assertIn("laboratory_result", details["document_types"])
             self.assertIn(SYNTHETIC_BANNER, full_text)
             self.assertIn("CTA Head and Neck", full_text)
             self.assertGreaterEqual(len(reader.pages[0].images), 1)
-            self.assertGreaterEqual(len(reader.pages[1].images), 2)
-            self.assertGreaterEqual(len(reader.pages[3].images), 1)
+            self.assertGreaterEqual(len(reader.pages[3].images), 2)
+            self.assertGreaterEqual(len(reader.pages[4].images), 1)
+
+    def test_illustrative_imaging_requires_an_explicit_reason(self) -> None:
+        spec = load_spec(EXAMPLES / "neurovascular_record_packet.json")
+        spec["rendering"] = {"allow_illustrative_imaging": True}
+        with tempfile.TemporaryDirectory() as temp_dir:
+            with self.assertRaisesRegex(ValueError, "illustrative_imaging_reason"):
+                generate_record_packet(spec, Path(temp_dir) / "record.pdf")
 
     def test_policy_is_labeled_and_paginated(self) -> None:
         spec = load_spec(EXAMPLES / "illustrative_imaging_policy.json")
