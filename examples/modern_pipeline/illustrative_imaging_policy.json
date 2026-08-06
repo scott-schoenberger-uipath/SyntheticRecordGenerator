@@ -1,0 +1,90 @@
+{
+  "metadata": {
+    "is_synthetic": true,
+    "synthetic_label": "SYNTHETIC / FICTIONAL / NOT FOR CLINICAL, BILLING, OR COVERAGE USE",
+    "seed": 20260806,
+    "purpose": "Visual demo and policy-ingestion test document"
+  },
+  "profile": "public_program_style_policy",
+  "branding": {
+    "organization": "Synthetic Policy Office (fictional)",
+    "logo": "synthetic_document_pipelines/assets/logos/synthetic_policy_office.png"
+  },
+  "policy": {
+    "title": "Illustrative Advanced Imaging Review Policy",
+    "subtitle": "A fictional policy layout for demo, evaluation, and document-ingestion testing",
+    "id": "SYN-POL-IMG-2026-010",
+    "status": "Draft synthetic example",
+    "effective_date": "2026-10-01",
+    "review_date": "2027-10-01",
+    "jurisdiction": "Demonstration only - no jurisdiction",
+    "owner": "Synthetic Policy Office"
+  },
+  "sections": [
+    {
+      "heading": "Purpose and scope",
+      "paragraphs": [
+        "This fictional policy demonstrates a public-program-style structure for advanced imaging review. It does not establish coverage, medical necessity, benefits, utilization management, or clinical standards for any organization.",
+        "The example is designed to test extraction of document control, indications, limitations, required records, and revision history from multi-page policy documents."
+      ]
+    },
+    {
+      "heading": "Policy statement",
+      "paragraphs": [
+        "For this synthetic demonstration, advanced imaging requests are evaluated against the information supplied in a fictional clinical packet. A real policy would require governing law, benefit-plan language, qualified clinical review, and current official sources."
+      ],
+      "bullets": [
+        "The request must identify the requested study and the clinical question to be answered.",
+        "The supplied record should contain relevant clinical history, prior testing, and treating-clinician documentation.",
+        "Absence of information in the packet is recorded as not documented; it is not interpreted as proof of eligibility or ineligibility."
+      ]
+    },
+    {
+      "heading": "Documentation considerations",
+      "paragraphs": [
+        "This section intentionally resembles common policy formatting: structured criteria, qualifications, and plain-language documentation requirements. It does not reproduce a government, payer, or health-system policy.",
+        "A production policy renderer should preserve source attribution, jurisdiction, effective date, revision history, and supersession status for every public or licensed policy source."
+      ],
+      "bullets": [
+        "Record the requested service, applicable diagnosis or symptom context, and prior related studies when present.",
+        "Identify clinical contradictions, unreadable attachments, and documents that have been superseded.",
+        "Separate policy text, operational notes, and reviewer conclusions in downstream extraction workflows."
+      ]
+    },
+    {
+      "heading": "Definitions and record handling",
+      "paragraphs": [
+        "For this demonstration, a clinical packet means the collection of fictional records submitted with a fictional request. A source record means the individual item from which a downstream reviewer may cite evidence.",
+        "A complete packet is a packet that contains readable content sufficient to identify the requested study and the documented reason for review. This illustrative definition is not a payer, provider, or government standard."
+      ],
+      "bullets": [
+        "Current source means a source whose effective date and jurisdiction have been recorded by the policy owner.",
+        "Superseded source means an older version retained for provenance but not presented as the current governing text.",
+        "Unreadable attachment means an item that cannot be reliably interpreted and must be recorded as a gap."
+      ]
+    },
+    {
+      "heading": "Implementation notes",
+      "paragraphs": [
+        "A production implementation would pair this layout with a source registry, version controls, and a reviewer workflow. The renderer itself must not infer a coverage decision from incomplete facts or from policy language alone."
+      ]
+    },
+    {
+      "heading": "Limitations and safety notice",
+      "paragraphs": [
+        "This is not a coverage decision, treatment recommendation, or a substitute for a current official policy. It is fictional example text and is not valid for claims, appeals, prior authorization, reimbursement, or patient care."
+      ]
+    },
+    {
+      "heading": "Revision history",
+      "bullets": [
+        "2026-08-06 - Initial synthetic demonstration version created.",
+        "Future versions should identify the source policy, licensing or public-domain status, revision date, and responsible organization before rendering."
+      ]
+    }
+  ],
+  "references": [
+    "Formatting inspiration only: CMS Internet-Only Manuals and National Coverage Determinations Manual structure. No CMS text is reproduced in this synthetic example.",
+    "For production use, cite the current authoritative source document and retain its effective date and jurisdiction."
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "title": "Radiology Report",
+  "blocks": [
+    {
+      "kind": "kv",
+      "title": "Study Metadata",
+      "source": "meta_pairs"
+    },
+    {
+      "kind": "bullets",
+      "title": "Findings",
+      "source": "findings"
+    },
+    {
+      "kind": "bullets",
+      "title": "Impression",
+      "source": "impression"
+    }
+  ]
+}

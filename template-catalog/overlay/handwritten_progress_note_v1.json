@@ -1,0 +1,13 @@
+{
+  "title": "Handwritten Progress Note",
+  "pages": [
+    {
+      "kind": "note",
+      "title": "Handwritten Progress Note",
+      "scanned": true
+    }
+  ],
+  "handwriting": {
+    "max_overlays": 2
+  }
+}

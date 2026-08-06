@@ -1,0 +1,20 @@
+{
+  "title": "Pathology Report",
+  "blocks": [
+    {
+      "kind": "kv",
+      "title": "Specimen Metadata",
+      "source": "meta_pairs"
+    },
+    {
+      "kind": "bullets",
+      "title": "Microscopic Findings",
+      "source": "findings"
+    },
+    {
+      "kind": "paragraph",
+      "title": "Pathologic Diagnosis",
+      "source": "diagnosis"
+    }
+  ]
+}

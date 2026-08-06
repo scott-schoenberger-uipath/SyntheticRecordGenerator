@@ -1,0 +1,13 @@
+{
+  "title": "Anesthesia / OR Record",
+  "pages": [
+    {
+      "kind": "note",
+      "title": "Anesthesia / OR Record",
+      "scanned": true
+    }
+  ],
+  "handwriting": {
+    "max_overlays": 1
+  }
+}

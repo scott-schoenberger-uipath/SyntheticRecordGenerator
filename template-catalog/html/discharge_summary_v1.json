@@ -1,0 +1,25 @@
+{
+  "title": "Discharge Summary",
+  "blocks": [
+    {
+      "kind": "kv",
+      "title": "Encounter Details",
+      "source": "encounter_pairs"
+    },
+    {
+      "kind": "bullets",
+      "title": "Final Diagnoses",
+      "source": "final_diagnoses"
+    },
+    {
+      "kind": "bullets",
+      "title": "Hospital Course",
+      "source": "hospital_course"
+    },
+    {
+      "kind": "bullets",
+      "title": "Follow-Up Plan",
+      "source": "follow_up_plan"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "title": "Registration Face Sheet",
+  "fixed_sections": [
+    {
+      "title": "Encounter Overview",
+      "kind": "kv",
+      "source": "encounter_pairs"
+    },
+    {
+      "title": "Demographics & Coverage",
+      "kind": "kv",
+      "source": "demographic_pairs"
+    },
+    {
+      "title": "Active Conditions",
+      "kind": "table",
+      "columns": ["Code", "Condition", "Status", "Onset"],
+      "source": "condition_rows"
+    }
+  ]
+}

@@ -1,9 +1,12 @@
 .DS_Store
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
 .venv/
 .venv-scan/
 
+# Generated output folders (keep the repository generator-focused)
 output/
 output-referral-smoke/
 output-validation/
@@ -11,8 +14,32 @@ ED Downgrade Records/
 Provider Synthetic Records/
 Payer Synthetic Records/
 Referral Packets/
+Appeal Synthetic Records/
+Template Driven Synthetic Records/
+Care-at-Home Multipart Claim Packets*/
+Care-at-Home Synthetic Records/
+ED Downgrade Appeal Synthetic Records/
+ED Downgrade Long Synthetic Record/
+ED Downgrade Webinar/
+Longitudinal Oncological Synthetic Records/
+Multipart Claim and Appeal Packets*/
+Root Cause Analysis/
+Showcase Synthetic Records/
+audit - hospital clinical documentation compliance/
 
+# Per-run records created by compatibility generators
 appeal_record_*.json
 appeal_record_*.pdf
 provider_record_*.json
 provider_record_*.pdf
+
+# Local preview/test artifacts
+*.qlpreview
+node_modules/
+
+# Optional handwriting assets (keep instructions, not generated assets)
+handwriting_assets/*
+!handwriting_assets/README.md
+
+# Local synthetic-layout experiments are never source templates.
+template-catalog/local-bootstrap/

@@ -1,0 +1,30 @@
+{
+  "title": "Admission History and Physical",
+  "blocks": [
+    {
+      "kind": "paragraph",
+      "title": "Chief Complaint",
+      "source": "chief_complaint"
+    },
+    {
+      "kind": "paragraph",
+      "title": "History Of Present Illness",
+      "source": "hpi"
+    },
+    {
+      "kind": "bullets",
+      "title": "Past Medical History",
+      "source": "pmh_lines"
+    },
+    {
+      "kind": "bullets",
+      "title": "Medication List",
+      "source": "medication_lines"
+    },
+    {
+      "kind": "bullets",
+      "title": "Allergies",
+      "source": "allergy_lines"
+    }
+  ]
+}
