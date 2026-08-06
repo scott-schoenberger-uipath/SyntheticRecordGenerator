@@ -1,0 +1,20 @@
+{
+  "kind": "record",
+  "synthetic": true,
+  "synthetic_label": "SYNTHETIC / FICTIONAL / NOT FOR CLINICAL, BILLING, OR COVERAGE USE",
+  "input": "examples/modern_pipeline/neurovascular_record_packet.json",
+  "output": "generated_examples/modern_pipeline/synthetic_neurovascular_record_packet.pdf",
+  "output_sha256": "4f218f1162c02559c4572c29c815e2b55314b0c55fa5af2070a0ac4e32facf3e",
+  "details": {
+    "pages": 4,
+    "profile": "generic_ehr_result_with_scanned_attachment",
+    "scan": {
+      "applied": true,
+      "pages": [
+        4
+      ],
+      "profile": "soft_scan"
+    },
+    "synthetic_label": "SYNTHETIC / FICTIONAL / NOT FOR CLINICAL, BILLING, OR COVERAGE USE"
+  }
+}
