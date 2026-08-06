@@ -1,0 +1,9 @@
+# Core deterministic renderers
+reportlab>=4.4,<5
+pypdf>=6.0,<7
+pypdfium2>=5.5,<6
+Pillow>=11.0,<13
+
+# Optional integrations assessed in docs/PIPELINE_RESEARCH.md.
+# look-like-scanned>=1.0.6
+# weasyprint>=69

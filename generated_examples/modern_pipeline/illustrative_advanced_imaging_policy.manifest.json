@@ -1,0 +1,13 @@
+{
+  "kind": "policy",
+  "synthetic": true,
+  "synthetic_label": "SYNTHETIC / FICTIONAL / NOT FOR CLINICAL, BILLING, OR COVERAGE USE",
+  "input": "examples/modern_pipeline/illustrative_imaging_policy.json",
+  "output": "generated_examples/modern_pipeline/illustrative_advanced_imaging_policy.pdf",
+  "output_sha256": "f12d049a5ca1ef2070944062a2d7d34e06b3ff7399619a3e185aa3091779e70e",
+  "details": {
+    "pages": 2,
+    "profile": "public_program_style_policy",
+    "synthetic_label": "SYNTHETIC / FICTIONAL / NOT FOR CLINICAL, BILLING, OR COVERAGE USE"
+  }
+}

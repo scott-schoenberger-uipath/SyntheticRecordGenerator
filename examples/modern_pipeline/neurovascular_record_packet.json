@@ -1,0 +1,160 @@
+{
+  "metadata": {
+    "is_synthetic": true,
+    "synthetic_label": "SYNTHETIC / FICTIONAL / NOT FOR CLINICAL, BILLING, OR COVERAGE USE",
+    "seed": 20260806,
+    "purpose": "Visual demo and document-ingestion test packet"
+  },
+  "title": "Synthetic Neurovascular Record Packet",
+  "profile": "generic_ehr_result_with_scanned_attachment",
+  "branding": {
+    "organization": "Lumen Harbor Medical Center (fictional)",
+    "logo": "synthetic_document_pipelines/assets/logos/lumen_harbor_medical_center.png"
+  },
+  "patient": {
+    "name": "Liora Vale",
+    "dob": "1979-11-03",
+    "sex": "Female",
+    "mrn": "SYN-774201"
+  },
+  "encounter": {
+    "id": "ENC-SYN-260806-17",
+    "setting": "Lumen Harbor Medical Center / Emergency to Observation"
+  },
+  "documents": [
+    {
+      "type": "ehr_result",
+      "title": "CTA Head and Neck With IV Contrast",
+      "status": "Final result",
+      "charges": [
+        {
+          "line": "SYN-42017",
+          "charge": "CT angiography head and neck",
+          "code": "SYN-CTA-01",
+          "status": "Filed - synthetic professional",
+          "trigger": "Imaging result"
+        },
+        {
+          "line": "SYN-42018",
+          "charge": "CT angiography technical component",
+          "code": "SYN-CTA-02",
+          "status": "Filed - synthetic technical",
+          "trigger": "Imaging result"
+        }
+      ],
+      "details": [
+        {"label": "Ordering clinician", "value": "M. Arden, MD (fictional)"},
+        {"label": "Reading clinician", "value": "S. Keene, MD (fictional)"},
+        {"label": "Performed", "value": "2026-08-06 14:25"},
+        {"label": "Result priority", "value": "Urgent"}
+      ],
+      "sections": [
+        {
+          "heading": "Indication",
+          "paragraphs": [
+            "Sudden severe headache with transient visual disturbance. This scenario and all clinical details are fictional."
+          ]
+        },
+        {
+          "heading": "Findings",
+          "paragraphs": [
+            "No acute intracranial hemorrhage or large-vessel occlusion. A 5 mm superiorly directed outpouching is described at the left anterior communicating artery region. No prior vascular study is available in this fictional packet."
+          ]
+        },
+        {
+          "heading": "Impression",
+          "paragraphs": [
+            "Fictional small intracranial aneurysm for demonstration purposes. Recommend specialist correlation only within this synthetic test scenario."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "imaging_viewer_reference",
+      "title": "Illustrative Vascular Imaging Panel",
+      "status": "Demo attachment",
+      "details": [
+        {"label": "Viewer status", "value": "Illustrative synthetic raster panel"},
+        {"label": "Source", "value": "Generated non-diagnostic visual asset"},
+        {"label": "Reference", "value": "CTA Head and Neck synthetic scenario"}
+      ],
+      "image_panel": {
+        "asset": "synthetic_document_pipelines/assets/imaging/synthetic_nondiagnostic_angiography_panel.png",
+        "width": 255,
+        "label": "SYNTHETIC / NON-DIAGNOSTIC / ILLUSTRATIVE ONLY",
+        "caption": "This is a generated visual texture for document-ingestion testing. It is not source imaging, a DICOM image, or a diagnostic representation."
+      },
+      "sections": [
+        {
+          "heading": "Handling note",
+          "paragraphs": [
+            "The panel deliberately models the presence of an embedded imaging-like raster in a clinical packet while clearly distinguishing it from clinical source images."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "ehr_result",
+      "title": "Neurovascular Consultation Summary",
+      "status": "Final note",
+      "details": [
+        {"label": "Service", "value": "Neurovascular Surgery (fictional)"},
+        {"label": "Consult date", "value": "2026-08-06"},
+        {"label": "Encounter status", "value": "Observation complete"},
+        {"label": "Patient communication", "value": "Synthetic example: counseling documented"}
+      ],
+      "sections": [
+        {
+          "heading": "Assessment",
+          "paragraphs": [
+            "The patient remained neurologically stable during the fictional observation encounter. The imaging finding, risk discussion, and follow-up language are present only to demonstrate record structure and should not be used as clinical guidance."
+          ]
+        },
+        {
+          "heading": "Plan",
+          "items": [
+            {"label": "Next step", "value": "Fictional outpatient specialty review"},
+            {"label": "Record status", "value": "Finalized synthetic note"},
+            {"label": "Care coordination", "value": "Demonstration-only referral workflow"}
+          ]
+        },
+        {
+          "heading": "Document provenance",
+          "paragraphs": [
+            "This page uses generic EHR-inspired information architecture: patient banner, final-result status, operational details, and result-care workflow. It does not reproduce a vendor UI, logo, or proprietary template."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "scanned_note",
+      "title": "Outside Facility Referral Summary",
+      "status": "Imported / scanned",
+      "scanned": true,
+      "details": [
+        {"label": "Source", "value": "Fictional outside clinic fax"},
+        {"label": "Received", "value": "2026-08-06 16:11"},
+        {"label": "Source quality", "value": "Soft-scanned simulation"}
+      ],
+      "sections": [
+        {
+          "heading": "Referral statement",
+          "paragraphs": [
+            "Please review this fictional imaging result and advise whether a nonurgent specialty appointment is appropriate. No real patient information is represented."
+          ]
+        },
+        {
+          "heading": "Medication and allergy extract",
+          "items": [
+            {"label": "Medication", "value": "Example antihypertensive listed as current"},
+            {"label": "Allergy", "value": "No medication allergies documented in this fictional referral"}
+          ]
+        }
+      ],
+      "annotations": [
+        {"asset": "synthetic_document_pipelines/assets/handwriting/synthetic_handwritten_referral_ink.png", "x": 72, "y": 86, "width": 450, "angle": -1},
+        {"text": "fax copy", "x": 76, "y": 72, "angle": 2, "size": 10}
+      ]
+    }
+  ]
+}
