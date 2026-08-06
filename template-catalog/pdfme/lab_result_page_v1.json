@@ -1,0 +1,11 @@
+{
+  "title": "Lab Result Page",
+  "fixed_sections": [
+    {
+      "title": "Lab Trend Snapshot",
+      "kind": "table",
+      "columns": ["Date", "Time", "WBC", "Creatinine", "Lactate", "Hemoglobin", "Flag"],
+      "source": "rows"
+    }
+  ]
+}

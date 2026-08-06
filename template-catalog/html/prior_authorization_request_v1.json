@@ -1,0 +1,20 @@
+{
+  "title": "Prior Authorization Request",
+  "blocks": [
+    {
+      "kind": "kv",
+      "title": "Request Metadata",
+      "source": "meta_pairs"
+    },
+    {
+      "kind": "bullets",
+      "title": "Medical Necessity",
+      "source": "medical_necessity"
+    },
+    {
+      "kind": "bullets",
+      "title": "Requested Action",
+      "source": "requested_action"
+    }
+  ]
+}

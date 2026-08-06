@@ -1,93 +1,129 @@
-# Synthetic Record Generation
+# Synthetic Record Generator
 
-Deterministic synthetic healthcare record generator for demos, ingestion testing, and UiPath automation scenarios.
+Synthetic Record Generator creates realistic-looking, **entirely fictional** healthcare record packets and medical-policy documents for demos, testing, document-ingestion evaluation, reviewer training, and UiPath automation scenarios.
 
-This repo currently generates eight bundle families:
+It is not a clinical system. Do not use it with real-person medical data, real provider/payer/government logos, clinical decisions, billing, claims, coverage determinations, or patient care.
 
-- base patient chart packets
-- provider inpatient documentation packets
-- payer care-management packets
-- long-form provider and payer chart bundles
-- lumbar MRI appeal evidence packets
-- ED downgrade scenario records
-- utilization management request packets, including faxbacks, PA/CCR requests, extensions, appeals, and grievances
-- specialty referral packets with fax cover sheets, office/progress notes, lab results, and imaging results
+## What to use
 
-All checked-in source data is synthetic. Generated PDFs and JSON artifacts are intentionally ignored by git so the public repo does not ship demo output files, PHI, or customer-branded samples.
+| Need | Use |
+| --- | --- |
+| A controlled JSON-in/PDF-out record or policy, with one PDF per patient packet | `synthetic_document_pipelines/` |
+| A larger multi-document packet built from a deterministic synthetic encounter and template catalog | `synthetic_engine/` + `template-catalog/` |
+| A UiPath-friendly selected-bundle entrypoint | `main.py` or `synthetic-record-generator` |
+| Existing scenario generators | Root-level `generate_*.py` scripts (compatibility paths) |
 
-## What Is Built
+The JSON pipeline is the recommended starting point for predictable, source-aware review packets. The catalog pipeline assembles larger mixes of clinical-document families from one synthetic encounter.
 
-The record generators already cover the major packet components that appear throughout the codebase: demographics, encounter history, H&P content, progress notes, lab tables, imaging reports, medications, discharge content, payer utilization views, care-management notes, appeal narratives, and ED visit documentation.
-
-See [docs/component-inventory.md](docs/component-inventory.md) for the current component-by-component inventory observed in the generator code.
-
-## Repo Layout
-
-- `main.py`: UiPath-friendly wrapper entrypoint for generating selected bundle families from one payload
-- `input.example.json`: smoke input for the wrapper entrypoint
-- `generate_synthetic_patient_pdf.py`: base patient chart generator
-- `generate_provider_synthetic_records.py`: shorter provider packet generator
-- `generate_payer_synthetic_records.py`: shorter payer packet generator
-- `generate_long_form_packets.py`: 80+ page provider and payer packet generator
-- `generate_appeal_lumbar_mri_records.py`: lumbar MRI appeal evidence packet generator
-- `generate_ed_downgrade_records.py`: Epic-style ED downgrade packet renderer
-- `generate_um_request_packets.py`: UM request packet generator with 5-80 page packets informed by the field-matrix taxonomy examples
-- `generate_referral_packets.py`: specialty referral packet generator with 5-20 page packets
-- `ed_downgrade_records.json`: sanitized synthetic source fixture for the ED downgrade bundle
-- `docs/uipath-cloud.md`: local and UiPath Cloud packaging notes
-
-## Local Usage
-
-Generate a smoke bundle through the shared wrapper:
+## Quick start: JSON record and policy pipeline
 
 ```bash
-python3 main.py --input input.example.json
+python -m pip install -r requirements-modern-pipeline.txt
+python generate_modern_examples.py
+python -m unittest discover -s tests -v
 ```
 
-Generate from another working directory:
+The reviewed outputs are written to `generated_examples/modern_pipeline/`:
+
+- `synthetic_neurovascular_record_packet.pdf`
+- `illustrative_advanced_imaging_policy.pdf`
+
+Generate a packet directly:
 
 ```bash
-python3 /Users/peterreischer/Desktop/uipath-projects/synthetic-record-generator/SyntheticRecordGenerator/main.py \
-  --input /Users/peterreischer/Desktop/uipath-projects/synthetic-record-generator/SyntheticRecordGenerator/input.example.json \
-  --output-root /tmp/synthetic-records
+python -m synthetic_document_pipelines record \
+  --input examples/modern_pipeline/neurovascular_record_packet.json \
+  --output output/neurovascular_packet.pdf
 ```
 
-If this project is installed into an environment, the same wrapper is exposed as:
+Generate a policy directly:
 
 ```bash
-synthetic-record-generator --input input.example.json --output-root /tmp/synthetic-records
+python -m synthetic_document_pipelines policy \
+  --input examples/modern_pipeline/illustrative_imaging_policy.json \
+  --output output/illustrative_policy.pdf
 ```
 
-Run the legacy generators directly when you want one family at a time:
+## Quick start: catalog packet pipeline
+
+The catalog pipeline can compose registration, H&P, nursing-style scanned notes, lab pages, radiology, procedure, pathology, MAR, discharge, prior-authorization, appeal, and denial document families.
 
 ```bash
-python3 generate_synthetic_patient_pdf.py
-python3 generate_provider_synthetic_records.py
-python3 generate_payer_synthetic_records.py
-python3 generate_long_form_packets.py
-python3 generate_appeal_lumbar_mri_records.py
-python3 generate_ed_downgrade_records.py
-python3 generate_um_request_packets.py
-python3 generate_referral_packets.py
+python generate_template_driven_packet.py \
+  --profile provider_packet_full \
+  --scenario provider_sepsis \
+  --seed 20260310 \
+  --packet-order received_order \
+  --out-dir output/catalog-demo \
+  --output-stem provider_packet
 ```
 
-The wrapper writes to `output/` by default. The legacy scripts keep their original family-specific output directories for ad hoc local generation.
+`received_order` deliberately produces a deterministic mixed inbound order. Use `--packet-order profile_order` for an ordered showcase packet instead.
 
-For coding agents in other repos, prefer `main.py` or the `synthetic-record-generator` command over the legacy scripts because the wrapper resolves repo-local data from its own file location and accepts an explicit output root.
+To add handwriting to catalog-generated scanned attachments, opt in with local-only assets:
 
-## UiPath Cloud Alignment
+```bash
+python generate_template_driven_packet.py \
+  --enable-handwriting \
+  --handwriting-asset-dir handwriting_assets \
+  --out-dir output/catalog-demo
+```
 
-This repo now includes the standard files used by sibling UiPath Python projects:
+For the optional fixed-layout renderer, install the Node dependencies once:
 
-- `pyproject.toml`
-- `uipath.json`
-- `entry-points.json`
-- `main.py`
+```bash
+npm install
+```
 
-The entrypoint is intentionally deterministic and file-generation focused. It accepts a bundle-selection payload, writes artifacts under the requested output root, and returns a manifest-friendly summary of what it generated.
+Without them, the catalog renderer falls back to the built-in PDF layout path.
 
-See [docs/uipath-cloud.md](docs/uipath-cloud.md) for the input contract and packaging notes.
+## UiPath and compatibility generators
 
-## Optional Scanned-Page Pipeline
+`main.py` is a deterministic, file-generation wrapper that selects bundle families from one input payload and writes a manifest-friendly result under an explicit output root.
 
-`generate_long_form_packets.py`, `generate_appeal_lumbar_mri_records.py`, and `generate_um_request_packets.py` can apply scan-like post-processing when `.venv-scan/bin/scanner` is present. If that environment is absent, the packets still generate successfully as normal vector PDFs.
+```bash
+python3 main.py --input input.example.json --output-root /tmp/synthetic-records
+```
+
+When installed as a package, the same wrapper is available as `synthetic-record-generator`. The root-level `generate_*.py` scripts remain available for existing demos, including provider, payer, long-form, ED, utilization-management, appeal, and specialty-referral scenarios. New work should use one of the two supported pipelines above, then migrate a legacy script only after it has a documented input specification and regression coverage.
+
+## Designed-for-reality details
+
+- One consolidated PDF per patient packet.
+- Source-aware packet metadata: packet position, event time, filed time, source state, duplicates, partial records, and other irregularities.
+- Native EHR-inspired, lab-table, imported/faxed, and scanned-page treatments.
+- Handwriting is applied to scanned attachments before scan rasterization, so it looks part of the source page.
+- Generated imaging-style panels are opt-in, limited by default to one per packet, and permanently labeled illustrative/non-diagnostic.
+- Original fictional provider and agency marks only; never use a real organization mark.
+- Deterministic seeds and output manifests for regression testing.
+
+## Repository layout
+
+```text
+synthetic_document_pipelines/  Primary JSON record and policy PDF pipeline
+synthetic_engine/              Canonical synthetic encounter and packet orchestrator
+template-catalog/              Versioned JSON templates and profiles
+main.py                        UiPath-friendly selected-bundle wrapper
+examples/                      Small checked-in input examples
+generated_examples/            Reviewed, checked-in output PDFs and manifests
+docs/                          Design, research, component, and UiPath guidance
+tests/                         Regression tests
+handwriting_assets/            Local-only optional assets (ignored by Git)
+output/                        Local generated work (ignored by Git)
+```
+
+## Safety and source rules
+
+1. Use fictional data only. The catalog pipeline generates seeded synthetic demographics with `SYN-` identifiers; the JSON pipeline rejects patient MRNs without that prefix.
+2. Every output must retain its synthetic-use label.
+3. Preserve uncertainty, conflicts, missing records, and received order. Do not silently normalize a messy inbound packet into a clinical timeline.
+4. Use the synthetic-exemplar bootstrap utility only with a synthetic PDF and its required attestation. It retains layout dimensions only, never source text or source paths.
+5. Keep optional handwriting assets local. Do not commit signatures, handwriting samples, screenshots, or any real clinical data.
+
+## Documentation
+
+- [Modern pipeline guide](docs/MODERN_PIPELINE_GUIDE.md)
+- [Research and design decisions](docs/PIPELINE_RESEARCH.md)
+- [Template catalog guide](template-catalog/README.md)
+- [Component inventory](docs/component-inventory.md)
+- [UiPath Cloud notes](docs/uipath-cloud.md)

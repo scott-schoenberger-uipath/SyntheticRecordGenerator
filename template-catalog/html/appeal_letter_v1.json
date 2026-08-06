@@ -1,0 +1,20 @@
+{
+  "title": "Appeal Letter",
+  "blocks": [
+    {
+      "kind": "kv",
+      "title": "Header",
+      "source": "meta_pairs"
+    },
+    {
+      "kind": "paragraph",
+      "title": "Requested Service",
+      "source": "requested_service"
+    },
+    {
+      "kind": "bullets",
+      "title": "Appeal Narrative",
+      "source": "body_lines"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "title": "Medication Administration Record",
+  "fixed_sections": [
+    {
+      "title": "Medication Administration",
+      "kind": "table",
+      "columns": ["Date", "Time", "Medication", "Dose", "Status", "Nurse"],
+      "source": "rows"
+    }
+  ]
+}
