@@ -8,7 +8,9 @@
       ".py",
       ".json",
       ".md",
-      ".toml"
+      ".toml",
+      ".png",
+      ".mjs"
     ],
     "filesIncluded": [],
     "filesExcluded": [],
@@ -22,6 +24,10 @@
     "includeUvLock": false
   },
   "functions": {
-    "main": "main.py:main"
-  }
+    "main": "main.py:main",
+    "generate_record_packet": "agent_tools.py:generate_record_packet_tool",
+    "generate_medical_policy": "agent_tools.py:generate_medical_policy_tool",
+    "generate_catalog_packet": "agent_tools.py:generate_catalog_packet_tool"
+  },
+  "id": "34518562-9ee3-48d3-8634-608414e0b94d"
 }
